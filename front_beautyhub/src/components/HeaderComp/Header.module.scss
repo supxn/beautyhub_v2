@@ -1,0 +1,51 @@
+.appBar {
+  background-color: #FFFCF9  !important;
+  box-shadow: none;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon {
+  font-size: 50%;
+}
+
+.logoContainer {
+  margin-left: 42%;
+  display: flex;
+  justify-content: center; /* Центрует логотип */
+  align-items: center;
+  .logo {
+    height: 2.3rem; /* Ограничивает высоту логотипа */
+  }
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.menu {
+  display: flex;
+  gap: 28%;
+  margin-right: 10%;
+  box-shadow: none;
+}
+
+.menuItem {         //текст в шапке
+  color: #AF9284;
+  cursor: pointer;
+  font-size: 100% !important;
+  :hover {
+    text-decoration: underline;
+  }
+}
+
+.active {
+  font-weight: bold;
+}
+
+.profileMenu {
+  color: #F5EBE2;
+  height: 70%;
+}
