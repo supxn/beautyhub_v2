@@ -17,7 +17,7 @@ const AuthForm = () => {
         >
           <Box 
             sx={{
-              height: "1px", 
+              height: "2px", 
               backgroundColor: "#AF9284", 
               width: "100%" // Ширина разделителя
             }} 
