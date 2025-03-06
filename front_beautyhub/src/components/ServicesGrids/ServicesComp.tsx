@@ -1,4 +1,3 @@
-import React from "react";
 import { Grid, Typography, Box } from "@mui/material";
 import { Link } from "react-router-dom"; // Импортируем Link из react-router-dom
 
@@ -49,7 +48,7 @@ const Services = () => {
       <Typography variant="h3" className={styles.title} sx={{ fontStyle: "italic" }}>
         Выбери услугу...
       </Typography>
-      <Grid container spacing={4} className={styles.gridContainer}>
+      <Grid container spacing={10} className={styles.gridContainer}>
         {services.map((service, index) => (
           <Grid item sm={4} key={index} className={styles.serviceItem}>
             <Box className={styles.card}>
@@ -66,19 +65,19 @@ const Services = () => {
               </Typography>
             </Box>
             <Box className={styles.textWrapper}>
-              <p className={styles.serviceLabel}>
+              <p className={styles.serviceLabel}> {/*1 ряд подзаголовков*/}
                 {service.title === "Брови"
                   ? "Коррекция бровей"
                   : service.title === "Маникюр"
                   ? "Ногти"
                   : "Оформление ресниц"}
               </p>
-              <ul className={styles.descriptionList}>
+              <ul className={styles.descriptionList}> {/*список для подзаголовка*/}
                 {service.description.map((item, idx) => (
                   <li key={idx}>{item}</li>
                 ))}
               </ul>
-              <ul className={styles.extraList}>
+              <ul className={styles.extraList}> {/*продолжение рядов подзаголовков*/}
                 {service.extras.map((item, idx) => (
                   <li key={idx} className={styles.extraItem}>
                     {item}
