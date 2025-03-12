@@ -1,4 +1,4 @@
-package com.beautyhub.Security.jwt;
+package com.beautyhub.authservice.security.jwt;
 
 import org.springframework.security.core.AuthenticationException;
 

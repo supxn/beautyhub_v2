@@ -1,9 +1,10 @@
-package com.beautyhub.Security;
+/*
+package com.beautyhub.authservice.security;
 
-import com.beautyhub.Entity.User;
-import com.beautyhub.Security.jwt.JwtUser;
-import com.beautyhub.Security.jwt.JwtUserFactory;
-import com.beautyhub.Service.UserService;
+import com.beautyhub.authservice.dto.UserResponseDTO;
+import com.beautyhub.authservice.entity.User;
+import com.beautyhub.authservice.security.jwt.*;
+import com.beautyhub.authservice.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -26,7 +27,7 @@ public class BeautyhubUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userService.findByUsername(username);
+        UserResponseDTO user = userService.getByUsername(username);
         if (user == null) {
             throw new UsernameNotFoundException("User with email " + username + " not found");
         }
@@ -36,3 +37,4 @@ public class BeautyhubUserDetailsService implements UserDetailsService {
     }
 
 }
+*/

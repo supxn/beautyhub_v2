@@ -1,8 +1,9 @@
-package com.beautyhub.Security.jwt;
+/*
+package com.beautyhub.authservice.security.jwt;
 
-import com.beautyhub.Entity.User;
+import com.beautyhub.authservice.entity.User;
 
-import com.beautyhub.Enum.UserRole;
+import com.beautyhub.authservice.enums.UserRole;
 import io.jsonwebtoken.*;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.Base64;
 import java.util.Date;
-import java.util.List;
 
 @Component
 public class JwtTokenProvider {
@@ -88,3 +88,4 @@ public class JwtTokenProvider {
                 .getBody();  // Извлекаем тело (claims) из токена
     }
 }
+*/

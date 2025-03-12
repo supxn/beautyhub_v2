@@ -1,13 +1,12 @@
-package com.beautyhub.Security.jwt;
+/*
+package com.beautyhub.authservice.security.jwt;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 
 public class JwtUser implements UserDetails {
     private final Long id;
@@ -31,7 +30,7 @@ public class JwtUser implements UserDetails {
         //boolean enabled,
         Date lastPasswordResetDate
     ) {
-        this.id = id;
+        //this.id = id;
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -73,3 +72,4 @@ public class JwtUser implements UserDetails {
 //    @Override
 //    public boolean isEnabled() {return enabled;}
 }
+*/

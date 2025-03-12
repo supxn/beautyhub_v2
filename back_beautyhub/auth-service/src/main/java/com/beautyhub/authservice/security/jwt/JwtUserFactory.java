@@ -1,13 +1,12 @@
-package com.beautyhub.Security.jwt;
+/*
+package com.beautyhub.authservice.security.jwt;
 
-import com.beautyhub.Entity.User;
-import com.beautyhub.Enum.UserRole;
+import com.beautyhub.authservice.entity.User;
+import com.beautyhub.authservice.enums.UserRole;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public final class JwtUserFactory {
     public JwtUserFactory() {
@@ -31,3 +30,4 @@ public final class JwtUserFactory {
         return List.of(new SimpleGrantedAuthority(userRole.toString()));
     }
 }
+*/
