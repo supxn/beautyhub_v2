@@ -1,10 +1,9 @@
-.container {
-    color: #4F3427;
-    margin-bottom: 7.5px; 
+.container {    
+    justify-content: center;
 }
 
 .topperTitle {
-    font-size: 300%; 
+    font-size: 200%; 
     text-align: left;
     font-weight: bold;
     color: #4F3427;
@@ -13,13 +12,43 @@
     padding-left: 10%;
 }
 
-.ProfileContainer{
-    background-color: #f5ebe1; /* Легкий фоновый цвет */
-    padding-left: 2rem;
-    padding-right: 2rem;
-    padding-bottom: 2rem;
-    padding-top: 1rem;
+.profileContainer{
+    display: grid;
+    grid-template-columns: 26% 55% auto;    //1-колонка под фото; 2-инфо; 3-редактировать
+    
+    width: 70%;
+    border: 2px solid #E5CFB8;
+    background-color: #f5ebe1;
+    //padding: 2rem 2rem 2rem 1rem;
     border-radius: 15px;
     margin: 50px auto;
     text-align: center;
+}
+
+.profilePhoto{
+    display: block;
+    height: 13rem;
+    width: auto;
+    min-height: 160px;
+    min-width: 120px;
+    border-radius: 0.7rem;
+    margin: 2.7rem;
+    overflow: clip;
+
+    img{
+        display: block;
+        max-height: 100%;
+        max-width: auto;
+    }
+}
+
+.profileInfo{
+    display: flex;
+    justify-content: left;
+    margin-top: 2.7rem;
+    h3{
+        font-size: 100%;
+        margin-top: 0%;
+        margin-bottom: 1%;
+    }
 }

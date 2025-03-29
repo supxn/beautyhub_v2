@@ -39,10 +39,17 @@ const HeaderBar: React.FC<HeaderProps> = () => {
   return (
     <AppBar position="static" className={styles.appBar} sx={{ boxShadow: "none" }}>
       <Toolbar className={styles.toolbar}>
+      <div className={styles.toolbarDiv}>
+        
+        <div></div>
+        <div></div>
+
         {/* Логотип */}
         <Box className={styles.logoContainer}>
           <img src={logo} alt="BeautyHub Logo" className={styles.logo} />
         </Box>
+
+        <div></div>
 
         {/* Кнопки с выпадающими меню */}
         <Box className={styles.menu}>
@@ -81,6 +88,7 @@ const HeaderBar: React.FC<HeaderProps> = () => {
             <MenuItem onClick={() => { navigate('/register'); handleMenuClose(setUserMenuAnchor); }}>Регистрация</MenuItem>
           </Menu>
         </Box>
+        </div>
       </Toolbar>
 
       {/* Разделитель */}
