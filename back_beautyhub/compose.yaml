@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      - POSTGRES_DB=mydatabase
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_USER=myuser
+    ports:
+      - '5432:5432'
+  auth-service:
+    container_name: auth-service
+    restart: always
+    build:  ./auth-service
+    ports:
+      - "8084:8084"
+  api-gateway:
+    container_name: api-gateway
+    restart: always
+    build: ./api-gateway
+    ports:
+      - "8085:8085"
