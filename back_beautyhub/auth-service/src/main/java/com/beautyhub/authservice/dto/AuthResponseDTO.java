@@ -2,17 +2,17 @@ package com.beautyhub.authservice.dto;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
 @Data
-@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class AuthResponseDTO {
-    private Long userId;
-    private Date issuedAt;
-    private String accessToken;
-    private Date accessExpiresAt;
-    private String refreshToken;
-    private Date refreshExpiresAt;
+    private String token;
 }
