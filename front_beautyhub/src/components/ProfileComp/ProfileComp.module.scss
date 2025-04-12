@@ -23,32 +23,148 @@
     border-radius: 15px;
     margin: 50px auto;
     text-align: center;
-}
 
-.profilePhoto{
-    display: block;
-    height: 13rem;
-    width: auto;
-    min-height: 160px;
-    min-width: 120px;
-    border-radius: 0.7rem;
-    margin: 2.7rem;
-    overflow: clip;
-
-    img{
-        display: block;
-        max-height: 100%;
-        max-width: auto;
+    .photo{
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        max-height: 260px;
+        max-width: 250px;
+        
+        min-height: 160px;
+        min-width: 120px;
+       
+        border-radius: 0.7rem;
+        margin: 2.7rem;
+        img{
+            min-height: 100%;
+            max-width: 100%;
+        }
     }
+
+    .info{
+        display: flex;
+        justify-content: left;
+        margin-top: 2.7rem;
+        margin-bottom: 2.7rem;
+        flex-direction: column;
+        h3{
+            font-size: 100%;
+            margin-top: 0%;
+            margin-bottom: 1%;
+        }
+
+        .work{
+            display: flex;
+            justify-content: left;
+            margin-top: 2.7rem;
+            font-size: 100%;
+            margin-top: 0%;
+            margin-bottom: 1%;
+        }
+        .fio{
+            display: flex;
+            justify-content: left;
+            margin-top: 2.7rem;
+            font-size: 200%;
+            margin-top: 0%;
+            margin-bottom: 1%;
+        }
+        .exp{
+            display: flex;
+            justify-content: left;
+            margin-top: 2.7rem;
+            font-size: 100%;
+            margin-top: 2%;
+            margin-bottom: 1%;
+        }
+
+        .photoCarousel{
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 20% 20% 20% 20% 20%;
+            margin: 0;
+            margin-top: 2%;
+            max-width: 380px;
+            img{
+                max-width: 65px;
+                border-radius: 0.3rem;
+                //min-height: 100%;
+            }
+        }
+
+        .serviceList{
+            display: flex;
+            justify-content: left;
+            margin: 0;
+            margin-top: 3%;
+            flex-direction: column;
+            .service{
+                display: flex;
+                justify-content: left;
+                margin:0;
+                margin-top: 1%;
+            }
+        }
+
+        .workAdress{
+            display: flex;
+            justify-content: left;
+            margin: 0;
+            margin-top: 5%;
+            flex-direction: column;
+            .workName{
+                display: flex;
+                justify-content: left;
+                margin:0;
+                margin-top: 1%;
+                font-size: 120%;
+            }
+            .fullAdress{
+                display: flex;
+                justify-content: left;
+                margin:0;
+                margin-top: 2%;
+            }
+        }
+
+        .phoneNumber{
+            display: flex;
+            justify-content: left;
+            margin: 0;
+            margin-top: 5%;
+            flex-direction: column;
+
+            .telText{
+                display: flex;
+                justify-content: left;
+                margin:0;
+                margin-top: 1%;
+                font-size: 120%;
+            }
+            .phoneBox{
+                display: flex;
+                background-color: rgb(204 183 163 / 50%);
+                max-width: 250px;
+                height: 65px;
+                border-radius: 0.4rem;
+                margin-top: 3%;
+                align-items: center;
+                justify-content: center;
+                .number{
+                    margin:0;
+                    font-size: 120%;
+                }
+            }
+            
+        }
+    }
+
+    
 }
 
-.profileInfo{
-    display: flex;
-    justify-content: left;
-    margin-top: 2.7rem;
-    h3{
-        font-size: 100%;
-        margin-top: 0%;
-        margin-bottom: 1%;
-    }
-}
+
+
+
