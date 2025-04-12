@@ -1,6 +1,7 @@
-package com.beautyhub.authservice.service;
+package com.beautyhub.authservice.security.jwt;
 
-import lombok.AllArgsConstructor;
+import com.beautyhub.authservice.repository.UserRepository;
+import com.beautyhub.authservice.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -11,10 +12,12 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    private final UserService userService;
+    private final UserRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return userService.getByUsername(username);
+        return userRepository.findByUsername(username)
+                .orElseThrow(() ->
+                        new UsernameNotFoundException("Пользователь с именем " + username + " не найден"));
     }
 }

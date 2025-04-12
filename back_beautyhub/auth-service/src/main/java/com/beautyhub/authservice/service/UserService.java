@@ -11,4 +11,6 @@ public interface UserService {
     //User createByVkId(User user, Long vkId);
     //User getByVkId(Long vkId);
     User getByEmail(String email);
+    boolean existsByUsername(String username);
+    boolean existsByEmail(String email);
 }

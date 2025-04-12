@@ -1,6 +1,7 @@
 package com.beautyhub.authservice.security.jwt;
 
 import com.beautyhub.authservice.entity.User;
+import com.beautyhub.authservice.repository.TokenRepository;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
@@ -28,11 +29,19 @@ public class JwtService {
     @Value("${token.signing.key}")
     private String signingKey;
 
+    @Value("${security.jwt.access_token_expiration}")
+    private Long accessTokenExpiration;
+
+    @Value("${security.jwt.refresh_token_expiration}")
+    private Long refreshTokenExpiration;
+
+    private final TokenRepository tokenRepository;
+
     public String extractUsername(String token){
         return extractClaim(token, Claims::getSubject);
     }
 
-    public String generateToken(UserDetails userDetails){
+    public String generateAccessToken(UserDetails userDetails){
         Map<String, Object> claims = new HashMap<>();
         if (userDetails instanceof User customUserDetails){
             claims.put("id", customUserDetails.getId());
@@ -40,27 +49,54 @@ public class JwtService {
             claims.put("email", customUserDetails.getEmail());
             claims.put("role", customUserDetails.getRole());
         }
-        return generateToken(claims, userDetails);
+        return generateToken(claims, userDetails, accessTokenExpiration);
     }
 
-    private boolean isTokenExpired(String token){
-        return extractExpiration(token).before(new Date());
+    public String generateRefreshToken(UserDetails userDetails){
+        Map<String, Object> claims = new HashMap<>();
+        if (userDetails instanceof User customUserDetails){
+            claims.put("id", customUserDetails.getId());
+            claims.put("username", customUserDetails.getUsername());
+            claims.put("email", customUserDetails.getEmail());
+            claims.put("role", customUserDetails.getRole());
+        }
+        return generateToken(claims, userDetails, refreshTokenExpiration);
+    }
+
+    private boolean isAccessTokenExpired(String token){
+
+        return !extractExpiration(token).before(new Date());
     }
 
     private Date extractExpiration(String token){
+
         return extractClaim(token, Claims::getExpiration);
     }
 
-    public boolean isTokenValid(String token, UserDetails userDetails){
+    public boolean isValid(String token, UserDetails userDetails){
         final String username = extractUsername(token);
-        return (username.equals(userDetails.getUsername())) && !isTokenExpired(token);
+        boolean isValidToken = tokenRepository.findByAccessToken(token)
+                .map(t -> !t.isLoggedOut()).orElse(false);
+        return (username.equals(userDetails.getUsername()))
+                && !isAccessTokenExpired(token)
+                && isValidToken;
     }
 
-    private String generateToken(Map<String, Object> claims, UserDetails userDetails) {
+    public boolean isValidRefresh(String token, User user){
+        final String username = extractUsername(token);
+        boolean isValidToken = tokenRepository.findByRefreshToken(token)
+                .map(t -> !t.isLoggedOut()).orElse(false);
+        return (username.equals(user.getUsername()))
+                && !isAccessTokenExpired(token)
+                && isValidToken;
+    }
+
+    private String generateToken(Map<String, Object> claims,
+                                 UserDetails userDetails, Long expiryTime) {
         return Jwts.builder().setClaims(claims)
                 .setSubject(userDetails.getUsername())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + 100000 * 60 * 24))
+                .setExpiration(new Date(System.currentTimeMillis() + expiryTime))
                 .signWith(getSigningKey(), Jwts.SIG.HS256)
                 .compact();
     }
@@ -71,10 +107,10 @@ public class JwtService {
     }
 
     private Claims extractAllClaims(String token){
-        return Jwts.parser().setSigningKey(getSigningKey())
+        return Jwts.parser().verifyWith(getSigningKey())
                 .build()
-                .parseClaimsJws(token)
-                .getBody();
+                .parseSignedClaims(token)
+                .getPayload();
     }
 
     private SecretKey getSigningKey() {
