@@ -16,33 +16,31 @@
     display: grid;
     grid-template-columns: 26% 55% auto;    //1-колонка под фото; 2-инфо; 3-редактировать
     
+    flex-wrap: wrap;
+
     width: 70%;
     border: 2px solid #E5CFB8;
     background-color: #f5ebe1;
-    //padding: 2rem 2rem 2rem 1rem;
     border-radius: 15px;
     margin: 50px auto;
     text-align: center;
 
     .photo{
         overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        
         max-height: 300px;
         max-width: 250px;
         
-        min-height: 160px;
-        min-width: 120px;
-       
+        //min-height: 100px;
+        min-width: 83px;
+        
         border-radius: 0.7rem;
         margin: 2.7rem;
-
         
         img{
-            min-height: 100%;
-            max-width: 100%;
+            width: 100%; 
+            height: 300px; 
+            object-fit: cover; 
+            object-position: center;    
         }
     }
 
@@ -52,6 +50,7 @@
         margin-top: 2.7rem;
         margin-bottom: 2.7rem;
         flex-direction: column;
+        color: #4F3427;
         h3{
             font-size: 100%;
             margin-top: 0%;
@@ -164,6 +163,29 @@
         }
     }
 
+    .editButton{
+        display: flex;
+        margin-top: 2.5rem;
+        margin-right: 2rem;
+        padding: 3%;
+        padding-left: 6%;
+        padding-right: 6%;
+        background-color: none;
+        color: #4F3427;
+        opacity: 70%;
+        border: none;
+        text-decoration: none;
+        
+    }
+    .editButton:hover {
+        color: #4F3427;
+        background-color: rgb(204 183 163 / 50%);
+    }
+
+    .editIcon{
+        margin-right: 6%;
+        //width: 80%;
+    }
     
 }
 
