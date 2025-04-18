@@ -65,7 +65,6 @@ const HeaderBar: React.FC<HeaderProps> = () => {
             onClose={() => handleMenuClose(setHeartMenuAnchor)}
             sx ={{'& .MuiPaper-root': {boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)'}}}
           >
-            <MenuItem onClick={() => { navigate('/profile'); handleMenuClose(setHeartMenuAnchor); }}>Профиль</MenuItem>
             <MenuItem onClick={() => { navigate('/favorite'); handleMenuClose(setHeartMenuAnchor); }}>Избранное</MenuItem>
             <MenuItem onClick={() => { navigate('/settings'); handleMenuClose(setHeartMenuAnchor); }}>Настройки</MenuItem>
             <MenuItem onClick={() => { navigate('/main'); handleMenuClose(setHeartMenuAnchor); }}>Выход</MenuItem>
@@ -84,6 +83,7 @@ const HeaderBar: React.FC<HeaderProps> = () => {
             className={styles.profileMenu}
             sx ={{'& .MuiPaper-root': {boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)'}}}
           >
+            <MenuItem onClick={() => { navigate('/profile'); handleMenuClose(setHeartMenuAnchor); }}>Профиль</MenuItem>
             <MenuItem onClick={() => { navigate('/login'); handleMenuClose(setUserMenuAnchor); }}>Вход</MenuItem>
             <MenuItem onClick={() => { navigate('/register'); handleMenuClose(setUserMenuAnchor); }}>Регистрация</MenuItem>
           </Menu>

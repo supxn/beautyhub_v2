@@ -15,7 +15,7 @@ const SearchBar: React.FC = () => {
   return (
     <Box className={styles.searchBox}>
       <Typography className={styles.searchTitle}>
-        Лучшие мастера бьюти вашего города здесь!
+        Лучшие бьюти мастера вашего города здесь!
       </Typography>
 
       {/* Контейнер поиска */}
