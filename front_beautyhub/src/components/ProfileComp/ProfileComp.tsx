@@ -1,6 +1,7 @@
 import { TextField, Button, Box, Typography,  } from "@mui/material";
 import styles from "./ProfileComp.module.scss";
 import profilePhoto from "./profilePhoto.png"
+import EditIcon from '@mui/icons-material/Edit';
 import temp from "./temp.png"
 
 const ProfileForm: React.FC = () => {
@@ -56,7 +57,10 @@ const ProfileForm: React.FC = () => {
           </div>
 
           <div >
-            {/*кнопка редактировать*/}
+          <Button className={styles.editButton}>
+            <EditIcon className={styles.editIcon}/>
+            Редактировать
+          </Button>
           </div>
       </div>
 
