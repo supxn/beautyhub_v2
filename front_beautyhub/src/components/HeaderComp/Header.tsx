@@ -90,7 +90,7 @@ const HeaderBar: React.FC<HeaderProps> = () => {
         </Box>
         </div>
       </Toolbar>
-
+      
       {/* Разделитель */}
       <Box 
         sx={{
