@@ -10,7 +10,23 @@ const ProfileForm: React.FC = () => {
       <Typography variant="h2" className={styles.topperTitle}>
         Мой профиль
       </Typography>
-      
+
+      {/* Разделитель */}
+            <Box 
+              sx={{
+                display: "flex", 
+                justifyContent: "center",
+                width: "100%",
+              }}
+            >
+              <Box
+                sx={{
+                  height: "1px", 
+                  backgroundColor: "#AF9284", 
+                  width: "100%",
+                }}
+              />
+            </Box>
       
       <div className={styles.profileContainer} /*ячейка с профилем*/ > 
         <figure className={styles.photo}>

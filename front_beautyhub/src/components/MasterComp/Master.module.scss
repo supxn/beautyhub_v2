@@ -1,0 +1,194 @@
+.container {    
+    justify-content: center;
+    padding: 0;
+}
+
+.topperTitle {
+    font-size: 200%; 
+    text-align: left;
+    font-weight: bold;
+    color: #4F3427;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 10%;
+}
+
+.profileContainer{
+    display: grid;
+    grid-template-columns: 26% 55% auto;    //1-колонка под фото; 2-инфо; 3-редактировать
+    
+    flex-wrap: wrap;
+
+    width: 70%;
+    border: 2px solid #E5CFB8;
+    background-color: #FAF0E8;
+    border-radius: 15px;
+    margin: 50px auto;
+    text-align: center;
+
+    .photo{
+        overflow: hidden;
+        max-height: 300px;
+        max-width: 250px;
+        
+        //min-height: 100px;
+        min-width: 83px;
+        
+        border-radius: 0.7rem;
+        margin: 2.7rem;
+        
+        img{
+            width: 100%; 
+            height: 300px; 
+            object-fit: cover; 
+            object-position: center;    
+        }
+    }
+
+    .info{
+        display: flex;
+        justify-content: left;
+        margin-top: 2.7rem;
+        margin-bottom: 2.7rem;
+        flex-direction: column;
+        color: #4F3427;
+        h3{
+            font-size: 100%;
+            margin-top: 0%;
+            margin-bottom: 1%;
+        }
+
+        .work{
+            display: flex;
+            justify-content: left;
+            margin-top: 2.7rem;
+            font-size: 100%;
+            margin-top: 0%;
+            margin-bottom: 1%;
+        }
+        .fio{
+            display: flex;
+            justify-content: left;
+            margin-top: 2.7rem;
+            font-size: 200%;
+            margin-top: 0%;
+            margin-bottom: 1%;
+        }
+        .exp{
+            display: flex;
+            justify-content: left;
+            margin-top: 2.7rem;
+            font-size: 100%;
+            margin-top: 2%;
+            margin-bottom: 1%;
+        }
+
+        .photoCarousel{
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 20% 20% 20% 20% 20%;
+            margin: 0;
+            margin-top: 2%;
+            max-width: 380px;
+            img{
+                max-width: 65px;
+                border-radius: 0.3rem;
+                //min-height: 100%;
+            }
+        }
+
+        .serviceList{
+            display: flex;
+            justify-content: left;
+            margin: 0;
+            margin-top: 3%;
+            flex-direction: column;
+            .service{
+                display: flex;
+                justify-content: left;
+                margin:0;
+                margin-top: 1%;
+            }
+        }
+
+        .workAdress{
+            display: flex;
+            justify-content: left;
+            margin: 0;
+            margin-top: 5%;
+            flex-direction: column;
+            .workName{
+                display: flex;
+                justify-content: left;
+                margin:0;
+                margin-top: 1%;
+                font-size: 120%;
+            }
+            .fullAdress{
+                display: flex;
+                justify-content: left;
+                margin:0;
+                margin-top: 2%;
+            }
+        }
+
+        .phoneNumber{
+            display: flex;
+            justify-content: left;
+            margin: 0;
+            margin-top: 5%;
+            flex-direction: column;
+
+            .telText{
+                display: flex;
+                justify-content: left;
+                margin:0;
+                margin-top: 1%;
+                font-size: 120%;
+            }
+            .phoneBox{
+                display: flex;
+                background-color: rgb(204 183 163 / 50%);
+                max-width: 250px;
+                height: 65px;
+                border-radius: 0.4rem;
+                margin-top: 3%;
+                align-items: center;
+                justify-content: center;
+                .number{
+                    margin:0;
+                    font-size: 120%;
+                }
+            }
+            
+        }
+    }
+
+    .heartButton{
+        display: flex;
+        margin-top: 2.7rem;
+        margin-left: 1rem;
+        padding: 10%;
+        background-color: none;
+        color: #4F3427;
+        opacity: 70%;
+        border: none;
+        text-decoration: none;
+        
+    }
+    .heartButton:hover {
+        color: #4F3427;
+        background-color: #FAF0E8;
+    }
+
+    .HeartIcon{
+        padding: auto;
+        //margin-right: 6%;
+        //width: 80%;
+    }
+    
+}
+
+
+
+

@@ -8,7 +8,8 @@ import MainPage from './pages/mainPage/mainPage'
 import LoginPage from './pages/inlet/inlet'
 import RegisterPage from './pages/register/register'
 import ProfilePage from './pages/profile/profile'
-import UslugiPage from './pages/listing uslugi/usligi'
+import CategoriesPage from './pages/listing categories/categories'
+import MastersPage from './pages/listing masters/masters'
 import FavoritePage from './pages/favorite/favorite'
 import SettingsPage from './pages/settings/settings'
 
@@ -24,7 +25,8 @@ const AppContent: React.FC = () => {
           <Route path="login" element={<LoginPage/>}/>
           <Route path="register" element={<RegisterPage/>}/>
           <Route path="profile" element={<ProfilePage/>}/>
-          <Route path="/uslugi" element={<UslugiPage/>} />
+          <Route path="/categories" element={<CategoriesPage/>} />
+          <Route path="/masters" element={<MastersPage/>} />
           <Route path="/favorite" element={<FavoritePage/>}/>
           <Route path="/settings" element={<SettingsPage/>}/>
         </Route>
