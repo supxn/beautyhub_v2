@@ -9,8 +9,7 @@ import MainPage from './pages/mainPage/mainPage'
 import LoginPage from './pages/inlet/inlet'
 import RegisterPage from './pages/register/register'
 import ProfilePage from './pages/profile/profile'
-import CategoriesPage from './pages/listing categories/categories'
-import MastersPage from './pages/listing masters/masters'
+import UslugiPage from './pages/listing uslugi/usligi'
 import FavoritePage from './pages/favorite/favorite'
 import SettingsPage from './pages/settings/settings'
 
@@ -22,6 +21,7 @@ const AppContent: React.FC = () => {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route>
+<<<<<<< HEAD
           <Route path="main" element={<MainPage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />
@@ -32,6 +32,15 @@ const AppContent: React.FC = () => {
           <Route path="/settings" element={<SettingsPage />} />
           <Route path="*" element={<NotFound />} />
           {/*не забыть доработать на сервере. нужно возвращение инекс штмл, т.к. при переходе на несущ. адрес будет серверная ошибка*/}
+=======
+          <Route path="main" element={<MainPage/>}/>
+          <Route path="login" element={<LoginPage/>}/>
+          <Route path="register" element={<RegisterPage/>}/>
+          <Route path="profile" element={<ProfilePage/>}/>
+          <Route path="/uslugi" element={<UslugiPage/>} />
+          <Route path="/favorite" element={<FavoritePage/>}/>
+          <Route path="/settings" element={<SettingsPage/>}/>
+>>>>>>> parent of 01b4828 (Merge branch 'feature/frontend' of https://github.com/supxn/beautyhub_v2)
         </Route>
       </Routes>
       <Footer />

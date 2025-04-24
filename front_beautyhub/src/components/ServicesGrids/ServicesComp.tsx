@@ -42,12 +42,6 @@ const services = [
   }
 ];
 
-const anchors: { [key: string]: string } = {
-  "Маникюр": "manicure",
-  "Брови": "brows",
-  "Ресницы": "lashes"
-};
-
 const Services = () => {
   return (
     <Box className={styles.container}>
@@ -62,10 +56,7 @@ const Services = () => {
               <Typography variant="h4" className={styles.serviceTitle}>
                 {/* Оборачиваем заголовки "Брови", "Маникюр" и "Ресницы" в Link для перехода */}
                 {service.title === "Маникюр" || service.title === "Брови" || service.title === "Ресницы" ? (
-                  <Link
-                  to={`/categories#${anchors[service.title]}`} // динамически подставляем якорь
-                  className={styles.link} 
-                  >
+                  <Link to="/uslugi" className={styles.link}>
                     {service.title}
                   </Link>
                 ) : (

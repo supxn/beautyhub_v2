@@ -1,13 +1,3 @@
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  IconButton,
-  Box,
-  Button,
-  TextField
-} from "@mui/material";
-
 import aparatpic from './Аппаратный маникюр.jpg'
 import combi from './Комби.jpg'
 import narach from './Наращивание.jpg'
@@ -20,22 +10,6 @@ import styles from './ManicureListing.module.scss'
 const Manicure: React.FC = () => {
     return(
     <div className={styles.manicure}>
-      {/* Разделитель */}
-      <Box 
-        sx={{
-          display: "flex", 
-          justifyContent: "center",
-          width: "100%",
-        }}
-      >
-          <Box
-            sx={{
-              height: "1px", 
-              backgroundColor: "#AF9284", 
-              width: "85%",
-            }}
-          />
-        </Box>
         <h3>Маникюр</h3>
         <p>от 600₽</p>
         <div className={styles.cards}>
