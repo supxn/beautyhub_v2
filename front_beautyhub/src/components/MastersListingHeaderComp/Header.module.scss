@@ -1,0 +1,34 @@
+.headerBox {
+    justify-content: center;
+    padding: 0;
+    
+
+    .title{
+        color: #4F3427;
+        padding: 0;
+        padding-top: 2.5rem;
+        padding-left: 10%;
+
+        .crumbs{
+            display: inline;
+        }
+    
+        .topperTitle {
+            font-size: 55px;
+            size: 100%; 
+            text-align: left;
+            padding-bottom: 1rem;
+            padding-top: 1rem;
+        }
+
+        .filtersContainer{
+            padding: 0;
+            padding-bottom: 2rem;
+        }
+    }
+    
+    
+    
+}
+
+
