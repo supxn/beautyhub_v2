@@ -2,6 +2,7 @@ import Header from './components/HeaderComp/Header'
 import './App.css'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Footer from './components/FooterComp/Footer'
+import { NotFound } from './pages/NotFound/NotFound'
 //import {Provider} from "react-redux";
 
 import MainPage from './pages/mainPage/mainPage'
@@ -15,23 +16,25 @@ import SettingsPage from './pages/settings/settings'
 
 
 const AppContent: React.FC = () => {
-  return(
+  return (
     <Router>
-      <Header/>
+      <Header />
       <Routes>
-        <Route path="/" element={<MainPage/>}/>
+        <Route path="/" element={<MainPage />} />
         <Route>
-          <Route path="main" element={<MainPage/>}/>
-          <Route path="login" element={<LoginPage/>}/>
-          <Route path="register" element={<RegisterPage/>}/>
-          <Route path="profile" element={<ProfilePage/>}/>
-          <Route path="/categories" element={<CategoriesPage/>} />
-          <Route path="/masters" element={<MastersPage/>} />
-          <Route path="/favorite" element={<FavoritePage/>}/>
-          <Route path="/settings" element={<SettingsPage/>}/>
+          <Route path="main" element={<MainPage />} />
+          <Route path="login" element={<LoginPage />} />
+          <Route path="register" element={<RegisterPage />} />
+          <Route path="profile" element={<ProfilePage />} />
+          <Route path="/categories" element={<CategoriesPage />} />
+          <Route path="/masters" element={<MastersPage />} />
+          <Route path="/favorite" element={<FavoritePage />} />
+          <Route path="/settings" element={<SettingsPage />} />
+          <Route path="*" element={<NotFound />} />
+          {/*не забыть доработать на сервере. нужно возвращение инекс штмл, т.к. при переходе на несущ. адрес будет серверная ошибка*/}
         </Route>
       </Routes>
-      <Footer/>
+      <Footer />
     </Router>
   );
 };
@@ -39,7 +42,7 @@ const AppContent: React.FC = () => {
 function App() {
   return (
     <div className="app">
-        <AppContent/>
+      <AppContent />
     </div>
   );
 }
