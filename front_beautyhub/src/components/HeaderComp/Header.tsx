@@ -24,6 +24,7 @@ const HeaderBar: React.FC<HeaderProps> = () => {
     location.pathname === path ? styles.active : "";
 
   // Состояния для меню
+  const [LogoMenuAnchor, setLogoMenuAnchor] = useState<null | HTMLElement>(null);
   const [heartMenuAnchor, setHeartMenuAnchor] = useState<null | HTMLElement>(null);
   const [userMenuAnchor, setUserMenuAnchor] = useState<null | HTMLElement>(null);
 
@@ -45,8 +46,8 @@ const HeaderBar: React.FC<HeaderProps> = () => {
         <div></div>
 
         {/* Логотип */}
-        <Box className={styles.logoContainer}>
-          <img src={logo} alt="BeautyHub Logo" className={styles.logo} />
+        <Box className={styles.logoContainer} onClick={() => navigate('/') } sx={{ cursor: 'pointer' }}>
+          <img src={logo} alt="BeautyHub Logo" className={styles.logo}/>
         </Box>
 
         <div></div>
@@ -90,7 +91,7 @@ const HeaderBar: React.FC<HeaderProps> = () => {
         </Box>
         </div>
       </Toolbar>
-
+      
       {/* Разделитель */}
       <Box 
         sx={{
