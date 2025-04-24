@@ -2,6 +2,7 @@ import Header from './components/HeaderComp/Header'
 import './App.css'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Footer from './components/FooterComp/Footer'
+import {NotFound} from './pages/NotFound/NotFound'
 //import {Provider} from "react-redux";
 
 import MainPage from './pages/mainPage/mainPage'
@@ -29,6 +30,7 @@ const AppContent: React.FC = () => {
           <Route path="/masters" element={<MastersPage/>} />
           <Route path="/favorite" element={<FavoritePage/>}/>
           <Route path="/settings" element={<SettingsPage/>}/>
+          <Route path="*" element={<NotFound/>}/>
         </Route>
       </Routes>
       <Footer/>
