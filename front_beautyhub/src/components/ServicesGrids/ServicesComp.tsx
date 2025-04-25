@@ -51,7 +51,7 @@ const anchors: { [key: string]: string } = {
 const Services = () => {
   return (
     <Box className={styles.container}>
-      <Typography variant="h3" className={styles.title} sx={{ fontStyle: "italic" }}>
+      <Typography variant="h3" className={styles.title} sx={{ fontFamily: 'Inter', fontWeight: 300 , fontStyle: "italic"}}>
         Выбери услугу...
       </Typography>
       <Grid container spacing={10} className={styles.gridContainer}>
@@ -59,7 +59,7 @@ const Services = () => {
           <Grid item sm={4} key={index} className={styles.serviceItem}>
             <Box className={styles.card}>
               <img src={service.image} alt={service.title} className={styles.serviceImage} />
-              <Typography variant="h4" className={styles.serviceTitle}>
+              <Typography variant="h4" className={styles.serviceTitle} sx={{ fontFamily: 'Inter', fontWeight: 400}}>
                 {/* Оборачиваем заголовки "Брови", "Маникюр" и "Ресницы" в Link для перехода */}
                 {service.title === "Маникюр" || service.title === "Брови" || service.title === "Ресницы" ? (
                   <Link
@@ -97,7 +97,7 @@ const Services = () => {
           </Grid>
         ))}
       </Grid>
-      <Typography variant="h5" className={styles.extraTitle}>
+      <Typography variant="h5" className={styles.extraTitle} sx={{ fontFamily: 'Inter', fontWeight: 400}}>
         Все услуги мастеров...
       </Typography>
     </Box>

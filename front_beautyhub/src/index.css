@@ -1,5 +1,5 @@
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', sans-serif !important;
   font-weight: 300;
   background-color: #FFF8F250;
   color: #444;
@@ -10,22 +10,21 @@ body {
 
 @media (max-width: 996px) {
   .logo-image {
-    width: 25%; /* Уменьшение логотипа на маленьких экранах */
+    width: 25%; 
   }
 
   .nav a {
-    font-size: 15pt; /* Уменьшение размера текста */
+    font-size: 15pt; 
   }
 }
 
-/* Медиа-запросы для адаптивности */
 @media (max-width: 768px) {
   .logo-image {
-    width: 25%; /* Уменьшение логотипа на маленьких экранах */
+    width: 25%; 
   }
 
   .nav a {
-    font-size: 15pt; /* Уменьшение размера текста */
+    font-size: 15pt; 
   }
 }
 

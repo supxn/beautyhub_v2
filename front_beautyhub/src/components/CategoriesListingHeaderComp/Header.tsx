@@ -14,10 +14,9 @@ import {
   const SearchBar: React.FC = () => {
     return (
         <Box className={styles.headerBox}>
-            <Typography className={styles.headerTitle} sx={{ fontStyle: "italic" }}>
+            <Typography className={styles.headerTitle} sx={{ fontFamily: 'Inter', fontWeight: 400, fontStyle: "italic"}}>
                 УСЛУГИ
             </Typography>
-
 
             <figure className={styles.photoFigure}>
                 <img src={flowpic} className={styles.flowpic}/>
