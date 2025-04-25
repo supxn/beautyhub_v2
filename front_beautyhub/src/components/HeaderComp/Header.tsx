@@ -66,9 +66,9 @@ const HeaderBar: React.FC<HeaderProps> = () => {
             onClose={() => handleMenuClose(setHeartMenuAnchor)}
             sx ={{'& .MuiPaper-root': {boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)'}}}
           >
-            <MenuItem onClick={() => { navigate('/favorite'); handleMenuClose(setHeartMenuAnchor); }}>Избранное</MenuItem>
-            <MenuItem onClick={() => { navigate('/settings'); handleMenuClose(setHeartMenuAnchor); }}>Настройки</MenuItem>
-            <MenuItem onClick={() => { navigate('/main'); handleMenuClose(setHeartMenuAnchor); }}>Выход</MenuItem>
+            <MenuItem onClick={() => { navigate('/favorite'); handleMenuClose(setHeartMenuAnchor); }} sx={{ fontFamily: 'Inter', fontWeight: 400}}>Избранное</MenuItem>
+            <MenuItem onClick={() => { navigate('/settings'); handleMenuClose(setHeartMenuAnchor); }} sx={{ fontFamily: 'Inter', fontWeight: 400}}>Настройки</MenuItem>
+            <MenuItem onClick={() => { navigate('/main'); handleMenuClose(setHeartMenuAnchor); }} sx={{ fontFamily: 'Inter', fontWeight: 400}}>Выход</MenuItem>
           </Menu>
 
           {/* Кнопка "Пользователь" */}
@@ -84,9 +84,9 @@ const HeaderBar: React.FC<HeaderProps> = () => {
             className={styles.profileMenu}
             sx ={{'& .MuiPaper-root': {boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)'}}}
           >
-            <MenuItem onClick={() => { navigate('/profile'); handleMenuClose(setHeartMenuAnchor); }}>Профиль</MenuItem>
-            <MenuItem onClick={() => { navigate('/login'); handleMenuClose(setUserMenuAnchor); }}>Вход</MenuItem>
-            <MenuItem onClick={() => { navigate('/register'); handleMenuClose(setUserMenuAnchor); }}>Регистрация</MenuItem>
+            <MenuItem onClick={() => { navigate('/profile'); handleMenuClose(setHeartMenuAnchor); }} sx={{ fontFamily: 'Inter', fontWeight: 400}}>Профиль</MenuItem>
+            <MenuItem onClick={() => { navigate('/login'); handleMenuClose(setUserMenuAnchor); }} sx={{ fontFamily: 'Inter', fontWeight: 400}}>Вход</MenuItem>
+            <MenuItem onClick={() => { navigate('/register'); handleMenuClose(setUserMenuAnchor); }} sx={{ fontFamily: 'Inter', fontWeight: 400}}>Регистрация</MenuItem>
           </Menu>
         </Box>
         </div>
