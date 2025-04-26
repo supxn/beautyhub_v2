@@ -23,6 +23,7 @@
         left: 60%;
         top: 16%;
         opacity: 0.5;   //непрозрачность
+        pointer-events: none;
     }
 
     .searchContainer {
