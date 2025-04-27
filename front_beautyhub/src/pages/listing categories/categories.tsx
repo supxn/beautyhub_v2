@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'; // Импортируем Link для �
 import styles from './categories.module.scss';
 import useScrollToHash from '../../hooks/useScrollToHash';
 
-import Header from '../../components/CategoriesListingHeaderComp/Header';
+import Header from '../../components/CategoriesListingHeaderComp/CategoriesHeader';
 import Manicure from '../../components/ManicureListing/ManicureListing';
 import Lashes from '../../components/LashesListing/LashesListing';
 import Brows from '../../components/BrowsListing/BrowsListing'

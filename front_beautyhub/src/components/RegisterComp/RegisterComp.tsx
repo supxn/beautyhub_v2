@@ -5,7 +5,7 @@ import styles from "./RegisterComp.module.scss";
 const AuthForm = () => {
   return (
     <Box className={styles.container}>
-      <Typography variant="h5" className={styles.title}>
+      <Typography variant="h5" className={styles.title} sx={{fontFamily: 'Inter', fontWeight: 300}}>
         Регистрация
       </Typography>
       <Box 
@@ -31,6 +31,7 @@ const AuthForm = () => {
           fullWidth
           className={styles.input}
           margin="normal"
+          sx={{fontFamily: 'Inter', fontWeight: 300}}
         />
         <TextField
           label="Фамилия"
@@ -78,7 +79,7 @@ const AuthForm = () => {
         />
         
         <Box className={styles.buttons}>
-          <Button variant="outlined" className={styles.registerButton}>
+          <Button variant="outlined" className={styles.registerButton} sx={{fontFamily: 'Inter', fontWeight: 300}}>
             Зарегистрироваться
           </Button>
         </Box>

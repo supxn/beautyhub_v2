@@ -5,7 +5,7 @@ import styles from "./login.module.scss";
 const AuthForm = () => {
   return (
     <Box className={styles.container}>
-      <Typography variant="h5" className={styles.title}>
+      <Typography variant="h5" className={styles.title} sx={{ fontFamily: 'Inter', fontWeight: 300}}>
         Авторизация
       </Typography>
       <Box 
@@ -30,7 +30,7 @@ const AuthForm = () => {
           fullWidth
           className={styles.input}
           margin="normal"
-          sx={{borderColor: "dark"}}
+          sx={{borderColor: "dark", fontFamily: 'Inter', fontWeight: 300}}
         />
         <TextField
           label="Пароль"
@@ -42,10 +42,10 @@ const AuthForm = () => {
         />
         
         <Box className={styles.buttons}>
-          <Button variant="outlined" className={styles.submitButton}>
+          <Button variant="outlined" className={styles.submitButton} sx={{fontFamily: 'Inter', fontWeight: 300}}>
             Вход
           </Button>
-          <Button variant="outlined" className={styles.registerButton}>
+          <Button variant="outlined" className={styles.registerButton} sx={{fontFamily: 'Inter', fontWeight: 300}}>
             Регистрация
           </Button>
         </Box>

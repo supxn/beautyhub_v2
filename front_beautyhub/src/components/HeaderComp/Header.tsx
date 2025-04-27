@@ -38,23 +38,16 @@ const HeaderBar: React.FC<HeaderProps> = () => {
   };
 
   return (
-    <AppBar position="static" className={styles.appBar} sx={{ boxShadow: "none" }}>
+    <AppBar position="static" className={styles.appBar} sx={{width: '100%',
+      maxWidth: '100vw',
+      overflow: 'hidden'}}>
       <Toolbar className={styles.toolbar}>
       <div className={styles.toolbarDiv}>
-        
         <div></div>
-        <div></div>
-
-        {/* Логотип */}
         <Box className={styles.logoContainer} onClick={() => navigate('/') } sx={{ cursor: 'pointer' }}>
           <img src={logo} alt="BeautyHub Logo" className={styles.logo}/>
         </Box>
-
-        <div></div>
-
-        {/* Кнопки с выпадающими меню */}
         <Box className={styles.menu}>
-          {/* Кнопка "Сердечко" */}
           <IconButton
             onClick={(event) => handleMenuOpen(event, setHeartMenuAnchor)}
           >
@@ -70,8 +63,6 @@ const HeaderBar: React.FC<HeaderProps> = () => {
             <MenuItem onClick={() => { navigate('/settings'); handleMenuClose(setHeartMenuAnchor); }} sx={{ fontFamily: 'Inter', fontWeight: 400}}>Настройки</MenuItem>
             <MenuItem onClick={() => { navigate('/main'); handleMenuClose(setHeartMenuAnchor); }} sx={{ fontFamily: 'Inter', fontWeight: 400}}>Выход</MenuItem>
           </Menu>
-
-          {/* Кнопка "Пользователь" */}
           <IconButton
             onClick={(event) => handleMenuOpen(event, setUserMenuAnchor)}
           >

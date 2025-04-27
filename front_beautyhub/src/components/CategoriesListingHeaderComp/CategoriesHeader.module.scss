@@ -1,0 +1,35 @@
+.headerBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: 40vw;
+    padding: 0;
+    margin: 0;
+  
+    .headerTitle {
+      font-size: clamp(2vw, 4.5vw, 15vw);
+      color: #4D4136;
+      text-align: center;
+      transform: translateX(0%);
+      z-index: 2;
+    }
+  
+    .photoFigure {
+        opacity: 0.5;
+      img {
+        position: absolute;
+        left: 0;
+        transform: translateY(-50%);
+        z-index: 1;
+        width: clamp(70vw, 10vw, 80vw);
+        max-height: 100%;
+        pointer-events: none;
+        opacity: 1;
+        outline: none;    
+        border: none;     
+        box-shadow: none;
+      }
+    }
+  }
+  
