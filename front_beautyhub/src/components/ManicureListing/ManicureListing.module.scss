@@ -49,15 +49,21 @@
         }
 
         h4 {
-          font-size: 100%;
+          font-size: 30px;
+          font-weight: lighter;
           margin: 3%;
         }
 
-        ul {
-          list-style: none;
-          padding: 0;
-          margin: 5%;
+        .wrapper {
+          display: grid;
+          grid-template-columns: auto 33% 33% 33% auto;
 
+          ul {
+            list-style: disc; //  маркеры
+            margin: 0;
+            text-align: left; // выравнивание текста внутри ul
+          }
+          
           li {
             font-size: 14px;
             margin: 5px 0;

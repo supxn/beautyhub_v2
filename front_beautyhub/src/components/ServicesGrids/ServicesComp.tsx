@@ -58,13 +58,25 @@ const Services = () => {
         {services.map((service, index) => (
           <Grid item sm={4} key={index} className={styles.serviceItem}>
             <Box className={styles.card}>
+
+            {service.title === "Маникюр" || service.title === "Брови" || service.title === "Ресницы" ? (
+              <Link
+                to={`/categories#${anchors[service.title]}`} // динамически подставляем якорь
+                className={styles.link}
+                style={{ display: 'block' }} // чтобы картинка была кликабельной по всей области
+              >
+                <img src={service.image} alt={service.title} className={styles.serviceImage} />
+              </Link>
+            ) : (
               <img src={service.image} alt={service.title} className={styles.serviceImage} />
+            )}
+
               <Typography variant="h4" className={styles.serviceTitle} sx={{ fontFamily: 'Inter', fontWeight: 400}}>
                 {/* Оборачиваем заголовки "Брови", "Маникюр" и "Ресницы" в Link для перехода */}
                 {service.title === "Маникюр" || service.title === "Брови" || service.title === "Ресницы" ? (
                   <Link
-                  to={`/categories#${anchors[service.title]}`} // динамически подставляем якорь
-                  className={styles.link} 
+                    to={`/categories#${anchors[service.title]}`} // динамически подставляем якорь
+                    className={styles.link} 
                   >
                     {service.title}
                   </Link>
@@ -74,13 +86,6 @@ const Services = () => {
               </Typography>
             </Box>
             <Box className={styles.textWrapper}>
-              <p className={styles.serviceLabel}> {/*1 ряд подзаголовков*/}
-                {service.title === "Брови"
-                  ? "Коррекция бровей"
-                  : service.title === "Маникюр"
-                  ? "Ногти"
-                  : "Оформление ресниц"}
-              </p>
               <ul className={styles.descriptionList}> {/*список для подзаголовка*/}
                 {service.description.map((item, idx) => (
                   <li key={idx}>{item}</li>
@@ -97,9 +102,13 @@ const Services = () => {
           </Grid>
         ))}
       </Grid>
-      <Typography variant="h5" className={styles.extraTitle} sx={{ fontFamily: 'Inter', fontWeight: 400}}>
-        Все услуги мастеров...
-      </Typography>
+
+      <Link to={`/categories#`} className={styles.link}>
+        <Typography variant="h5" className={styles.extraTitle} sx={{ fontFamily: 'Inter', fontWeight: 400}}>
+          Все услуги мастеров...
+        </Typography>
+      </Link>
+      
     </Box>
   );
 };

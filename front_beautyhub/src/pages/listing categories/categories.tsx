@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'; // Импортируем Link для перехода
 import styles from './categories.module.scss';
 import useScrollToHash from '../../hooks/useScrollToHash';
+import useScrollToTop from '../../hooks/scrollToTop';
 
 import Header from '../../components/CategoriesListingHeaderComp/CategoriesHeader';
 import Manicure from '../../components/ManicureListing/ManicureListing';
@@ -10,6 +11,7 @@ import Brows from '../../components/BrowsListing/BrowsListing'
 
 const Services: React.FC = () => {
   useScrollToHash(); 
+  useScrollToTop();
   return (
     <section>
       <Header/>

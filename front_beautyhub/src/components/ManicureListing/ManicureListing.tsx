@@ -54,30 +54,37 @@ const Manicure: React.FC = () => {
           <div className={styles.card}>
             <img src={spa} alt="СПА-уход" />
             <h4>СПА-уход</h4>
+          </div>
+          <div className={styles.card}>
+            <img src={classicmanic} alt="Классический маникюр" />
+            <h4>Классический маникюр</h4>
+          </div>
+          <div className={styles.card}>
+            <img src={pedicure} alt="Педикюр" />
+            <h4>Педикюр</h4>
+          </div>
+
             <ul>
               <li>Снятие покрытия гель-лак</li>
               <li>Покрытие гель-лак</li>
               <li>Коррекция маникюра</li>
             </ul>
-          </div>
-          <div className={styles.card}>
-            <img src={classicmanic} alt="Классический маникюр" />
-            <h4>Классический маникюр</h4>
             <ul>
               <li>Восстановление френч</li>
               <li>Детский маникюр</li>
               <li>Укрепление ногтей</li>
             </ul>
-          </div>
-          <div className={styles.card}>
-            <img src={pedicure} alt="Педикюр" />
-            <h4>Педикюр</h4>
             <ul>
               <li>Мужской маникюр</li>
               <li>Мужской педикюр</li>
               <li>Витражный маникюр</li>
             </ul>
-          </div>
+          
+          
+
+          
+            
+            
         </div>
     </div>
     );
