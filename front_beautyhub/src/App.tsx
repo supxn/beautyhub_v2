@@ -1,7 +1,7 @@
-import Header from './components/HeaderComp/Header'
+import Header from './components/CommonComp/HeaderComp/Header'
 import './App.css'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Footer from './components/FooterComp/Footer'
+import Footer from './components/CommonComp/FooterComp/Footer'
 //import {Provider} from "react-redux";
 
 import MainPage from './pages/mainPage/mainPage'
@@ -12,6 +12,7 @@ import CategoriesPage from './pages/listing categories/categories'
 import MastersPage from './pages/listing masters/masters'
 import FavoritePage from './pages/favorite/favorite'
 import SettingsPage from './pages/settings/settings'
+import PrivacyPolicyPage from './pages/privacyPolicy/privacyPolicy'
 
 
 const AppContent: React.FC = () => {
@@ -29,6 +30,7 @@ const AppContent: React.FC = () => {
           <Route path="/masters" element={<MastersPage/>} />
           <Route path="/favorite" element={<FavoritePage/>}/>
           <Route path="/settings" element={<SettingsPage/>}/>
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage/>}/>
         </Route>
       </Routes>
       <Footer/>

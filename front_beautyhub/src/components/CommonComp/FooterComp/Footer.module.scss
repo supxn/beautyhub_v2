@@ -9,6 +9,7 @@
 }
   
 .footerText {
+  color: #000000;
     .p {
       margin: 5px 0;
       font-size: 100%;
@@ -28,8 +29,25 @@
     li {
       font-size: 14px;
     }
-}
+
+    .link{
+      text-decoration:none;
+      color: #000000;
+      font-style: normal;
+      font-family: unset;
+    }
+
+    .icons{
+      padding-top: 4%;
+      padding-bottom: 4%;
+    }
   
+}
+
+.body1{
+  margin-top: 1.5%;
+}
+
 .ul {
     padding-left: 0;
 }
