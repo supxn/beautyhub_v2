@@ -10,7 +10,7 @@ import {
   MenuItem,
 } from "@mui/material";
 import { useLocation, useNavigate } from "react-router-dom";
-import { HeaderProps } from "../HeaderComp/HeaderProps";
+import { HeaderProps } from "./HeaderProps";
 import HeartIcon from "@mui/icons-material/FavoriteBorder";
 import UserIcon from '@mui/icons-material/PersonOutlineOutlined';
 import React, { useState, MouseEvent } from 'react';

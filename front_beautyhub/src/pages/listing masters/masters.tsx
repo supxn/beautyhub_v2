@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'; // Импортируем Link для �
 import styles from './masters.module.scss';
 import useScrollToHash from '../../hooks/useScrollToHash';
 
-import Header from '../../components/MastersListingHeaderComp/Header';
-import Master from '../../components/MasterComp/Master';
+import Header from '../../components/MastersListingComp/MastersListingHeaderComp/Header';
+import Master from '../../components/MastersListingComp/MasterComp/Master';
 import { Box } from '@mui/material';
 
 const Services: React.FC = () => {

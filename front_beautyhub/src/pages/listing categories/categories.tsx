@@ -4,10 +4,10 @@ import styles from './categories.module.scss';
 import useScrollToHash from '../../hooks/useScrollToHash';
 import useScrollToTop from '../../hooks/scrollToTop';
 
-import Header from '../../components/CategoriesListingHeaderComp/CategoriesHeader';
-import Manicure from '../../components/ManicureListing/ManicureListing';
-import Lashes from '../../components/LashesListing/LashesListing';
-import Brows from '../../components/BrowsListing/BrowsListing'
+import Header from '../../components/CategoryListingComp/CategoriesListingHeaderComp/CategoriesHeader';
+import Manicure from '../../components/CategoryListingComp/ManicureListing/ManicureListing';
+import Lashes from '../../components/CategoryListingComp/LashesListing/LashesListing';
+import Brows from '../../components/CategoryListingComp/BrowsListing/BrowsListing'
 
 const Services: React.FC = () => {
   useScrollToHash(); 
