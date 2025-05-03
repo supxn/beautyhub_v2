@@ -1,0 +1,25 @@
+.masters {
+    padding: 0%;
+    margin: 0;
+    text-align: center;
+    background-color:#FFF8F250;
+  
+    .header {
+      display: flex;
+      align-items: center; /* Выравнивание по вертикали */
+      justify-content: flex-start; /* Выровнять контент по началу контейнера */
+      margin-bottom: 20px;
+  
+      h2 {
+        font-size: 55px;
+        font-weight: bold;
+        margin: 0; /* Убираем стандартные отступы */
+        padding: 0;
+      }
+    }
+
+    .temp{
+      padding: 10%;
+    }
+  }
+  
