@@ -1,0 +1,82 @@
+services:
+  #  users_db:
+  #    image: postgres:latest
+  #    environment:
+  #      - POSTGRES_DB=postgres
+  #      - POSTGRES_PASSWORD=postgres
+  #      - POSTGRES_USER=myuser
+  #    ports:
+  #      - '5432:5432'   # Стандартный порт PostgreSQL
+  #    networks:
+  #      - app-network
+
+  auth_db:
+    container_name: auth-db
+    image: postgres:16.0
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=auth_db
+    ports:
+      - "5435:5432"   # Используем порт 5432 внутри контейнера для совместимости
+    volumes:
+      - ./back_beautyhub/auth-service:/docker-entrypoint-initdb.d
+      - pg_auth:/var/lib/postgresql/data
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  auth-service:
+    container_name: auth-service
+    restart: always
+    build:
+      context: ./back_beautyhub/auth-service
+      dockerfile: Dockerfile
+    ports:
+      - "8084:8084"
+    depends_on:
+      auth_db:
+        condition: service_healthy
+    environment:
+      SERVER_PORT: "8084"
+      JWT_SECRET: "b5f59337a612a2a7dc07328f3e7d1a04722967c7f06df20a499a7d3f91ff2a7e"
+      SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_VK_CLIENTID: "52428023"
+      SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_VK_CLIENTSECRET: "7Ol7NuJg5up6R5ggteKM"
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://auth-db:5432/auth_db"   # Используем имя контейнера auth-db
+      SPRING_DATASOURCE_USERNAME: "postgres"
+      SPRING_DATASOURCE_PASSWORD: "postgres"
+      SPRING_JPA_HIBERNATE_DDL_AUTO: "update"   # Используется для автоматического обновления схемы базы данных
+      SPRING_JPA_SHOW_SQL: "true"   # Для отображения SQL-запросов
+      SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT: "org.hibernate.dialect.PostgreSQLDialect"   # Диалект PostgreSQL
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8084/actuator/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  frontend:
+    build:
+      context: ./front_beautyhub
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80" 
+    depends_on:
+      - auth-service
+      - auth_db
+    networks:
+      - app-network
+    environment:
+      REACT_APP_API_URL: "http://auth-service:8084"  # Или VITE_API_URL для Vite
+
+volumes:
+  pg_auth:
+
+networks:
+  app-network:
+    driver: bridge
