@@ -6,7 +6,7 @@ const useScrollToTop = () => {
 
   useEffect(() => {
     if (!hash) { // если нет якоря
-      window.scrollTo({ top: 0, behavior: 'instant' }); // можно behavior: 'smooth' для плавности
+      window.scrollTo({ top: 0, behavior: 'auto' }); // можно behavior: 'smooth' для плавности
     }
   }, [pathname, hash]);
 };
