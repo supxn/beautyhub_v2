@@ -3,6 +3,7 @@
   <img src="https://github.com/nikiveron/beautyhub_v2/blob/main/front_beautyhub/src/components/CommonComp/HeaderComp/BeautyHubLogo.svg" alt="BeautyHub Logo" />
   <h1 style="color:#4F3427; font-size: 48px; margin-top: 10px;">BeautyHub</h1>
   <p style="color:#8C7062; font-size: 20px;">Агрегатор мастеров бьюти-сферы — всё в одном месте</p>
+  <p style="color:#E5CFB8; font-size: 14px; padding: 0; margin:0;">(проект выполнен в рамках дисциплины "Технологии разработки программного обеспечения". Текущая версия проекта на момент 03.05.2025)</p>
 </p>
 
 ---
