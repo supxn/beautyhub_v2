@@ -17,7 +17,6 @@ import SettingsPage from './pages/settings/settings'
 import PrivacyPolicyPage from './pages/privacyPolicy/privacyPolicy'
 import FavouritesPage from './pages/favourites/favourites'
 
-
 const AppContent: React.FC = () => {
   return(
     <ThemeProvider theme={theme}>
