@@ -14,7 +14,7 @@ import styles from './search.module.scss'
 const SearchBar: React.FC = () => {
   return (
     <Box className={styles.searchBox}>
-      <Typography className={styles.searchTitle}sx={{ fontFamily: 'Inter', fontWeight: 300}}>
+      <Typography className={styles.searchTitle}>
         Лучшие бьюти мастера вашего города здесь!
       </Typography>
 
@@ -25,7 +25,6 @@ const SearchBar: React.FC = () => {
           placeholder="Мастера, салоны, услуги..."
           InputProps={{ disableUnderline: true }}
           className={styles.searchInput} 
-          sx={{ fontFamily: 'Inter', fontWeight: 400}}
         />
         <Button className={styles.searchButton}>
           <img className={styles.searchIcon} src={search} alt="search-icon" />
