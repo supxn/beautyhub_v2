@@ -1,6 +1,5 @@
 import { Grid, Typography, Box } from "@mui/material";
 import { Link } from "react-router-dom"; // Импортируем Link из react-router-dom
-
 import imgBrow from './brows.jpg';
 import imgManic from './nails.jpg';
 import imgLashes from './lashes.jpg';
