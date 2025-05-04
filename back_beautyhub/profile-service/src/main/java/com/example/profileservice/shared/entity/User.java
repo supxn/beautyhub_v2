@@ -1,6 +1,6 @@
-package com.example.profileservice.entity;
+package com.example.profileservice.shared.entity;
 
-import com.example.profileservice.Enum.UserRole;
+import com.example.profileservice.shared.Enum.UserRole;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

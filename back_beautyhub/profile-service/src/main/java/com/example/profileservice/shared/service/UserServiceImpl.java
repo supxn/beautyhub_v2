@@ -1,9 +1,9 @@
-package com.example.profileservice.service;
+package com.example.profileservice.shared.service;
 
-import com.example.profileservice.dto.UserRequestDTO;
-import com.example.profileservice.dto.UserResponseDTO;
-import com.example.profileservice.entity.User;
-import com.example.profileservice.repository.UserRepository;
+import com.example.profileservice.shared.dto.UserRequestDTO;
+import com.example.profileservice.shared.dto.UserResponseDTO;
+import com.example.profileservice.shared.entity.User;
+import com.example.profileservice.shared.repository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;

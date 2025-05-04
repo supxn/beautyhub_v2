@@ -1,4 +1,4 @@
-package com.example.profileservice.entity;
+package com.example.profileservice.shared.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
