@@ -5,7 +5,7 @@ import styles from './CategoriesHeader.module.scss';
 const CategoriesHeader: React.FC = () => {
   return (
     <Box className={styles.headerBox}>
-            <Typography className={styles.headerTitle} sx={{ fontFamily: 'Inter', fontWeight: 300, fontStyle: "italic"}}>
+            <Typography className={styles.headerTitle} sx={{ fontStyle: "italic"}}>
                 УСЛУГИ
             </Typography>
 

@@ -1,7 +1,7 @@
-import styles from "./settings.module.scss";
+import styles from "./favourites.module.scss";
 import rose from "./rose.png"
 
-const SettingsPage: React.FC = () => {
+const FavoritePage: React.FC = () => {
     return(
         <div className={styles.developingContainer}>
             <p>Страница в разработке!</p>
@@ -9,4 +9,4 @@ const SettingsPage: React.FC = () => {
     );
 }
 
-export default SettingsPage
+export default FavoritePage
