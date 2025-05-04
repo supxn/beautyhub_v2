@@ -3,6 +3,9 @@ import './App.css'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Footer from './components/CommonComp/FooterComp/Footer'
 //import {Provider} from "react-redux";
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import theme from './styles/theme'; // путь к файлу темы
 
 import MainPage from './pages/mainPage/mainPage'
 import LoginPage from './pages/inlet/inlet'
@@ -10,31 +13,34 @@ import RegisterPage from './pages/register/register'
 import ProfilePage from './pages/profile/profile'
 import CategoriesPage from './pages/listing categories/categories'
 import MastersPage from './pages/listing masters/masters'
-import FavoritePage from './pages/favorite/favorite'
 import SettingsPage from './pages/settings/settings'
 import PrivacyPolicyPage from './pages/privacyPolicy/privacyPolicy'
+import FavouritesPage from './pages/favourites/favourites'
 
 
 const AppContent: React.FC = () => {
   return(
-    <Router>
-      <Header/>
-      <Routes>
-        <Route path="/" element={<MainPage/>}/>
-        <Route>
-          <Route path="main" element={<MainPage/>}/>
-          <Route path="login" element={<LoginPage/>}/>
-          <Route path="register" element={<RegisterPage/>}/>
-          <Route path="profile" element={<ProfilePage/>}/>
-          <Route path="/categories" element={<CategoriesPage/>} />
-          <Route path="/masters" element={<MastersPage/>} />
-          <Route path="/favorite" element={<FavoritePage/>}/>
-          <Route path="/settings" element={<SettingsPage/>}/>
-          <Route path="/privacy-policy" element={<PrivacyPolicyPage/>}/>
-        </Route>
-      </Routes>
-      <Footer/>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <CssBaseline /> {/* нормализует стили */}
+      <Router>
+        <Header/>
+        <Routes>
+          <Route path="/" element={<MainPage/>}/>
+          <Route>
+            <Route path="main" element={<MainPage/>}/>
+            <Route path="login" element={<LoginPage/>}/>
+            <Route path="register" element={<RegisterPage/>}/>
+            <Route path="profile" element={<ProfilePage/>}/>
+            <Route path="/categories" element={<CategoriesPage/>} />
+            <Route path="/masters" element={<MastersPage/>} />
+            <Route path="/settings" element={<SettingsPage/>}/>
+            <Route path="/privacy-policy" element={<PrivacyPolicyPage/>}/>
+            <Route path="/favourites" element={<FavouritesPage/>}/>
+          </Route>
+        </Routes>
+        <Footer/>
+      </Router>
+      </ThemeProvider>
   );
 };
 

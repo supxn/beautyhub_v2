@@ -48,24 +48,11 @@ const HeaderBar: React.FC<HeaderProps> = () => {
           <img src={logo} alt="BeautyHub Logo" className={styles.logo}/>
         </Box>
         <Box className={styles.menu}>
-          <IconButton
-            onClick={(event) => handleMenuOpen(event, setHeartMenuAnchor)}
-          >
-            <HeartIcon className={styles.icon} sx={{fontSize: "30pt", color: "#8C7062"}} />
+          <IconButton onClick={() => navigate('/favourites')} >
+            <HeartIcon className={styles.icon} sx={{fontSize: "30pt", color: "#8C7062"}}/>
           </IconButton>
-          <Menu
-            anchorEl={heartMenuAnchor}
-            open={Boolean(heartMenuAnchor)}
-            onClose={() => handleMenuClose(setHeartMenuAnchor)}
-            sx ={{'& .MuiPaper-root': {boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)'}}}
-          >
-            <MenuItem onClick={() => { navigate('/favorite'); handleMenuClose(setHeartMenuAnchor); }} sx={{ fontFamily: 'Inter', fontWeight: 400}}>Избранное</MenuItem>
-            <MenuItem onClick={() => { navigate('/settings'); handleMenuClose(setHeartMenuAnchor); }} sx={{ fontFamily: 'Inter', fontWeight: 400}}>Настройки</MenuItem>
-            <MenuItem onClick={() => { navigate('/main'); handleMenuClose(setHeartMenuAnchor); }} sx={{ fontFamily: 'Inter', fontWeight: 400}}>Выход</MenuItem>
-          </Menu>
-          <IconButton
-            onClick={(event) => handleMenuOpen(event, setUserMenuAnchor)}
-          >
+          
+          <IconButton onClick={(event) => handleMenuOpen(event, setUserMenuAnchor)} >
             <UserIcon className={styles.icon} sx={{fontSize: "30pt", color: "#8C7062"}} />
           </IconButton>
           <Menu
@@ -75,9 +62,27 @@ const HeaderBar: React.FC<HeaderProps> = () => {
             className={styles.profileMenu}
             sx ={{'& .MuiPaper-root': {boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)'}}}
           >
-            <MenuItem onClick={() => { navigate('/profile'); handleMenuClose(setHeartMenuAnchor); }} sx={{ fontFamily: 'Inter', fontWeight: 400}}>Профиль</MenuItem>
-            <MenuItem onClick={() => { navigate('/login'); handleMenuClose(setUserMenuAnchor); }} sx={{ fontFamily: 'Inter', fontWeight: 400}}>Вход</MenuItem>
-            <MenuItem onClick={() => { navigate('/register'); handleMenuClose(setUserMenuAnchor); }} sx={{ fontFamily: 'Inter', fontWeight: 400}}>Регистрация</MenuItem>
+            <MenuItem onClick={() => { navigate('/profile'); handleMenuClose(setHeartMenuAnchor); }} >Профиль</MenuItem>
+            <MenuItem onClick={() => { navigate('/settings'); handleMenuClose(setHeartMenuAnchor); }} >Настройки</MenuItem>
+            <MenuItem onClick={() => { navigate('/main'); handleMenuClose(setHeartMenuAnchor); }} >Выход</MenuItem>
+            {/* Разделитель */}
+              <Box 
+                sx={{
+                  display: "flex", 
+                  justifyContent: "center",
+                  width: "100%",
+                }}
+              >
+                <Box
+                  sx={{
+                    height: "1px", 
+                    backgroundColor: "#AF9284", 
+                    width: "85%",
+                  }}
+                />
+              </Box>
+            <MenuItem onClick={() => { navigate('/login'); handleMenuClose(setUserMenuAnchor); }} >Вход</MenuItem>
+            <MenuItem onClick={() => { navigate('/register'); handleMenuClose(setUserMenuAnchor); }}>Регистрация</MenuItem>
           </Menu>
         </Box>
         </div>
