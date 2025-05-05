@@ -1,0 +1,101 @@
+.container {
+  padding: 5%;
+  padding-top: 8%;
+  text-align: center;
+}
+
+.title {
+  padding-top: 4%;
+  font-weight: bold;
+  color: #4d4136;
+}
+
+.link {
+  text-decoration: none; // Убираем подчеркивание
+  color: inherit; // Наследуем цвет текста
+}
+
+.gridContainer {
+  padding-top: 2%;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.serviceItem {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+  background-color: #F5EBE2;
+  border-radius: 8px;
+  
+}
+
+.serviceImage {
+  overflow: hidden;
+  width: 64%;
+  border-radius: 3%;
+  margin-top: 10%;
+}
+
+.serviceTitle {
+  font-weight: bold;
+  color: #333333;
+  padding-top: 4%;
+  padding-bottom: 8%;
+}
+
+.textWrapper {
+  margin-top: 2rem;
+  text-align: left;
+  padding-left: 8%;
+}
+
+.serviceLabel {
+  font-size: 160%;
+  font-weight: bold;
+  color: #000000;
+}
+
+.descriptionList{
+  list-style-type: none;
+  padding: 0;
+
+  li {
+    font-size: 120%;
+    color: #000000;
+    padding-bottom: 3%;
+  }
+}
+
+.extraList {
+  list-style-type: none;
+  padding: 0;
+
+  li {
+    font-size: 160%;
+    color: #000000;
+    padding-bottom: 3%;
+  }
+}
+
+.extraItem {
+  font-weight: bold;
+  color: #000000;
+  padding-bottom: 2%;
+}
+
+.extraTitle {
+  font-weight: bold;
+  color: #000000;
+  text-align: left;
+  padding-top: 3%;
+  padding-left: 7%;
+}
