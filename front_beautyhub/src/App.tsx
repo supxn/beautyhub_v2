@@ -14,7 +14,6 @@ import FavoritePage from './pages/favorite/favorite'
 import SettingsPage from './pages/settings/settings'
 import PrivacyPolicyPage from './pages/privacyPolicy/privacyPolicy'
 
-
 const AppContent: React.FC = () => {
   return(
     <Router>
