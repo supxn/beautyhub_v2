@@ -1,6 +1,6 @@
-package com.example.profileservice.repository;
+package com.example.profileservice.shared.repository;
 
-import com.example.profileservice.entity.User;
+import com.example.profileservice.shared.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

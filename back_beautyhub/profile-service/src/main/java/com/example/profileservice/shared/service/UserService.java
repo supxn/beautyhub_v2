@@ -1,8 +1,8 @@
-package com.example.profileservice.service;
+package com.example.profileservice.shared.service;
 
-import com.example.profileservice.dto.UserRequestDTO;
-import com.example.profileservice.dto.UserResponseDTO;
-import com.example.profileservice.entity.User;
+import com.example.profileservice.shared.dto.UserRequestDTO;
+import com.example.profileservice.shared.dto.UserResponseDTO;
+import com.example.profileservice.shared.entity.User;
 
 import java.util.List;
 

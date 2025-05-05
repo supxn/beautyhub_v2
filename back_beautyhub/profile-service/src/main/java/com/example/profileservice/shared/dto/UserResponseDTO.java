@@ -1,8 +1,6 @@
-package com.example.profileservice.dto;
+package com.example.profileservice.shared.dto;
 
-import com.example.profileservice.Enum.UserRole;
-import com.fasterxml.jackson.databind.PropertyNamingStrategies;
-import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import com.example.profileservice.shared.Enum.UserRole;
 import lombok.*;
 
 @Data
