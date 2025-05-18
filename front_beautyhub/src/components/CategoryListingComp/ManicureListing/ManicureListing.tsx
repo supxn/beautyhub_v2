@@ -14,7 +14,7 @@ import narach from './Наращивание.jpg'
 import spa from './спа.jpg'
 import classicmanic from './классический маник.jpg'
 import pedicure from './Педикюр.jpg'
-
+import { Link } from 'react-router-dom';
 import styles from './ManicureListing.module.scss'
 
 const Manicure: React.FC = () => {
@@ -41,7 +41,8 @@ const Manicure: React.FC = () => {
         <div className={styles.cards}>
           <div className={styles.card}>
             <img src={aparatpic} alt="Аппаратный маникюр" />
-            <h4>Аппаратный маникюр</h4>
+           <Link to="/masters?category=Маникюр&service=Аппаратный маникюр"> <h4>Аппаратный маникюр</h4>
+           </Link>
           </div>
           <div className={styles.card}>
             <img src={combi} alt="Комбинированный маникюр" />
