@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -37,6 +39,24 @@ public class MasterProfile {
 
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+
+    private String specialization;
+
+    @ElementCollection
+    @CollectionTable(
+            name = "master_work_photos",
+            joinColumns = @JoinColumn(name = "master_id")
+    )
+    @Column(name = "photo_url", length = 1024)
+    private List<String> workPhotos = new ArrayList<>();
+
+    @ElementCollection
+    @CollectionTable(
+            name = "master_certificate_photos",
+            joinColumns = @JoinColumn(name = "master_id")
+    )
+    @Column(name = "photo_url", length = 1024)
+    private List<String> certificatePhotos = new ArrayList<>();
 
     @PrePersist
     protected void onCreate() {
