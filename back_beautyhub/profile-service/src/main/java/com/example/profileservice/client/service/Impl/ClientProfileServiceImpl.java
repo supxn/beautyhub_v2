@@ -5,6 +5,7 @@ import com.example.profileservice.client.dto.ClientProfileResponseDTO;
 import com.example.profileservice.client.entity.ClientProfile;
 import com.example.profileservice.client.repository.ClientProfileRepository;
 import com.example.profileservice.client.service.ClientProfileService;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -48,6 +49,12 @@ public class ClientProfileServiceImpl implements ClientProfileService {
         dto.setPhotoUrl(profile.getPhotoUrl());
         dto.setBirthDate(profile.getBirthDate());
         return dto;
+    }
+
+    @Override
+    public ClientProfile getClientById(Long id) {
+        return repository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Client profile not found"));
     }
 }
 
