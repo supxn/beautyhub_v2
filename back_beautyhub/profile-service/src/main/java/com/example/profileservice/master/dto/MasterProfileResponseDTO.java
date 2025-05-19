@@ -3,6 +3,7 @@ package com.example.profileservice.master.dto;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 public class MasterProfileResponseDTO {
@@ -17,6 +18,9 @@ public class MasterProfileResponseDTO {
     private Double rating;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+    private String specialization;
+    private List<String> workPhotos;
+    private List<String> certificatePhotos;
 
 }
 
