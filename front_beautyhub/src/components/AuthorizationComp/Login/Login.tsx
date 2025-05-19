@@ -1,57 +1,84 @@
-import React from "react";
-import { TextField, Button, Box, Typography } from "@mui/material";
-import styles from "./login.module.scss";
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { TextField, Button, Box, Typography, Link, Alert } from "@mui/material";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
+import {SignInRequest } from "../../../types/auth";
+import {signIn} from '../../../api/auth';
+import "./login.scss";
 
-const AuthForm = () => {
+const Login = () => {
+  const navigate = useNavigate();
+  const { register, handleSubmit, formState: { errors } } = useForm<SignInRequest>();
+  const [error, setError] = useState<string | null>(null);
+
+  const onSubmit = async (data: SignInRequest) => {
+    try {
+      await signIn({
+        ...data,
+        user_role: "CLIENT" // Или MASTER, в зависимости от логики приложения
+      });
+      navigate('/profile');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Ошибка авторизации');
+    }
+  };
+
   return (
-    <Box className={styles.container}>
-      <Typography variant="h5" className={styles.title}>
+    <Box className="login-container">
+      <Typography variant="h5" className="login-title">
         Авторизация
       </Typography>
-      <Box 
-        sx={{
-          display: "flex", 
-          justifyContent: "center", // Центрирует горизонтально
-          width: "100%", // Убедитесь, что родительский контейнер занимает всю ширину
-        }}
-        >
-          <Box 
-            sx={{
-              height: "2px", 
-              backgroundColor: "#AF9284", 
-              width: "100%" // Ширина разделителя
-            }} 
-          />
-      </Box>
-      <form className={styles.form}>
+
+      {error && <Alert severity="error" sx={{ mb: 2 }}>{error}</Alert>}
+
+      <form onSubmit={handleSubmit(onSubmit)}>
         <TextField
-          label="Номер телефона или Email"
+          label="Логин или Email"
           variant="outlined"
           fullWidth
-          className={styles.input}
+          {...register('username', { required: 'Обязательное поле' })}
+          error={!!errors.username}
+          helperText={errors.username?.message}
           margin="normal"
-          
         />
+        
         <TextField
           label="Пароль"
           type="password"
           variant="outlined"
           fullWidth
-          className={styles.input}
+          {...register('password', { 
+            required: 'Обязательное поле',
+            minLength: {
+              value: 9,
+              message: 'Минимум 9 символов'
+            }
+          })}
+          error={!!errors.password}
+          helperText={errors.password?.message}
           margin="normal"
         />
         
-        <Box className={styles.buttons}>
-          <Button variant="outlined" className={styles.submitButton}>
-            Вход
-          </Button>
-          <Button variant="outlined" className={styles.registerButton}>
-            Регистрация
+        <Box sx={{ mt: 3 }}>
+          <Button 
+            type="submit"
+            variant="contained" 
+            fullWidth
+            size="large"
+          >
+            Войти
           </Button>
         </Box>
       </form>
+
+      <Typography sx={{ mt: 2 }}>
+        Еще не зарегистрированы?{' '}
+        <Link component={RouterLink} to="/register">
+          Регистрация
+        </Link>
+      </Typography>
     </Box>
   );
 };
 
-export default AuthForm;
+export default Login;

@@ -1,5 +1,5 @@
-// components/FilterModal.tsx
-import React from 'react';
+import { Modal, Box, Button, FormControlLabel, Checkbox, Radio } from "@mui/material";
+import CloseIcon from '@mui/icons-material/Close';
 import styles from './FilterModal.module.scss';
 
 interface FilterModalProps {
@@ -12,33 +12,44 @@ interface FilterModalProps {
   onApply: () => void;
 }
 
-const FilterModal: React.FC<FilterModalProps> = ({
-  title, options, type, selected, onChange, onClose, onApply
-}) => {
+const FilterModal = ({ title, options, type, selected, onChange, onClose, onApply }: FilterModalProps) => {
+  const ControlComponent = type === 'checkbox' ? Checkbox : Radio;
+
   return (
-    <div className={styles.modal}>
-      <div className={styles.inner}>
+    <Modal open onClose={onClose} className={styles.modal}>
+      <Box className={styles.inner}>
         <div className={styles.top}>
           <h2>{title}</h2>
-          <button className={styles.closeBtn} onClick={onClose}>×</button>
+          <Button className={styles.closeBtn} onClick={onClose}>
+            <CloseIcon />
+          </Button>
         </div>
+        
         <div className={styles.options}>
           {options.map(opt => (
-            <label key={opt} className={styles.option}>
-              <input
-                type={type}
-                checked={selected.includes(opt)}
+            <FormControlLabel
+              key={opt}
+              control={<ControlComponent 
+                checked={selected.includes(opt)} 
                 onChange={() => onChange(opt)}
-              />
-              {opt}
-            </label>
+                className={styles.input}
+              />}
+              label={opt}
+              className={styles.option}
+            />
           ))}
         </div>
-        <button className={styles.apply} onClick={onApply}>
+
+        <Button 
+          fullWidth 
+          variant="contained" 
+          onClick={onApply}
+          className={styles.apply}
+        >
           Показать результаты
-        </button>
-      </div>
-    </div>
+        </Button>
+      </Box>
+    </Modal>
   );
 };
 

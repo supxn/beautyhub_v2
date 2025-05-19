@@ -2,10 +2,8 @@ import Header from './components/CommonComp/HeaderComp/Header'
 import './App.css'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Footer from './components/CommonComp/FooterComp/Footer'
-//import {Provider} from "react-redux";
 import { ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import theme from './styles/theme'; // путь к файлу темы
+import theme from './styles/theme';
 
 import MainPage from './pages/mainPage/mainPage'
 import LoginPage from './pages/inlet/inlet'
@@ -20,7 +18,6 @@ import FavouritesPage from './pages/favourites/favourites'
 const AppContent: React.FC = () => {
   return(
     <ThemeProvider theme={theme}>
-      <CssBaseline /> {/* нормализует стили */}
       <Router>
         <Header/>
         <Routes>
@@ -30,11 +27,11 @@ const AppContent: React.FC = () => {
             <Route path="login" element={<LoginPage/>}/>
             <Route path="register" element={<RegisterPage/>}/>
             <Route path="profile" element={<ProfilePage/>}/>
-            <Route path="/categories" element={<CategoriesPage/>} />
-            <Route path="/masters" element={<MastersPage/>} />
-            <Route path="/settings" element={<SettingsPage/>}/>
-            <Route path="/privacy-policy" element={<PrivacyPolicyPage/>}/>
-            <Route path="/favourites" element={<FavouritesPage/>}/>
+            <Route path="categories" element={<CategoriesPage/>} />
+            <Route path="masters" element={<MastersPage/>} />
+            <Route path="settings" element={<SettingsPage/>}/>
+            <Route path="privacy-policy" element={<PrivacyPolicyPage/>}/>
+            <Route path="favourites" element={<FavouritesPage/>}/>
           </Route>
         </Routes>
         <Footer/>
