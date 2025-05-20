@@ -15,6 +15,7 @@ import MastersPage from './pages/listing masters/masters'
 import SettingsPage from './pages/settings/settings'
 import PrivacyPolicyPage from './pages/privacyPolicy/privacyPolicy'
 import FavouritesPage from './pages/favourites/favourites'
+import NotFoundPage from './pages/notFound/notFound'
 
 const AppContent: React.FC = () => {
   return(
@@ -34,6 +35,7 @@ const AppContent: React.FC = () => {
             <Route path="settings" element={<SettingsPage/>}/>
             <Route path="privacy-policy" element={<PrivacyPolicyPage/>}/>
             <Route path="favourites" element={<FavouritesPage/>}/>
+            <Route path="notFound" element={<NotFoundPage/>}/> 
           </Route>
         </Routes>
         <Footer/>

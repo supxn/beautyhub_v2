@@ -11,10 +11,10 @@ const services = [
     image: imgBrow,
     title: "Брови",
     description: [
-      '"Счастье для бровей"',
       "Классическая коррекция", 
       "Ламинирование бровей",
       "Окрашивание бровей",
+      '"Счастье для бровей"',
       "Вельвет",
       "Еще..."
     ],
@@ -28,7 +28,7 @@ const services = [
       "Педикюр", "Наращивание ногтей", 
       "Классический маникюр", "Еще..."
     ],
-    extras: ["Парикмахеры", "Пирсинг", "Спа-процедуры"]
+    extras: ["Парикмахер", "Пирсинг", "Спа-процедуры"]
   },
   {
     image: imgLashes,
@@ -58,13 +58,16 @@ const Services = () => {
           <Grid item sm={4} key={index} className={styles.serviceItem}>
             <Box className={styles.card}>
             {service.title === "Маникюр" || service.title === "Брови" || service.title === "Ресницы" ? (
-              <Link
-                to={`/categories#${anchors[service.title]}`} // динамически подставляем якорь
-                className={styles.link}
-                style={{ display: 'block' }} // чтобы картинка была кликабельной по всей области
-              >
-                <img src={service.image} alt={service.title} className={styles.serviceImage} />
-              </Link>
+              <figure className={styles.pictureFigure}> 
+                <Link
+                  to={`/categories#${anchors[service.title]}`} // динамически подставляем якорь
+                  className={styles.link}
+                  style={{ display: 'block' }} // чтобы картинка была кликабельной по всей области
+                >
+                  <img src={service.image} alt={service.title} className={styles.serviceImage}/>
+                </Link> 
+              </figure>
+              
             ) : (
               <img src={service.image} alt={service.title} className={styles.serviceImage} />
             )}
@@ -84,18 +87,39 @@ const Services = () => {
               </Typography>
             </Box>
             <Box className={styles.textWrapper}>
-              <Typography className={styles.descriptionList}> {/*список для подзаголовка*/}
-                {service.description.map((item, idx) => (
-                  <li key={idx}>{item}</li>
-                ))}
-              </Typography>
-              <Typography className={styles.extraList}> {/*продолжение рядов подзаголовков*/}
-                {service.extras.map((item, idx) => (
-                  <li key={idx} className={styles.extraItem}>
-                    {item}
-                  </li>
-                ))}
-              </Typography>
+              <ul className={styles.descriptionList}> {/* список подзаголовков */}
+                {service.description.map((item, idx) => {
+                  const urlTitle = service.title;
+                  return (
+                    <li key={idx}>
+                      <Link
+                        to={`/masters?category=${encodeURIComponent(urlTitle)}&service=${encodeURIComponent(item.replace(/\s+/g, '+'))}`}
+                        className={styles.link}
+                      >
+                        {item}
+                      </Link>
+
+                    </li>
+                  );
+                })}
+              </ul>
+              
+              <ul className={styles.extraList}> {/* продолжение рядов подзаголовков */}
+                {service.extras.map((item, idx) => {
+                  const urlTitle = service.title;
+                  return (
+                    <li key={idx} className={styles.extraItem}>
+                      <Link
+                        to={`/masters?category=${encodeURIComponent(item)}`}
+                        className={styles.link}
+                      >
+                        {item}
+                      </Link>
+
+                    </li>
+                  );
+                })}
+              </ul>
             </Box>
           </Grid>
         ))}
