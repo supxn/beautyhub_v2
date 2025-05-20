@@ -103,7 +103,8 @@
   padding: 0;
 
   li {
-    font-size: clamp(16px, 2.5vw, 22px);
+    font-size: clamp(18px, 2.5vw, 24px);
+    font-weight: 400;
     color: #000000;
     padding-bottom: 3%;
   }
