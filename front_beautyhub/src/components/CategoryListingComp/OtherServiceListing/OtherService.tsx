@@ -1,32 +1,51 @@
 import { Box, Typography, Grid, Card, CardMedia, CardContent } from "@mui/material";
 import { Link } from 'react-router-dom';
-import botox from './files/Ботокс.jpg';
-import laminir from './files/Ламинирование.jpg';
-import narachlash from './files/Наращивание.jpg';
-import styles from './LashesListing.module.scss';
+import styles from './OtherService.module.scss';
+
+import zagarImg from './files/загар.jpg';
+import makeupImg from './files/макияж.jpg';
+import cosmetologyImg from './files/косметология.jpg';
+import massageImg from './files/массаж.jpg';
+import spaImg from './files/спа.jpg';
+import epilationImg from './files/эпиляция.jpg';
 
 const services = [
   {
-    title: "Ботокс",
-    image: botox,
-    items: ["Биозавивка", "Нанопластика"]
+    title: "Косметология",
+    image: cosmetologyImg,
+    items: [],
   },
   {
-    title: "Ламинирование",
-    image: laminir,
-    items: ["Цветное ламинирование", "Наращивание"]
+    title: "Макияж",
+    image: makeupImg,
+    items: [],
+
   },
   {
-    title: "Наращивание",
-    image: narachlash,
-    items: ["Молекулярное восстановление"]
+    title: "Загар",
+    image: zagarImg,
+    items: [],
+  },
+  {
+    title: "Массаж",
+    image: massageImg,
+    items: ["Парикмахеры", "Пирсинг"]
+  },
+  {
+    title: "СПА-процедуры",
+    image: spaImg,
+    items: ["Татуаж", "Татуировки"]
+  },
+  {
+    title: "Эпиляция",
+    image: epilationImg,
+    items: ["Стилист"]
   }
 ];
 
-const LashesListing = () => {
+const OtherServicesListing = () => {
   return (
-    <Box component="section" className={styles.lashes}>
-      {/* Декоративная линия */}
+    <Box component="section" className={styles.container}>
       <Box sx={{ 
         width: '100%', 
         my: 4,
@@ -40,36 +59,36 @@ const LashesListing = () => {
         <Box />
       </Box>
 
-      <Typography variant="h3" align="center" gutterBottom sx={{ 
-        fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' } 
+      <Typography variant="h3" align="center" gutterBottom sx={{
+        fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' }
       }}>
-        Оформление ресниц
+        Другие популярные услуги
       </Typography>
-      <Typography variant="subtitle1" align="center" gutterBottom sx={{ 
-        fontSize: { xs: '1.2rem', md: '1.5rem' } 
+      <Typography variant="subtitle1" align="center" gutterBottom sx={{
+        fontSize: { xs: '1.2rem', md: '1.5rem' }
       }}>
-        от 600₽
+        от 300₽
       </Typography>
 
       <Grid container spacing={{ xs: 2, md: 4 }} sx={{ px: '5%', py: 2 }}>
         {services.map((service) => (
           <Grid item xs={12} sm={6} md={4} key={service.title}>
-            <Card className={styles.card}>
+            <Card className={styles.card} sx={{ bgcolor: 'transparent' }}>
               <CardMedia
                 component="img"
                 height="240"
                 image={service.image}
                 alt={service.title}
-                sx={{ 
+                sx={{
                   objectFit: 'cover',
                   height: { xs: 200, md: 240 }
                 }}
               />
               <CardContent>
-                <Typography className={styles.cardTitle}
+                <Typography
                   variant="h4"
                   component={Link}
-                  to={`/masters?category=Ресницы&service=${encodeURIComponent(service.title)}`}
+                  to={`/masters?category=Другие_услуги&service=${encodeURIComponent(service.title)}`}
                   gutterBottom
                   sx={{
                     textDecoration: 'none',
@@ -83,7 +102,7 @@ const LashesListing = () => {
                 >
                   {service.title}
                 </Typography>
-                <Box component="ul" sx={{ 
+                <Box component="ul" sx={{
                   pl: 2,
                   '& li': {
                     textAlign: 'left',
@@ -104,4 +123,4 @@ const LashesListing = () => {
   );
 };
 
-export default LashesListing;
+export default OtherServicesListing;

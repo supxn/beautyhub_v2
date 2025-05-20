@@ -1,10 +1,10 @@
 import { Box, Typography, Grid, Card, CardMedia, CardContent } from "@mui/material";
-import aparatpic from './Аппаратный маникюр.jpg';
-import combi from './Комби.jpg';
-import narach from './Наращивание.jpg';
-import spa from './спа.jpg';
-import classicmanic from './классический маник.jpg';
-import pedicure from './Педикюр.jpg';
+import aparatpic from './files/Аппаратный маникюр.jpg';
+import combi from './files/Комби.jpg';
+import narach from './files/Наращивание.jpg';
+import spa from './files/спа.jpg';
+import classicmanic from './files/классический маник.jpg';
+import pedicure from './files/Педикюр.jpg';
 import styles from './ManicureListing.module.scss';
 import { Link } from 'react-router-dom';
 

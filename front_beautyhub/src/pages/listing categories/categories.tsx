@@ -7,7 +7,9 @@ import useScrollToTop from '../../hooks/scrollToTop';
 import Header from '../../components/CategoryListingComp/CategoriesListingHeaderComp/CategoriesHeader';
 import Manicure from '../../components/CategoryListingComp/ManicureListing/ManicureListing';
 import Lashes from '../../components/CategoryListingComp/LashesListing/LashesListing';
-import Brows from '../../components/CategoryListingComp/BrowsListing/BrowsListing'
+import Brows from '../../components/CategoryListingComp/BrowsListing/BrowsListing';
+import Hair from '../../components/CategoryListingComp/HairListing/HairService';
+import OtherService from '../../components/CategoryListingComp/OtherServiceListing/OtherService';
 
 const Services: React.FC = () => {
   useScrollToHash(); 
@@ -24,6 +26,12 @@ const Services: React.FC = () => {
         </div>
         <div id="brows">
           <Brows />
+        </div>
+        <div id="hair">
+          <Hair />
+        </div>
+        <div id="other">
+          <OtherService />
         </div>
       </div>
     </section>

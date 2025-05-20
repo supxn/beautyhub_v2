@@ -1,31 +1,62 @@
 import { Box, Typography, Grid, Card, CardMedia, CardContent } from "@mui/material";
-import lami from './files/Лами.jpg';
-import okrash from './files/Окрашивание.jpg';
-import tatuaj from './files/Татуаж.jpg';
-import styles from './BrowsListing.module.scss';
 import { Link } from 'react-router-dom';
+import styles from './HairService.module.scss';
+
+import haircolorImg from './files/окрашивание.jpg';
+import hairlayingImg from './files/укладки.jpg';
+import hairkeratinImg from './files/кератин.jpg';
+import hairhappyImg from './files/счастье.jpg';
+import haircutsImg from './files/стрижки.jpg';
+import hairstylesImg from './files/прически.jpg';
 
 const services = [
   {
-    title: "Ламинирование",
-    image: lami,
-    items: ["Классическая коррекция", "Счастье для бровей"]
+    title: "Стрижки",
+    image: haircutsImg,
+    items: []
   },
   {
     title: "Окрашивание",
-    image: okrash,
-    items: ["Осветление", "Протеиновая реконструкция"]
+    image: haircolorImg,
+    items: [],
   },
   {
-    title: "Татуаж",
-    image: tatuaj,
-    items: ["Вельвет"]
-  }
+    title: "Укладки",
+    image: hairlayingImg,
+    items: [],
+  },
+  {
+    title: "Прически",
+    image: hairstylesImg,
+    items: [
+      "Наращивание",
+      "Дреды",
+      "Брейды",
+    ]
+  },
+  {
+    title: "Кератиновое выпрямление",
+    image: hairkeratinImg,
+    items: [
+        "Афро-кудри",
+        "Биозавивка",
+        "Ботокс"
+    ]
+  },
+  {
+    title: "Счастье для волос",
+    image: hairhappyImg,
+    items: [
+        "Нанопластика",
+        "Биксипластика",
+        "Осветление"
+    ]
+  },
 ];
 
-const BrowsListing = () => {
+const HairdressersListing = () => {
   return (
-    <Box component="section" className={styles.brows}>
+    <Box component="section" className={styles.container}>
       <Box sx={{ 
         width: '100%', 
         my: 4,
@@ -42,7 +73,7 @@ const BrowsListing = () => {
       <Typography variant="h3" align="center" gutterBottom sx={{
         fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' }
       }}>
-        Оформление бровей
+        Парикмахеры
       </Typography>
       <Typography variant="subtitle1" align="center" gutterBottom sx={{
         fontSize: { xs: '1.2rem', md: '1.5rem' }
@@ -50,25 +81,25 @@ const BrowsListing = () => {
         от 300₽
       </Typography>
 
-      <Grid container spacing={{ xs: 2, md: 4 }} sx={{ px: '5%', py: 2 }}>
+      <Grid container spacing={{ xs: 3, md: 3}} sx={{ px: '5%', py: 3 }}>
         {services.map((service) => (
           <Grid item xs={12} sm={6} md={4} key={service.title}>
-            <Card className={styles.card}>
+            <Card className={styles.card} sx={{ bgcolor: 'transparent' }}>
               <CardMedia
                 component="img"
-                height="240"
+                height="300"
                 image={service.image}
                 alt={service.title}
                 sx={{
                   objectFit: 'cover',
-                  height: { xs: 200, md: 240 }
+                  height: { xs: 200, md: 300 }
                 }}
               />
               <CardContent>
-                <Typography className={styles.cardTitle}
-                  variant="h4" 
+                <Typography
+                  variant="h4"
                   component={Link}
-                  to={`/masters?category=Брови&service=${encodeURIComponent(service.title)}`}
+                  to={`/masters?category=Парикмахеры&service=${encodeURIComponent(service.title)}`}
                   gutterBottom
                   sx={{
                     textDecoration: 'none',
@@ -103,4 +134,4 @@ const BrowsListing = () => {
   );
 };
 
-export default BrowsListing;
+export default HairdressersListing;
