@@ -1,5 +1,8 @@
 .container {
+  padding: 0;
   padding-top: 8%;
+  padding-left: 10%;
+  padding-right: 10%;
   text-align: center;
 }
 
@@ -11,39 +14,51 @@
 }
 
 .link {
+  margin: 0;
+  padding: 0;
   text-decoration: none;
   color: inherit; 
 }
 
 .gridContainer {
+  padding: 0;
   padding-top: 2%;
-  padding-left: 5%;
-  padding-right: 5%;
+  //padding-left: 10%;
+  //padding-right: 10%;
 }
 
 .serviceItem {
   flex-direction: column;
   align-items: center;
   text-align: center;
-
+  
 }
 
 .card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 1rem;
+  max-height: 20rem;
+  max-width: 20rem;
+  min-width: auto;
+  min-height: auto;
+  //margin-bottom: 1rem;
   background-color: #F5EBE2;
   border-radius: 8px;
   
+}
+.pictureFigure{
+  margin: 0;
+  margin-top: 10%;
+  padding: 0%;
+  border-radius: 10%;
 }
 
 .serviceImage {
   overflow: hidden;
   width: 30vh;
-  border-radius: 3%;
-  margin-top: 10%;
-  padding: 5%;
+  border-radius: 10px; // не работает почему то
+  
   @media (max-width: 768px) {
     max-width: 250px;
   }
@@ -104,9 +119,10 @@
   font-size: clamp(18px, 2.2vw, 26px);
   color: #000000;
   text-align: left;
+  padding: 0;
   padding-top: 3%;
-  padding-left: 7%;
-  padding-bottom: 2%;
+  padding-left: 1rem;
+  padding-bottom: 3%;
 }
 
 @media screen and (max-width: 769px) {

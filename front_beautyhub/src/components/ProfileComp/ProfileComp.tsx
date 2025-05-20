@@ -72,7 +72,7 @@ const ProfileForm = () => {
           </Box>
         </Box>
 
-        <Button className={styles.editButton} startIcon={<EditIcon />}>
+        <Button className={styles.editButton} startIcon={<EditIcon/>}>
           Редактировать
         </Button>
       </Box>

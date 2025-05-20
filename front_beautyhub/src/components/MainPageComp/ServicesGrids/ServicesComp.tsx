@@ -58,13 +58,16 @@ const Services = () => {
           <Grid item sm={4} key={index} className={styles.serviceItem}>
             <Box className={styles.card}>
             {service.title === "Маникюр" || service.title === "Брови" || service.title === "Ресницы" ? (
-              <Link
-                to={`/categories#${anchors[service.title]}`} // динамически подставляем якорь
-                className={styles.link}
-                style={{ display: 'block' }} // чтобы картинка была кликабельной по всей области
-              >
-                <img src={service.image} alt={service.title} className={styles.serviceImage} />
-              </Link>
+              <figure className={styles.pictureFigure}> 
+                <Link
+                  to={`/categories#${anchors[service.title]}`} // динамически подставляем якорь
+                  className={styles.link}
+                  style={{ display: 'block' }} // чтобы картинка была кликабельной по всей области
+                >
+                  <img src={service.image} alt={service.title} className={styles.serviceImage}/>
+                </Link> 
+              </figure>
+              
             ) : (
               <img src={service.image} alt={service.title} className={styles.serviceImage} />
             )}
