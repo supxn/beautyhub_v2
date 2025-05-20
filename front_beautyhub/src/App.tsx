@@ -7,7 +7,7 @@ import theme from './styles/theme';
 import { CssBaseline } from '@mui/material';
 
 import MainPage from './pages/mainPage/mainPage'
-import LoginPage from './pages/inlet/inlet'
+import LoginPage from './pages/login/login'
 import RegisterPage from './pages/register/register'
 import ProfilePage from './pages/profile/profile'
 import CategoriesPage from './pages/listing categories/categories'
