@@ -77,7 +77,6 @@ public class MasterProfileServiceImpl implements MasterProfileService {
     }
 
     private void updateEntityFromDto(MasterProfile entity, MasterProfileRequestDTO dto) {
-        entity.setDisplayName(dto.getDisplayName());
         entity.setBio(dto.getBio());
         entity.setPhone(dto.getPhone());
         entity.setCity(dto.getCity());

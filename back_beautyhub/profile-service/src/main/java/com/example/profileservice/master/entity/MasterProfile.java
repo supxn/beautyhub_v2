@@ -25,9 +25,6 @@ public class MasterProfile {
     @Column(nullable = false, unique = true)
     private Long userId;
 
-    @Column(nullable = false)
-    private String displayName;
-
     @Column(length = 1000)
     private String bio;
 
@@ -41,6 +38,16 @@ public class MasterProfile {
     private LocalDateTime updatedAt;
 
     private String specialization;
+
+    private Integer experience;
+    private String address;
+    private String gender;
+    private String acceptSAt;
+    private Boolean hasReviews;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "master_id")
+    private List<CategoryType> categories = new ArrayList<>();
 
     @ElementCollection
     @CollectionTable(
