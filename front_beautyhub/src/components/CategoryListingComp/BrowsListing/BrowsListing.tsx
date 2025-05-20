@@ -1,69 +1,106 @@
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  IconButton,
-  Box,
-  Button,
-  TextField
-} from "@mui/material";
+import { Box, Typography, Grid, Card, CardMedia, CardContent } from "@mui/material";
+import lami from './Лами.jpg';
+import okrash from './Окрашивание.jpg';
+import tatuaj from './Татуаж.jpg';
+import styles from './BrowsListing.module.scss';
+import { Link } from 'react-router-dom';
 
-import lami from './Лами.jpg'
-import okrash from './Окрашивание.jpg'
-import tatuaj from './Татуаж.jpg'
+const services = [
+  {
+    title: "Ламинирование",
+    image: lami,
+    items: ["Классическая коррекция", "Счастье для бровей"]
+  },
+  {
+    title: "Окрашивание",
+    image: okrash,
+    items: ["Осветление", "Протеиновая реконструкция"]
+  },
+  {
+    title: "Татуаж",
+    image: tatuaj,
+    items: ["Вельвет"]
+  }
+];
 
-import styles from './BrowsListing.module.scss'
+const BrowsListing = () => {
+  return (
+    <Box component="section" className={styles.brows}>
+      <Box sx={{ 
+        width: '100%', 
+        my: 4,
+        '& > div': {
+          backgroundColor: 'secondary.light',
+          height: '1px',
+          width: '85%',
+          mx: 'auto'
+        }
+      }}>
+        <Box />
+      </Box>
 
-const Lashes: React.FC = () => {
-    return(
-    <div className={styles.brows}>
-      {/* Разделитель */}
-      <Box 
-        sx={{
-          display: "flex", 
-          justifyContent: "center",
-          width: "100%",
-        }}
-      >
-          <Box
-            sx={{
-              height: "1px", 
-              backgroundColor: "#AF9284", 
-              width: "85%",
-            }}
-          />
-        </Box>
+      <Typography variant="h3" align="center" gutterBottom sx={{
+        fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' }
+      }}>
+        Оформление бровей
+      </Typography>
+      <Typography variant="subtitle1" align="center" gutterBottom sx={{
+        fontSize: { xs: '1.2rem', md: '1.5rem' }
+      }}>
+        от 300₽
+      </Typography>
 
-        <h3>Оформление бровей</h3>
-        <p>от 300₽</p>
-        <div className={styles.cards}>
-          <div className={styles.card}>
-            <img src={lami} alt="Ламинирование" />
-            <h4>Ламинирование</h4>
-            <ul>
-              <li>Классическая коррекция</li>
-              <li>Счастье для бровей</li>
-            </ul>
-          </div>
-          <div className={styles.card}>
-            <img src={okrash} alt="Окрашивание" />
-            <h4>Окрашивание</h4>
-            <ul>
-              <li>Осветление</li>
-              <li>Протеиновая реконструкция</li>
-            </ul>
-          </div>
-          <div className={styles.card}>
-            <img src={tatuaj} alt="Татуаж" />
-            <h4>Татуаж</h4>
-            <ul>
-              <li>Вельвет</li>
-            </ul>
-          </div>
-        </div>
-    </div>
-    );
-}
+      <Grid container spacing={{ xs: 2, md: 4 }} sx={{ px: '5%', py: 2 }}>
+        {services.map((service) => (
+          <Grid item xs={12} sm={6} md={4} key={service.title}>
+            <Card className={styles.card}>
+              <CardMedia
+                component="img"
+                height="240"
+                image={service.image}
+                alt={service.title}
+                sx={{
+                  objectFit: 'cover',
+                  height: { xs: 200, md: 240 }
+                }}
+              />
+              <CardContent>
+                <Typography className={styles.cardTitle}
+                  variant="h4" 
+                  component={Link}
+                  to={`/masters?category=Брови&service=${encodeURIComponent(service.title)}`}
+                  gutterBottom
+                  sx={{
+                    textDecoration: 'none',
+                    color: 'text.primary',
+                    fontStyle: 'italic',
+                    '&:hover': {
+                      color: 'secondary.main',
+                      transition: 'color 0.3s'
+                    }
+                  }}
+                >
+                  {service.title}
+                </Typography>
+                <Box component="ul" sx={{
+                  pl: 2,
+                  '& li': {
+                    textAlign: 'left',
+                    lineHeight: 1.5,
+                    color: 'text.secondary'
+                  }
+                }}>
+                  {service.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </Box>
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+    </Box>
+  );
+};
 
-export default Lashes;
-
+export default BrowsListing;

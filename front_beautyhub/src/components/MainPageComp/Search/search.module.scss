@@ -1,63 +1,198 @@
 .searchBox {
-    border: none;
-    margin-top: 5%;
-    max-width: 100%;
-    max-height: 100%;
-    padding: 10%;
-    padding-right: 45%;
+  background-color: primary-light;
+  margin: 2% auto 0;
+  padding: 4% 5%;
+  position: relative;
+  max-width: 1440px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 20px;
+  box-sizing: border-box;
+  margin-bottom: 10%;
 
-    .searchTitle {
-        font-size: 300%;
-        color: #4D4136;
-        margin-bottom: 7.5px; 
-        text-align: left;
+  .textContent {
+    max-width: 800px;
+    z-index: 2;
+    padding-right: 20px;
+  }
+
+  .searchTitle {
+    font-size: clamp(28px, 3vw, 56px);
+    color: #4D4136;
+    margin-bottom: clamp(15px, 2vw, 30px);
+    line-height: 1.15;
+    margin-top: 20%;
+
+    span {
+      display: block;
+      &:first-child {
+        margin-bottom: 0.25em;
+      }
+    }
+  }
+
+  .backgrpic {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-30%);
+    width: 45vw;
+    max-width: 700px;
+    min-width: 300px;
+    height: auto;
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .searchContainer {
+    max-width: 45vw;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    background-color: #f5ebe1;
+    padding: clamp(8px, 1vw, 16px);
+
+    .searchInput {
+      flex: 1;
+      margin-left: clamp(10px, 1.5vw, 20px);
+
+      input {
+        font-size: clamp(16px, 1.5vw, 20px);
+        padding: clamp(8px, 1vw, 12px) 0;
+        width: 100%;
+      }
+
+      ::placeholder {
+        font-size: clamp(14px, 1.3vw, 18px);
+      }
     }
 
-    .backgrpic{
-        display: flex;
-        position:absolute;
-        object-fit: cover; 
-        object-position: left; 
-        max-width: 40%;
-        min-height: 50%;
-        left: 60%;
-        top: 16%;
-        opacity: 0.5;   //непрозрачность
-        pointer-events: none;
+    .searchButton {
+      background-color: #E5CFB8;
+      border-radius: 8px;
+      padding: clamp(8px, 1vw, 12px);
+      min-width: clamp(40px, 4vw, 60px);
+      height: clamp(40px, 4vw, 60px);
+      margin-left: clamp(10px, 1.5vw, 20px);
+      transition: transform 0.2s;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      .searchIcon {
+        width: clamp(24px, 2.5vw, 32px);
+        height: clamp(24px, 2.5vw, 32px);
+      }
+    }
+  }
+
+  // ---------------------- MEDIA QUERIES В КОНЦЕ ----------------------
+
+  @media (max-width: 1440px) {
+    .backgrpic {
+      width: 45vw;
+    }
+  }
+
+  @media (max-width: 1280px) {
+    gap: 15px;
+    .backgrpic {
+      width: 45vw;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    grid-template-columns: auto 1fr;
+
+    .searchContainer {
+      max-width: 60vw;
+    }
+
+    .backgrpic {
+      width: 45vw;
+      opacity: 0.45;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .searchBox {
+        grid-template-columns: 1fr;
+        text-align: center;
+        justify-items: center;
+
+        .backgrpic {
+        position: static;
+        transform: none;
+        width: 45vw;
+        opacity: 0.5;
+        margin: 20px 0 0;
+        }
+
+        .textContent {
+        padding-right: 0;
+        }
+    }
+    }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+
+    .textContent {
+      padding-right: 0;
+    }
+
+    .backgrpic {
+      display: none;
+    }
+
+    .searchTitle {
+      font-size: clamp(22px, 5vw, 28px);
+      text-align: center;
     }
 
     .searchContainer {
-        display: flex;
-        align-items: center;
-        border-radius: 6px;
-        background-color: #f5ebe1; 
-        padding: 0.5%; 
-        font-size: 100%; 
-        .searchInput {
-            flex: 1;
-            margin-left: 2.5%; 
-            ::placeholder{
-                font-size: 100%;
-            }
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 8px;
+
+      .searchInput {
+        margin-left: 8px;
+
+        input {
+          font-size: 14px !important;
+          padding: 6px 0 !important;
         }
-        .searchButton {
-            background-color: #E5CFB8;
-            border-radius: 8px;
-            cursor: pointer;
-            height: 2rem;
-            width: 2rem; 
-            padding: 0; 
-            margin: 0.5%;
-            display: flex;
-            align-items: center; 
-            justify-content: center; 
-            box-sizing: border-box; 
-            .searchIcon {
-                height: 1.5rem;
-                width: 1.5rem;
-            }
+
+        ::placeholder {
+          font-size: 12px !important;
         }
+      }
+
+      .searchButton {
+        min-width: 32px !important;
+        height: 32px !important;
+        padding: 6px !important;
+        margin-left: 8px !important;
+
+        .searchIcon {
+          width: 18px !important;
+          height: 18px !important;
+        }
+      }
     }
+  }
+
+  @media (max-width: 400px) {
+    .searchContainer {
+      max-width: 90%;
+
+      .searchInput input {
+        font-size: 12px !important;
+      }
+    }
+  }
 }
-
-

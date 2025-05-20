@@ -1,82 +1,83 @@
-import { TextField, Button, Box, Typography,  } from "@mui/material";
-import styles from "./ProfileComp.module.scss";
-import profilePhoto from "./profilePhoto.png"
+import { Typography, Button, Box, Divider } from "@mui/material";
 import EditIcon from '@mui/icons-material/Edit';
-import temp from "./temp.png"
+import styles from "./ProfileComp.module.scss";
 
-const ProfileForm: React.FC = () => {
+const ProfileForm = () => {
   return (
-    <div className={styles.container}>
+    <Box className={styles.container}>
       <Typography variant="h2" className={styles.topperTitle}>
         Мой профиль
       </Typography>
 
-      {/* Разделитель */}
-            <Box 
-              sx={{
-                display: "flex", 
-                justifyContent: "center",
-                width: "100%",
-              }}
-            >
-              <Box
-                sx={{
-                  height: "1px", 
-                  backgroundColor: "#AF9284", 
-                  width: "100%",
-                }}
-              />
+      <Divider className={styles.divider} />
+
+      <Box className={styles.profileContainer}>
+        <Box component="figure" className={styles.photo}>
+          <img src="/profilePhoto.png" alt="Фото профиля" />
+        </Box>
+
+        <Box className={styles.info}>
+          <Typography variant="h6" className={styles.work}>
+            Мастер ногтевого сервиса, топ-мастер
+          </Typography>
+          <Typography variant="h4" className={styles.fio}>
+            Никитина Вероника
+          </Typography>
+          <Typography variant="subtitle1" className={styles.exp}>
+            Стаж 11 лет
+          </Typography>
+
+          <Box component="figure" className={styles.photoCarousel}>
+            {[...Array(5)].map((_, i) => (
+              <img key={i} src="/temp.png" alt={`Фото ${i+1}`} />
+            ))}
+          </Box>
+
+          <Box className={styles.serviceList}>
+            {[
+              { name: 'Аппаратный маникюр', price: 550 },
+              { name: 'Комбинированный маникюр', price: 550 },
+              { name: 'Классический маникюр', price: 450 },
+            ].map((service, i) => (
+              <Box key={i} className={styles.serviceRow}>
+                <Typography className={styles.serviceName}>
+                  {service.name}
+                </Typography>
+                <span className={styles.dots} />
+                <Typography className={styles.servicePrice}>
+                  {service.price} ₽
+                </Typography>
+              </Box>
+            ))}
+          </Box>
+
+          <Box className={styles.workAdress}>
+            <Typography variant="h6" className={styles.workName}>
+              Салон красоты "BeautyHub"
+            </Typography>
+            <Typography className={styles.fullAdress}>
+              г.Саратов, Волжский район, ул.Вольская 10А
+            </Typography>
+          </Box>
+
+          <Box className={styles.phoneNumber}>
+            <Typography className={styles.telText}>
+              Телефон для записи
+            </Typography>
+            <Box className={styles.phoneBox}>
+              <Typography className={styles.number}>
+                +7 (937) ХХХ-XXX
+              </Typography>
             </Box>
-      
-      <div className={styles.profileContainer} /*ячейка с профилем*/ > 
-        <figure className={styles.photo}>
-          <img src={profilePhoto} alt="Фото профиля"/>
-        </figure>
+          </Box>
+        </Box>
 
-          <div className={styles.info}>
-            <h3 className={styles.work}>Мастер ногтевого сервиса, топ-мастер</h3>
-            <h3 className={styles.fio} >Никитина Вероника</h3>
-            <h3 className={styles.exp} >Стаж 11 лет</h3>
-
-            <figure className={styles.photoCarousel}>
-              <img src={temp} alt="Фото 1"/>
-              <img src={temp} alt="Фото 2"/>
-              <img src={temp} alt="Фото 3"/>
-              <img src={temp} alt="Фото 4"/>
-              <img src={temp} alt="Фото 5"/>
-            </figure>
-
-            <div className={styles.serviceList}>
-              <h4 className={styles.service} >Аппаратный маникюр.......................................550 ₽</h4>
-              <h4 className={styles.service} >Комбинированный маникюр...........................550 ₽</h4>
-              <h4 className={styles.service} >Классический маникюр....................................450 ₽</h4>
-            </div>
-
-            <div className={styles.workAdress}>
-              <h3 className={styles.workName} >Салон красоты "BeautyHub"</h3>
-              <h3 className={styles.fullAdress} >г.Саратов, Волжский район, ул.Вольская 10А</h3>
-            </div>
-
-            <div className={styles.phoneNumber}>
-              <h4 className={styles.telText} >Телефон для записи</h4>
-              <div className={styles.phoneBox}>
-                <h4 className={styles.number} >+7 (937) ХХХ-XXX</h4>
-              </div>
-            </div>
-
-          </div>
-
-          <div >
-          <Button className={styles.editButton}>
-            <EditIcon className={styles.editIcon}/>
-            Редактировать
-          </Button>
-          </div>
-      </div>
-
-  </div>
-
-);
+        <Button className={styles.editButton} startIcon={<EditIcon />}>
+          Редактировать
+        </Button>
+      </Box>
+    </Box>
+  );
 };
 
 export default ProfileForm;

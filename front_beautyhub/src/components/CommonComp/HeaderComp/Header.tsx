@@ -3,7 +3,6 @@ import styles from './Header.module.scss';
 import {
   AppBar,
   Toolbar,
-  Typography,
   IconButton,
   Box,
   Menu,
@@ -14,7 +13,6 @@ import { HeaderProps } from "./HeaderProps";
 import HeartIcon from "@mui/icons-material/FavoriteBorder";
 import UserIcon from '@mui/icons-material/PersonOutlineOutlined';
 import React, { useState, MouseEvent } from 'react';
-import createTheme from '@mui/material/styles';
 
 const HeaderBar: React.FC<HeaderProps> = () => {
   const location = useLocation();
@@ -24,7 +22,6 @@ const HeaderBar: React.FC<HeaderProps> = () => {
     location.pathname === path ? styles.active : "";
 
   // Состояния для меню
-  const [LogoMenuAnchor, setLogoMenuAnchor] = useState<null | HTMLElement>(null);
   const [heartMenuAnchor, setHeartMenuAnchor] = useState<null | HTMLElement>(null);
   const [userMenuAnchor, setUserMenuAnchor] = useState<null | HTMLElement>(null);
 
@@ -64,7 +61,6 @@ const HeaderBar: React.FC<HeaderProps> = () => {
           >
             <MenuItem onClick={() => { navigate('/profile'); handleMenuClose(setHeartMenuAnchor); }} >Профиль</MenuItem>
             <MenuItem onClick={() => { navigate('/settings'); handleMenuClose(setHeartMenuAnchor); }} >Настройки</MenuItem>
-            <MenuItem onClick={() => { navigate('/main'); handleMenuClose(setHeartMenuAnchor); }} >Выход</MenuItem>
             {/* Разделитель */}
               <Box 
                 sx={{

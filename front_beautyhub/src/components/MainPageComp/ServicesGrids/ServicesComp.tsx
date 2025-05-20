@@ -57,7 +57,6 @@ const Services = () => {
         {services.map((service, index) => (
           <Grid item sm={4} key={index} className={styles.serviceItem}>
             <Box className={styles.card}>
-
             {service.title === "Маникюр" || service.title === "Брови" || service.title === "Ресницы" ? (
               <Link
                 to={`/categories#${anchors[service.title]}`} // динамически подставляем якорь
@@ -85,18 +84,18 @@ const Services = () => {
               </Typography>
             </Box>
             <Box className={styles.textWrapper}>
-              <ul className={styles.descriptionList}> {/*список для подзаголовка*/}
+              <Typography className={styles.descriptionList}> {/*список для подзаголовка*/}
                 {service.description.map((item, idx) => (
                   <li key={idx}>{item}</li>
                 ))}
-              </ul>
-              <ul className={styles.extraList}> {/*продолжение рядов подзаголовков*/}
+              </Typography>
+              <Typography className={styles.extraList}> {/*продолжение рядов подзаголовков*/}
                 {service.extras.map((item, idx) => (
                   <li key={idx} className={styles.extraItem}>
                     {item}
                   </li>
                 ))}
-              </ul>
+              </Typography>
             </Box>
           </Grid>
         ))}
