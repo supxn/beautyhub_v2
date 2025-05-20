@@ -17,6 +17,7 @@
   padding: 24px;
   min-width: 300px;
   color: #5c4033;
+  max-width: 400px;
 }
 
 .top {
@@ -40,14 +41,16 @@
   padding-right: 8px; // чтобы скролл не перекрывал текст
   margin-bottom: 15px;
   scrollbar-width: thin; // Firefox
-  scrollbar-color: #ccc transparent;
+  scrollbar-color: #6b5145 transparent;
+  flex-direction: column; // Основное изменение
+  gap: 12px; // Расстояние между элементами
 
   &::-webkit-scrollbar {
     width: 6px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #ccc;
+    background-color: #6b5145;
     border-radius: 4px;
   }
 }
@@ -58,14 +61,49 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  margin: 0 !important; // Сбрасываем стандартные отступы
+  width: 100%;
+  
+  .MuiFormControlLabel-label {
+    width: 100%;
+    margin-left: 8px;
+  }
+
+  .MuiCheckbox-root {
+    color: #6b5145 !important;
+    
+    &.Mui-checked {
+      color: #5c4033 !important;
+    }
+    
+    .MuiSvgIcon-root {
+      font-size: 28px;
+    }
+  }
+  
+  .MuiRadio-root {
+    color: #6b5145 !important;
+    
+    &.Mui-checked {
+      color: #5c4033 !important;
+    }
+    
+    .MuiSvgIcon-root {
+      font-size: 28px;
+    }
+  }
 }
 
 .apply {
   width: 100%;
-  background: #d7c2b4;
   border: none;
   padding: 10px;
   font-size: 16px;
   cursor: pointer;
   border-radius: 6px;
+  margin-top: 20px;
+  background-color: #5c4033;
+  &:hover {
+    background-color: #6b5145;
+  }
 }

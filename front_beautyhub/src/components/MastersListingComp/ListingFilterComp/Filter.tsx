@@ -6,7 +6,7 @@ import {
 import FilterIcon from '@mui/icons-material/Tune';
 import styles from './Filter.module.scss'
 import { useState } from 'react';
-import FilterModal from "../../UI/FilterModal/FilterModal";
+import FilterModal from "../../FilterModal/FilterModal";
 import { FilterState } from "../../../types";
 import { CategoryList } from '../../../pages/listing masters/DataCategory';
 import { useSearchParams } from 'react-router-dom';

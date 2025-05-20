@@ -1,10 +1,25 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { TextField, Button, Box, Typography, Link, Alert } from "@mui/material";
+import { TextField, Button, Box, Typography, Link, Alert, RadioGroup,
+  FormLabel,
+  FormControl, FormControlLabel, Radio } from "@mui/material";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { signUp } from "../../../api/auth";
-import {SignUpRequest} from '../../../types/auth';
+import {SignUpRequest} from '../../../api/types/auth';
 import "./RegisterComp.scss";
+
+const SquareIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <rect x="2" y="2" width="20" height="20" rx="4" fill="white" stroke="#8C7062" strokeWidth="2"/>
+  </svg>
+);
+
+const CheckedSquareIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <rect x="2" y="2" width="20" height="20" rx="4" fill="#6B584D" stroke="#6B584D" strokeWidth="2"/>
+    <path d="M7 12L10.5 15.5L17 9" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+  </svg>
+);
 
 const RegisterForm = () => {
   const navigate = useNavigate();
@@ -29,6 +44,89 @@ const RegisterForm = () => {
       {error && <Alert severity="error" sx={{ mb: 2 }}>{error}</Alert>}
 
       <form onSubmit={handleSubmit(onSubmit)}>
+        {/* Добавляем блок выбора роли */}
+        <FormControl 
+  component="fieldset" 
+  fullWidth 
+  sx={{ 
+    mb: 3,
+    p: 2,
+    backgroundColor: '#EFE5DC',
+    borderRadius: '8px',
+    border: '1px solid #D2BEB3'
+  }}
+>
+  <FormLabel component="legend" sx={{ 
+    color: '#6B584D', 
+    fontWeight: 500,
+    fontSize: '1rem',
+    mb: 1
+  }}>
+    Выберите тип аккаунта
+  </FormLabel>
+  
+  <RadioGroup row sx={{ gap: 4, mt: 1 }}>
+    <FormControlLabel
+      value="client"
+      control={
+        <Radio 
+          {...register('role', { required: true })}
+          icon={<SquareIcon />}
+          checkedIcon={<CheckedSquareIcon />}
+          sx={{
+            color: '#8C7062',
+            '&.Mui-checked': { color: '#6B584D' },
+            padding: 0,
+            mr: 1
+          }}
+        />
+              }
+              label="Клиент"
+              sx={{ 
+                color: '#6B584D',
+                margin: 0,
+                '& .MuiFormControlLabel-label': {
+                  fontSize: '1rem',
+                  fontWeight: 500
+                }
+              }}
+            />
+            
+            <FormControlLabel
+              value="master"
+              control={
+                <Radio 
+                  {...register('role', { required: true })}
+                  icon={<SquareIcon />}
+                  checkedIcon={<CheckedSquareIcon />}
+                  sx={{
+                    color: '#8C7062',
+                    '&.Mui-checked': { color: '#6B584D' },
+                    padding: 0,
+                    mr: 1
+                  }}
+                />
+              }
+              label="Мастер"
+              sx={{ 
+                color: '#6B584D',
+                margin: 0,
+                '& .MuiFormControlLabel-label': {
+                  fontSize: '1rem',
+                  fontWeight: 500
+                }
+              }}
+            />
+          </RadioGroup>
+          
+          {errors.role && (
+            <Typography variant="caption" color="error" sx={{ mt: 1 }}>
+              Выберите тип аккаунта
+            </Typography>
+          )}
+        </FormControl>
+
+      
         <TextField
           label="Имя"
           variant="outlined"

@@ -6,7 +6,7 @@ export interface SignUpRequest {
   username: string;
   password: string;
   city: string;
-  role: "CLIENT" | "MASTER"; 
+  role: "client" | "master"; 
 }
 
 export interface SignInRequest {

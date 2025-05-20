@@ -1,6 +1,120 @@
 .container {    
     justify-content: center;
     padding: 0;
+
+    @media (max-width: 1200px) {
+        .topperTitle {
+            font-size: 180%;
+            padding-left: 8%;
+        }
+
+        .textContainer {
+            margin-left: 8%;
+            margin-right: 8%;
+
+            .policy1Title {
+                font-size: 40px;
+            }
+
+            .policyText {
+                font-size: 20px;
+            }
+        }
+    }
+
+    @media (max-width: 992px) {
+        .topperTitle {
+            font-size: 160%;
+            padding-left: 6%;
+        }
+
+        .textContainer {
+            margin-left: 6%;
+            margin-right: 6%;
+
+            .policy1Title {
+                font-size: 36px;
+                padding-bottom: 1.2rem;
+            }
+
+            .policyText {
+                font-size: 18px;
+            }
+
+            .gridContainerNum6 {
+                grid-template-columns: 1fr 40px 1fr;
+                grid-row-gap: 10px;
+                padding: 15px;
+
+                > div {
+                    padding: 12px;
+                }
+
+                .arrowCell svg {
+                    width: 24px !important;
+                    height: 24px !important;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .topperTitle {
+            font-size: 140%;
+            padding-left: 5%;
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+        }
+
+        .textContainer {
+            margin: 1.5rem 5%;
+
+            .policy1Title {
+                font-size: 28px;
+                padding-top: 1.5rem;
+                padding-bottom: 1rem;
+            }
+
+            .policyText {
+                font-size: 16px;
+                line-height: 1.5;
+            }
+
+            .gridContainerNum6 {
+                grid-template-columns: 1fr;
+                grid-row-gap: 8px;
+                padding: 10px;
+
+                > div {
+                    padding: 10px;
+                }
+
+                .arrowCell {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        .topperTitle {
+            font-size: 120%;
+            padding-left: 4%;
+        }
+
+        .textContainer {
+            margin-left: 4%;
+            margin-right: 4%;
+
+            .policy1Title {
+                font-size: 24px;
+            }
+
+            .policyText {
+                font-size: 14px;
+            }
+        }
+    }
 }
 
 .topperTitle {
@@ -38,31 +152,27 @@
 
     .gridContainerNum6{
         display: grid;
-        grid-template-columns: 1fr 60px 1fr; // три столбца: левый, стрелка, правый
+        grid-template-columns: 1fr 60px 1fr;
         grid-template-rows: repeat(4, 1fr);
         grid-column-gap: 15px;
         grid-row-gap: 15px;
-        
         padding: 20px;
-        border: 1px solid #c59d8b; // Цвет обводки всей сетки
-        border-radius: 8px; // Опционально, для скруглений
-        background-color: #fdf8f5; // Мягкий фон, если нужен
+        border: 1px solid #c59d8b;
+        border-radius: 8px;
+        background-color: #fdf8f5;
+
+        > div {
+            border: 1.5px solid #c59d8b;
+            padding: 16px;
+            border-radius: 6px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .arrowCell {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     }
-    .gridContainerNum6 > div {
-        border: 1.5px solid #c59d8b; // Цвет рамки каждой ячейки
-        padding: 16px;
-        border-radius: 6px;
-        background-color: #ffffff; // Можно убрать или оставить по стилю
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); // Тень, по желанию
-      }
-      .arrowCell {
-        display: flex;
-        align-items: center;      // Центрирует по вертикали
-        justify-content: center;  // Центрирует по горизонтали
-      }
-      
 }
-
-
-
-

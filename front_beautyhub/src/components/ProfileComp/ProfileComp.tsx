@@ -1,6 +1,8 @@
-import { Typography, Button, Box, Divider } from "@mui/material";
+import { Typography, Button, Box, Divider, Rating } from "@mui/material";
 import EditIcon from '@mui/icons-material/Edit';
 import styles from "./ProfileComp.module.scss";
+import profilePhoto from './profilePhoto.png';
+import temp from './temp.png';
 
 const ProfileForm = () => {
   return (
@@ -13,7 +15,20 @@ const ProfileForm = () => {
 
       <Box className={styles.profileContainer}>
         <Box component="figure" className={styles.photo}>
-          <img src="/profilePhoto.png" alt="Фото профиля" />
+          <img src={profilePhoto} alt="Фото профиля" />
+          <Box className={styles.ratingContainer}>
+            <Rating 
+              value={4.5} 
+              precision={0.5} 
+              readOnly 
+              sx={{ 
+                '& .MuiRating-icon': { color: '#d4af37' }
+              }}
+            />
+            <Typography variant="body2" className={styles.ratingText}>
+              4.5 (128 отзывов)
+            </Typography>
+          </Box>
         </Box>
 
         <Box className={styles.info}>
@@ -29,7 +44,7 @@ const ProfileForm = () => {
 
           <Box component="figure" className={styles.photoCarousel}>
             {[...Array(5)].map((_, i) => (
-              <img key={i} src="/temp.png" alt={`Фото ${i+1}`} />
+              <img key={i} src={temp} alt={`Фото ${i+1}`} />
             ))}
           </Box>
 
@@ -72,7 +87,12 @@ const ProfileForm = () => {
           </Box>
         </Box>
 
-        <Button className={styles.editButton} startIcon={<EditIcon />}>
+        <Button 
+          className={styles.editButton} 
+          variant="outlined"
+          startIcon={<EditIcon />}
+          onClick={() => console.log('Edit clicked')}
+        >
           Редактировать
         </Button>
       </Box>
