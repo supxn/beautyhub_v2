@@ -1,7 +1,11 @@
 body {
-  font-family: 'Inter', sans-serif;
-  font-weight: 300;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 400;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.custom-element {
+  font-family: 'Inter', sans-serif !important;
 }

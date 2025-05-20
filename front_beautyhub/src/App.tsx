@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Footer from './components/CommonComp/FooterComp/Footer'
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './styles/theme';
+import { CssBaseline } from '@mui/material';
 
 import MainPage from './pages/mainPage/mainPage'
 import LoginPage from './pages/inlet/inlet'
@@ -18,6 +19,7 @@ import FavouritesPage from './pages/favourites/favourites'
 const AppContent: React.FC = () => {
   return(
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <Router>
         <Header/>
         <Routes>
