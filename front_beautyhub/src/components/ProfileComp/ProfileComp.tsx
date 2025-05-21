@@ -9,7 +9,21 @@ const ProfileForm = () => {
         Мой профиль
       </Typography>
 
-      <Divider className={styles.divider} />
+      <Box 
+        sx={{
+          display: "flex", 
+          justifyContent: "center",
+          width: "100%",
+        }}
+      >
+        <Box
+          sx={{
+            height: "0.5px", 
+            backgroundColor: "#AF9284", 
+            width: "100%",
+          }}
+        />
+      </Box>
 
       <Box className={styles.profileContainer}>
         <Box component="figure" className={styles.photo}>
@@ -72,9 +86,11 @@ const ProfileForm = () => {
           </Box>
         </Box>
 
-        <Button className={styles.editButton} startIcon={<EditIcon/>}>
-          Редактировать
-        </Button>
+        <div className={styles.editButtonWrap}>
+          <Button className={styles.editButton} startIcon={<EditIcon/>}>
+            Редактировать
+          </Button>
+        </div>
       </Box>
     </Box>
   );
