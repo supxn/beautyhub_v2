@@ -1,5 +1,6 @@
 package com.example.profileservice.master.dto;
 
+import com.example.profileservice.master.entity.CategoryType;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -21,6 +22,12 @@ public class MasterProfileResponseDTO {
     private String specialization;
     private List<String> workPhotos;
     private List<String> certificatePhotos;
+    private Integer experience;
+    private String address;
+    private String gender; // или использовать Enum
+    private String acceptSAt;
+    private List<CategoryType> categories;
+    private Boolean hasReviews;
 
 }
 
