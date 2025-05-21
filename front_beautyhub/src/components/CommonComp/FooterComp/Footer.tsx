@@ -15,7 +15,12 @@ const Footer = () => {
                 <Typography className={styles.body1} variant="body1">Мы в соцсетях</Typography>
                 <div className={styles.icons}>{/*поместить сюда иконки соцсетей (есть в дизайне)*/}</div>
 
-                <Typography className={styles.body1} variant="body1">г. Саратов, ул. Вольская, 10А</Typography>
+                <Link
+                  to={`https://yandex.ru/maps/-/CHv3eILi`} //
+                  className={styles.link}
+                >
+                  <Typography className={styles.body1} variant="body1">г. Саратов, ул. Вольская, 10А</Typography>
+                </Link> 
                 <Typography className={styles.body1} variant="body1">+7 (937) Х-ХХХ-ХХХ</Typography>
                 <Typography className={styles.body1} variant="body1">ежедневно с 9:00 до 21:00</Typography>
               </Box>
@@ -26,18 +31,41 @@ const Footer = () => {
               <Box className={styles.footerText}>
                 <Typography variant="h5">О нас</Typography>
                 <ul>
-                  <li><Typography className={styles.body1} variant="body1" >Акции</Typography></li>
-                  <li><Typography className={styles.body1} variant="body1" >Новости</Typography></li>
-                  <li><Typography className={styles.body1} variant="body1" >Помощь</Typography></li>
-                  <li><Typography className={styles.body1} variant="body1" >О проекте</Typography></li>
-                  <li><Typography className={styles.body1} variant="body1" >Отзывы о проекте</Typography></li>
-                  <Link
-                    to={`/privacy-policy`} // динамически подставляем якорь
-                    className={styles.link}
-                    style={{ display: 'block' }} // чтобы картинка была кликабельной по всей области
-                    >
-                       <li><Typography className={styles.body1} variant="body1">Политика конфиденциальности</Typography></li>
-                  </Link>
+                  <li>
+                    <Link to={`/sales`} className={styles.link}>
+                      <Typography className={styles.body1} variant="body1">Акции</Typography>
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link to={`/news`} className={styles.link}>
+                      <Typography className={styles.body1} variant="body1">Новости</Typography>
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link to={`/help`} className={styles.link}>
+                      <Typography className={styles.body1} variant="body1">Помощь</Typography>
+                    </Link>
+                  </li>
+                  
+                  <li>
+                    <Link to={`/about-project`} className={styles.link}>
+                      <Typography className={styles.body1} variant="body1" >О проекте</Typography>
+                    </Link>
+                  </li>
+                  
+                  <li>
+                    <Link to={`/project-reviews`} className={styles.link}>
+                      <Typography className={styles.body1} variant="body1" >Отзывы о проекте</Typography>
+                    </Link>
+                  </li>
+                  
+                  <li>
+                    <Link to={`/privacy-policy`} className={styles.link}>
+                       <Typography className={styles.body1} variant="body1">Политика конфиденциальности</Typography>
+                    </Link>
+                  </li>
                 </ul>
               </Box>
             </Grid>
