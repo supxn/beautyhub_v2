@@ -116,14 +116,20 @@
   padding-bottom: 2%;
 }
 
+.extraTitleWrap{
+  display: flex;
+  flex-direction: row;
+  
+  padding-top: 3%;
+  padding-left: 1rem;
+  padding-bottom: 3%;
+}
+
 .extraTitle {
   font-size: clamp(18px, 2.2vw, 26px);
   color: #000000;
   text-align: left;
   padding: 0;
-  padding-top: 3%;
-  padding-left: 1rem;
-  padding-bottom: 3%;
 }
 
 @media screen and (max-width: 769px) {

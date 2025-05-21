@@ -164,6 +164,12 @@
         }
     }
 
+    .editButtonWrap{
+        display: grid;
+        grid-template-rows: 11% auto;
+        align-items: flex-start;
+    }
+
     .editButton{
         display: flex;
         margin-top: 2.5rem;
@@ -187,6 +193,7 @@
         margin-right: 6%;
         //width: 80%;
     }
+
     
 }
 

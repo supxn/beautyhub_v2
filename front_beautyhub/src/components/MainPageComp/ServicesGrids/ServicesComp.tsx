@@ -87,49 +87,77 @@ const Services = () => {
               </Typography>
             </Box>
             <Box className={styles.textWrapper}>
-              <ul className={styles.descriptionList}> {/* список подзаголовков */}
+              <ul className={styles.descriptionList}>
                 {service.description.map((item, idx) => {
-                  const urlTitle = service.title;
+                  if (item === "Еще...") {
+                    return (
+                      <li key={idx}>
+                        <Link to={`/categories#${anchors[service.title]}`} className={styles.link}>
+                          {item}
+                        </Link>
+                      </li>
+                    );
+                  }
+
+                  let categoryParam = "";
+                  switch (service.title) {
+                    case "Брови":
+                      categoryParam = "Оформление бровей";
+                      break;
+                    case "Ресницы":
+                      categoryParam = "Оформление ресниц";
+                      break;
+                    default:
+                      categoryParam = service.title;
+                  }
+
+                  const encodedCategory = encodeURIComponent(categoryParam).replace(/%20/g, '+');
+                  const encodedService = encodeURIComponent(item).replace(/%20/g, '+');
+
+                  const link = `/masters?category=${encodedCategory}&service=${encodedService}`;
+
                   return (
                     <li key={idx}>
-                      <Link
-                        to={`/masters?category=${encodeURIComponent(urlTitle)}&service=${encodeURIComponent(item.replace(/\s+/g, '+'))}`}
-                        className={styles.link}
-                      >
+                      <Link to={link} className={styles.link}>
                         {item}
                       </Link>
-
                     </li>
                   );
                 })}
               </ul>
+
+
               
-              <ul className={styles.extraList}> {/* продолжение рядов подзаголовков */}
-                {service.extras.map((item, idx) => {
-                  const urlTitle = service.title;
-                  return (
-                    <li key={idx} className={styles.extraItem}>
-                      <Link
-                        to={`/masters?category=${encodeURIComponent(item)}`}
-                        className={styles.link}
-                      >
-                        {item}
-                      </Link>
+                <ul className={styles.extraList}> {/* продолжение рядов подзаголовков */}
+                  {service.extras.map((item, idx) => {
+                    const urlTitle = service.title;
+                    return (
+                      <li key={idx} className={styles.extraItem}>
+                        <Link
+                          to={`/masters?category=${encodeURIComponent(item)}`}
+                          className={styles.link}
+                        >
+                          {item}
+                        </Link>
 
-                    </li>
-                  );
-                })}
-              </ul>
+                      </li>
+                    );
+                  })}
+                </ul>
             </Box>
           </Grid>
         ))}
       </Grid>
 
-      <Link to={`/categories#`} className={styles.link}>
+      <div className={styles.extraTitleWrap}>
+        <Link to={`/categories#`} className={styles.link}>
         <Typography variant="h5" className={styles.extraTitle}>
           Все услуги мастеров...
         </Typography>
       </Link>
+      <div></div>
+      </div>
+      
       
     </Box>
   );
