@@ -75,8 +75,21 @@ const Footer = () => {
               <Box className={styles.footerText}>
                 <Typography variant="h5">Для мастеров</Typography>
                 <ul>
-                  <li><Typography className={styles.body1} variant="body1">Документация</Typography></li>
-                  <li><Typography className={styles.body1} variant="body1">Зарегистрироваться</Typography></li>
+                  <li>
+                    <Link to={`/project-reviews`} className={styles.link}>
+                      <Typography className={styles.body1} variant="body1" >Документация</Typography>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to={`/login`} className={styles.link}>
+                      <Typography className={styles.body1} variant="body1" >Вход</Typography>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to={`/register`} className={styles.link}>
+                      <Typography className={styles.body1} variant="body1" >Зарегистрироваться</Typography>
+                    </Link>
+                  </li>
                   <li><Typography className={styles.body1} variant="body1">Пункт 3</Typography></li>
                   <li><Typography className={styles.body1} variant="body1">Пункт 4</Typography></li>
                   <li><Typography className={styles.body1} variant="body1">Пункт 5</Typography></li>
