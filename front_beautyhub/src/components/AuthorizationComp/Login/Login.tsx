@@ -65,17 +65,27 @@ const Login = () => {
             variant="contained" 
             fullWidth
             size="large"
+            sx={{textTransform: "none", fontSize: 20, fontWeight: "300", color: "rgba(140, 112, 98)", border: "none", borderRadius:2 ,bgcolor: 'rgba(175, 146, 132, 0.5)' ,'&:hover': {bgcolor: '#E9D9CC'}}}
+            disableElevation 
           >
-            Войти
+            Вход
           </Button>
         </Box>
       </form>
 
-      <Typography sx={{ mt: 2 }}>
-        Еще не зарегистрированы?{' '}
-        <Link component={RouterLink} to="/register">
-          Регистрация
-        </Link>
+      <Typography sx={{padding:0, margin:0, marginTop:2}}>
+        <Typography sx={{padding:0, paddingBottom:1, margin:0}}>Еще не зарегистрированы?</Typography>
+        <Button 
+            type="button"
+            variant="contained" 
+            fullWidth
+            size="large"
+            href="/register"
+            sx={{textTransform: "none", fontSize: 20, fontWeight: "300", color: "rgba(140, 112, 98)", border: "none", borderRadius:2 ,bgcolor: 'rgba(175, 146, 132, 0.25)' ,'&:hover': {bgcolor: '#E9D9CC'}}}
+            disableElevation 
+          >
+            Регистрация
+          </Button>
       </Typography>
     </Box>
   );

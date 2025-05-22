@@ -144,6 +144,7 @@
             
         }
 
+
         .serviceList {
             margin: 1.5rem 0;
 
@@ -161,6 +162,39 @@
                 }
             }
         }
+
+    .editButtonWrap{
+        display: grid;
+        grid-template-rows: 11% auto;
+        align-items: flex-start;
+    }
+
+    .editButton{
+        display: flex;
+        margin-top: 2.5rem;
+        margin-right: 2rem;
+        padding: 3%;
+        padding-left: 6%;
+        padding-right: 6%;
+        background-color: none;
+        color: #4F3427;
+        opacity: 70%;
+        border: none;
+        text-decoration: none;
+        
+    }
+    .editButton:hover {
+        color: #4F3427;
+        background-color: rgb(204 183 163 / 50%);
+    }
+
+    .editIcon{
+        margin-right: 6%;
+        //width: 80%;
+    }
+
+    
+}
 
         @media (max-width: 1200px) {
             // Только уменьшаем фото, остальное без изменений
