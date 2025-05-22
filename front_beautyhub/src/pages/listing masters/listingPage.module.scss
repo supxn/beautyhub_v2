@@ -1,0 +1,89 @@
+.container {
+  padding-top: 2%;
+  padding-left: 2%;
+  max-width: 1440px;
+  margin: 0 auto;
+  .header{
+    .title{
+      font-size: 150%;
+      padding-left: 6%;
+    }
+  }
+}
+
+.masters {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  padding: 20px 0;
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.notFound {
+  grid-column: 1 / -1;
+  font-size: 2rem;
+  color: #5c4033;
+  padding: 3rem 0;
+  text-align: center;
+  font-weight: 500;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+    padding: 2rem 0;
+  }
+}
+
+// Для компонента фильтров (добавить в отдельный файл при необходимости)
+.filter-panel {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+
+  .MuiButton-root {
+    text-transform: none;
+    font-weight: 500;
+    border-radius: 8px;
+    padding: 8px 16px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-1px);
+    }
+  }
+}
+
+// Адаптивные корректировки
+@media (max-width: 1024px) {
+  .masters {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .filter-panel {
+    padding: 1rem;
+    
+    .MuiStack-root {
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      
+      .MuiButton-root {
+        flex: 1 1 45%;
+        font-size: 0.9rem;
+        padding: 6px 12px;
+      }
+    }
+  }
+}
+

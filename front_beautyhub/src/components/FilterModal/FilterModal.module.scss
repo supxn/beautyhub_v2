@@ -4,106 +4,103 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 1300;
 }
 
 .inner {
-  background: #f7efe9;
-  border-radius: 12px;
+  background: #FFF9F5;
+  border-radius: 16px;
   padding: 24px;
-  min-width: 300px;
-  color: #5c4033;
+  width: 90%;
   max-width: 400px;
+  box-shadow: 0px 8px 24px rgba(92, 64, 51, 0.1);
 }
 
 .top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 12px;
+  margin-bottom: 24px;
+  
+  h2 {
+    color: #4F3427;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+  }
 }
 
 .closeBtn {
-  background: none;
-  border: none;
-  font-size: 24px;
-  color: #5c4033;
-  cursor: pointer;
+  color: #8C7062 !important;
+  padding: 4px !important;
+  min-width: auto !important;
+  
+  &:hover {
+    background: rgba(140, 112, 98, 0.1) !important;
+  }
 }
 
 .options {
-  max-height: 300px; // или любое значение, подходящее для твоего дизайна
-  overflow-y: auto;
-  padding-right: 8px; // чтобы скролл не перекрывал текст
-  margin-bottom: 15px;
-  scrollbar-width: thin; // Firefox
-  scrollbar-color: #6b5145 transparent;
-  flex-direction: column; // Основное изменение
-  gap: 12px; // Расстояние между элементами
+    display: flex;
+    flex-direction: column; // Главное изменение
+    gap: 12px; // Расстояние между пунктами
+    padding-right: 8px;
+    overflow-y: auto;
 
-  &::-webkit-scrollbar {
-    width: 6px;
-  }
+    .MuiFormControlLabel-root {
+      margin: 0;
+      width: 100%;
+      align-items: flex-start; // Выравнивание по левому краю
 
-  &::-webkit-scrollbar-thumb {
-    background-color: #6b5145;
-    border-radius: 4px;
-  }
-}
-
-
-.option {
-  font-size: 18px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin: 0 !important; // Сбрасываем стандартные отступы
-  width: 100%;
-  
-  .MuiFormControlLabel-label {
-    width: 100%;
-    margin-left: 8px;
-  }
-
-  .MuiCheckbox-root {
-    color: #6b5145 !important;
-    
-    &.Mui-checked {
-      color: #5c4033 !important;
+      .MuiButtonBase-root {
+        margin-top: -4px; // Корректировка позиции чекбокса
+      }
     }
-    
-    .MuiSvgIcon-root {
-      font-size: 28px;
-    }
+
+    // Убираем границы между элементами
+    border-bottom: none;
+    padding: 0;
   }
   
+  .MuiTypography-root {
+    font-size: 16px;
+    color: #4F3427;
+    font-weight: 400;
+  }
+  
+  .MuiCheckbox-root,
   .MuiRadio-root {
-    color: #6b5145 !important;
+    color: #B8A69B !important;
+    padding: 8px;
     
     &.Mui-checked {
-      color: #5c4033 !important;
+      color: #5C4033 !important;
     }
     
     .MuiSvgIcon-root {
-      font-size: 28px;
+      font-size: 24px;
     }
   }
+
+// Кастомный скроллбар
+.options::-webkit-scrollbar {
+  width: 6px;
 }
 
-.apply {
-  width: 100%;
-  border: none;
-  padding: 10px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 6px;
-  margin-top: 20px;
-  background-color: #5c4033;
+.options::-webkit-scrollbar-track {
+  background: #F7F1ED;
+  border-radius: 4px;
+}
+
+.options::-webkit-scrollbar-thumb {
+  background: #D6C9C1;
+  border-radius: 4px;
+  
   &:hover {
-    background-color: #6b5145;
+    background: #C5B5AC;
   }
 }

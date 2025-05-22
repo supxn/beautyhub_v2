@@ -1,0 +1,71 @@
+.panel {
+  padding: 2%;
+  margin-left: 4%;
+
+  .button {
+    color: black;
+    background-color: rgba(245, 235, 226, 1);
+  }
+
+  .MuiButton-root {
+    border: 2px solid #E0D7D3;
+    border-radius: 25px;
+    padding: 8px 20px;
+    background-color: rgb(229, 207, 184); // secondary.main из темы
+    font-weight: 500;
+    text-transform: none;
+    transition: all 0.3s ease;
+    min-width: 140px;
+
+    &:hover {
+      background-color: rgb(175, 146, 132); // 
+      border-color: #4F3427;
+    }
+  }
+
+  .MuiButton-containedError {
+    background-color: rgb(175, 146, 132); // secondary.light
+    color: #4F3427;
+    border: 2px solid #4F3427;
+
+    &:hover {
+      background-color: rgba(79, 52, 39, 0.8); // primary цвет с прозрачностью
+      color: white;
+    }
+  }
+
+  // Счетчики в кнопках фильтров
+  .MuiButton-outlined:not(.MuiButton-containedError) {
+    position: relative;
+    
+    &::after {
+      content: attr(data-count);
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #4F3427;
+      color: white;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+// Адаптация для мобильных
+@media (max-width: 768px) {
+  .panel {
+    padding: 12px;
+    
+    .MuiButton-root {
+      min-width: auto;
+      padding: 6px 16px;
+      font-size: 14px;
+    }
+  }
+}

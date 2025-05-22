@@ -36,7 +36,7 @@ const Login = () => {
           label="Логин или Email"
           variant="outlined"
           fullWidth
-          {...register('username', { required: 'Обязательное поле' })}
+          {...register('email', { required: 'Обязательное поле' })}
           error={!!errors.username}
           helperText={errors.username?.message}
           margin="normal"

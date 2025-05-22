@@ -67,7 +67,7 @@ const RegisterForm = () => {
   
   <RadioGroup row sx={{ gap: 4, mt: 1 }}>
     <FormControlLabel
-      value="client"
+      value="CLIENT"
       control={
         <Radio 
           {...register('role', { required: true })}
@@ -93,7 +93,7 @@ const RegisterForm = () => {
             />
             
             <FormControlLabel
-              value="master"
+              value="MASTER"
               control={
                 <Radio 
                   {...register('role', { required: true })}

@@ -1,7 +1,7 @@
 import { Typography, Button, Box } from "@mui/material";
 import HeartIcon from '@mui/icons-material/FavoriteBorder';
 import styles from "./Master.module.scss";
-import { MasterType } from "../../../types";
+import { MasterType } from "../../../api/types/dto";
 import { useState } from "react";
 
 interface ProfileFormProps {

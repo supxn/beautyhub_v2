@@ -86,7 +86,7 @@ const ManicureListing = () => {
                 <Typography className={styles.cardTitle}
                   variant="h4"
                   component={Link}
-                  to={`/masters?category=Маникюр&service=${encodeURIComponent(service.title)}`}
+                  to={`/listingmasters?category=Маникюр&service=${encodeURIComponent(service.title)}`}
                   gutterBottom
                   sx={{
                     textDecoration: 'none',
