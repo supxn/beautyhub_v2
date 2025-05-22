@@ -1,113 +1,92 @@
 .container {    
     justify-content: center;
     padding: 0;
-}
 
-.topperTitle {
-    font-size: 200%; 
-    text-align: left;
-    font-weight: bold;
-    color: #4F3427;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    padding-left: 10%;
-}
-
-.profileContainer{
-    display: grid;
-    grid-template-columns: 26% 55% auto;    //1-колонка под фото; 2-инфо; 3-редактировать
-    
-    flex-wrap: wrap;
-
-    width: 70%;
-    border: 2px solid #E5CFB8;
-    background-color: #f5ebe1;
-    border-radius: 15px;
-    margin: 50px auto;
-    text-align: center;
-
-    .photo{
-        overflow: hidden;
-        max-height: 300px;
-        max-width: 250px;
-        
-        //min-height: 100px;
-        min-width: 83px;
-        
-        border-radius: 0.7rem;
-        margin: 2.7rem;
-        
-        img{
-            width: 100%; 
-            height: 300px; 
-            object-fit: cover; 
-            object-position: center;    
-        }
+    .divider{
+        background-color:#E5CFB8;
     }
 
-    .info{
-        display: flex;
-        justify-content: left;
-        margin-top: 2.7rem;
-        margin-bottom: 2.7rem;
-        flex-direction: column;
+    .work{
+        padding-top: 8%;
+    }
+
+    .topperTitle {
+        font-size: 200%; 
+        text-align: left;
+        font-weight: bold;
         color: #4F3427;
-        h3{
-            font-size: 100%;
-            margin-top: 0%;
-            margin-bottom: 1%;
-        }
+        padding: 2rem 10%;
+    }
 
-        .work{
-            display: flex;
-            justify-content: left;
-            margin-top: 2.7rem;
-            font-size: 100%;
-            margin-top: 0%;
-            margin-bottom: 1%;
-        }
-        .fio{
-            display: flex;
-            justify-content: left;
-            margin-top: 2.7rem;
-            font-size: 200%;
-            margin-top: 0%;
-            margin-bottom: 1%;
-        }
-        .exp{
-            display: flex;
-            justify-content: left;
-            margin-top: 2.7rem;
-            font-size: 100%;
-            margin-top: 2%;
-            margin-bottom: 1%;
-        }
+    .profileContainer {
+        position: relative;
+        display: grid;
+        grid-template-columns: 26% 55% auto;
+        width: 70%;
+        border: 2px solid #E5CFB8;
+        background-color: #FAF0E8;
+        border-radius: 15px;
+        margin: 50px auto;
+        text-align: left; // Выравнивание всего текста по левому краю
+        
 
-        .photoCarousel{
+        .photo {
             overflow: hidden;
-            display: grid;
-            grid-template-columns: 20% 20% 20% 20% 20%;
-            margin: 0;
-            margin-top: 2%;
-            max-width: 380px;
-            img{
-                max-width: 65px;
-                border-radius: 0.3rem;
-                //min-height: 100%;
+            max-height: 380px;
+            max-width: 250px;
+            margin: 2.7rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 8px;
+
+            img {
+                width: 100%; 
+                height: 300px; 
+                object-fit: cover; 
+                object-position: center;    
+            }
+
+            .ratingContainer {
+                width: 100%;
+                padding: 1rem 0;
+                text-align: center;
+
+                .ratingText {
+                    margin-top: 8px;
+                    font-size: 14px;
+                    color: #6b4f3a;
+                }
             }
         }
 
-        .serviceList{
-            display: flex;
-            justify-content: left;
-            margin: 0;
+        .editButton {
             margin-top: 3%;
-            flex-direction: column;
-            .service{
-                display: flex;
-                justify-content: left;
-                margin:0;
-                margin-top: 1%;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 8px 16px;
+            border: 1px solid #4F3427 !important;
+            color: #4F3427 !important;
+            background-color: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s;
+            
+            &:hover {
+                background-color: rgba(204, 183, 163, 0.3);
+            }
+        }
+
+        .photoCarousel {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            margin: 1.5rem 0;
+
+            img {
+                width: 100%;
+                height: 80px;
+                object-fit: cover;
+                border-radius: 4px;
             }
         }
 
@@ -129,6 +108,7 @@
                 justify-content: left;
                 margin:0;
                 margin-top: 2%;
+                color:#6b4f3a;
             }
         }
 
@@ -137,6 +117,7 @@
             justify-content: left;
             margin: 0;
             margin-top: 5%;
+            margin-bottom: 5%;
             flex-direction: column;
 
             .telText{
@@ -162,7 +143,25 @@
             }
             
         }
-    }
+
+
+        .serviceList {
+            margin: 1.5rem 0;
+
+            .serviceRow {
+                display: flex;
+                justify-content: space-between;
+                align-items: baseline;
+                margin: 12px 0;
+                
+                .dots {
+                    flex-grow: 1;
+                    border-bottom: 2px dotted #4F3427;
+                    margin: 0 8px;
+                    height: 1em;
+                }
+            }
+        }
 
     .editButtonWrap{
         display: grid;
@@ -197,6 +196,99 @@
     
 }
 
+        @media (max-width: 1200px) {
+            // Только уменьшаем фото, остальное без изменений
+            .photo {
+                margin: 1.5rem;
+                max-width: 200px;
+                max-height: 300px;
+                
+                img {
+                    height: 250px;
+                }
+            }
+            // Скрываем текст кнопки
+            .editButton {
+            font-size: 0;  // Скрываем текст
+            padding: 8px;  // Оптимизируем размер кнопки
+            
+            .MuiButton-startIcon {
+                font-size: 1rem;  // Восстанавливаем размер иконки
+                margin-right: 0 !important;
+                margin-left: 0 !important;
+                }
+            }
+        }
 
 
+        @media (max-width: 1000px) {
+            padding:3%;
+            grid-template-columns: 1fr;
+            
+            .photo {
+                margin: 1rem auto;
+                width: 30vw;
+                height: 42vw;
+                
+                img {
+                    height: 250px;
+                }
+            }
+            
+            .photoCarousel {
+                grid-template-columns: repeat(3, 1fr);
+            }
 
+            .editButton {
+                font-size: 1rem !important;
+                padding: 8px 16px !important;
+                position: relative;
+                margin: 1rem auto;
+                display: flex;
+                align-items: center;
+                
+                .MuiButton-startIcon {
+                    margin-right: 8px !important;
+                }
+                
+                span:not(.MuiButton-startIcon) {
+                    display: inline-block !important;
+                    font-size: 1rem;
+                }
+            }
+        }
+
+
+        @media (max-width: 768px) {
+            padding:3%;
+            grid-template-columns: 1fr;
+            
+            .photo {
+                margin: 1rem auto;
+                max-width: 200px;
+                
+                img {
+                    height: 250px;
+                }
+            }
+            
+            .photoCarousel {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .editButton {
+                position: relative;
+                margin: 1rem auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            width: 95%;
+            padding:3%;
+            
+            .photoCarousel {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    }
+}

@@ -1,7 +1,7 @@
 import { Box, Typography, Grid, Card, CardMedia, CardContent } from "@mui/material";
-import lami from './Лами.jpg';
-import okrash from './Окрашивание.jpg';
-import tatuaj from './Татуаж.jpg';
+import lami from './files/Лами.jpg';
+import okrash from './files/Окрашивание.jpg';
+import tatuaj from './files/Татуаж.jpg';
 import styles from './BrowsListing.module.scss';
 import { Link } from 'react-router-dom';
 

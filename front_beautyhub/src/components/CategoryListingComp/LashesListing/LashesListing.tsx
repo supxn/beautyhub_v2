@@ -1,8 +1,8 @@
 import { Box, Typography, Grid, Card, CardMedia, CardContent } from "@mui/material";
 import { Link } from 'react-router-dom';
-import botox from './Ботокс.jpg';
-import laminir from './Ламинирование.jpg';
-import narachlash from './Наращивание.jpg';
+import botox from './files/Ботокс.jpg';
+import laminir from './files/Ламинирование.jpg';
+import narachlash from './files/Наращивание.jpg';
 import styles from './LashesListing.module.scss';
 
 const services = [

@@ -14,6 +14,51 @@
   }
 }
 
+.role-selector {
+  background-color: #EFE5DC;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border: 1px solid #D2BEB3;
+
+  legend {
+    color: #6B584D;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 0 8px;
+    margin-bottom: 8px;
+  }
+}
+
+.MuiRadio-root {
+  padding: 0 8px 0 0 !important;
+  
+  svg {
+    transition: all 0.2s ease;
+  }
+}
+
+.MuiFormControlLabel-label {
+  font-weight: 500 !important;
+  color: #6B584D !important;
+  font-size: 1rem !important;
+}
+
+.role-radio {
+  .MuiFormControlLabel-label {
+    color: #6B584D;
+    font-size: 1rem;
+  }
+
+  .MuiRadio-root {
+    color: #8C7062;
+    
+    &.Mui-checked {
+      color: #6B584D;
+    }
+  }
+}
+
 .register-title {
   font-size: 1.8rem;
   font-weight: 700;

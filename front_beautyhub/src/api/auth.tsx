@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {SignInRequest, SignUpRequest, AuthResponse} from '../types/auth';
+import {SignInRequest, SignUpRequest, AuthResponse} from './types/auth';
 
 const API = 'http://localhost:8084/api/v1/auth';
 

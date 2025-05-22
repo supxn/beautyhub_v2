@@ -11,7 +11,7 @@ import LoginPage from './pages/login/login'
 import RegisterPage from './pages/register/register'
 import ProfilePage from './pages/profile/profile'
 import CategoriesPage from './pages/listing categories/categories'
-import MastersPage from './pages/listing masters/masters'
+import ListingPage from './pages/listing masters/ListingPage'
 import SettingsPage from './pages/settings/settings'
 import PrivacyPolicyPage from './pages/privacyPolicy/privacyPolicy'
 import FavouritesPage from './pages/favourites/favourites'
@@ -31,7 +31,7 @@ const AppContent: React.FC = () => {
             <Route path="register" element={<RegisterPage/>}/>
             <Route path="profile" element={<ProfilePage/>}/>
             <Route path="categories" element={<CategoriesPage/>} />
-            <Route path="masters" element={<MastersPage/>} />
+            <Route path="listingmasters" element={<ListingPage/>} />
             <Route path="settings" element={<SettingsPage/>}/>
             <Route path="privacy-policy" element={<PrivacyPolicyPage/>}/>
             <Route path="favourites" element={<FavouritesPage/>}/>

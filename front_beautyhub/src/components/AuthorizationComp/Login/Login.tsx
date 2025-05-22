@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { TextField, Button, Box, Typography, Link, Alert } from "@mui/material";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
-import {SignInRequest } from "../../../types/auth";
+import {SignInRequest } from "../../../api/types/auth";
 import {signIn} from '../../../api/auth';
 import "./login.scss";
 
@@ -36,7 +36,7 @@ const Login = () => {
           label="Логин или Email"
           variant="outlined"
           fullWidth
-          {...register('username', { required: 'Обязательное поле' })}
+          {...register('email', { required: 'Обязательное поле' })}
           error={!!errors.username}
           helperText={errors.username?.message}
           margin="normal"

@@ -1,0 +1,106 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1300;
+}
+
+.inner {
+  background: #FFF9F5;
+  border-radius: 16px;
+  padding: 24px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0px 8px 24px rgba(92, 64, 51, 0.1);
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  
+  h2 {
+    color: #4F3427;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+  }
+}
+
+.closeBtn {
+  color: #8C7062 !important;
+  padding: 4px !important;
+  min-width: auto !important;
+  
+  &:hover {
+    background: rgba(140, 112, 98, 0.1) !important;
+  }
+}
+
+.options {
+    display: flex;
+    flex-direction: column; // Главное изменение
+    gap: 12px; // Расстояние между пунктами
+    padding-right: 8px;
+    overflow-y: auto;
+
+    .MuiFormControlLabel-root {
+      margin: 0;
+      width: 100%;
+      align-items: flex-start; // Выравнивание по левому краю
+
+      .MuiButtonBase-root {
+        margin-top: -4px; // Корректировка позиции чекбокса
+      }
+    }
+
+    // Убираем границы между элементами
+    border-bottom: none;
+    padding: 0;
+  }
+  
+  .MuiTypography-root {
+    font-size: 16px;
+    color: #4F3427;
+    font-weight: 400;
+  }
+  
+  .MuiCheckbox-root,
+  .MuiRadio-root {
+    color: #B8A69B !important;
+    padding: 8px;
+    
+    &.Mui-checked {
+      color: #5C4033 !important;
+    }
+    
+    .MuiSvgIcon-root {
+      font-size: 24px;
+    }
+  }
+
+// Кастомный скроллбар
+.options::-webkit-scrollbar {
+  width: 6px;
+}
+
+.options::-webkit-scrollbar-track {
+  background: #F7F1ED;
+  border-radius: 4px;
+}
+
+.options::-webkit-scrollbar-thumb {
+  background: #D6C9C1;
+  border-radius: 4px;
+  
+  &:hover {
+    background: #C5B5AC;
+  }
+}

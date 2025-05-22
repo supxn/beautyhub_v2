@@ -1,10 +1,10 @@
-import { TextField, Button, Box, Typography} from "@mui/material";
+import { Box, Typography} from "@mui/material";
 import styles from "./privacyPolicy.module.scss";
-import profilePhoto from "./profilePhoto.png"
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import temp from "./temp.png"
+import useScrollToTop from "../../hooks/scrollToTop";
 
 const ProfileForm: React.FC = () => {
+  useScrollToTop();
   return (
     <div className={styles.container}>
       <Typography variant="h2" className={styles.topperTitle}>
