@@ -16,7 +16,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -33,6 +32,7 @@ public class AuthService {
     private final TokenRepository tokenRepository;
     private final UserDetailsService userDetailsService;
     private final UserService userService;
+    private final UserRepository userRepository;
 
     public void register(SignUpRequest request) {
         User user = User.builder()
@@ -49,17 +49,33 @@ public class AuthService {
     }
 
     public AuthResponseDTO authenticate(AuthRequestDTO request) {
-        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
-                request.getUsername(), request.getPassword()
-        ));
+        // Проверка наличия хотя бы одного идентификатора
+        if ((request.getUsername() == null || request.getUsername().isBlank())
+                && (request.getEmail() == null || request.getEmail().isBlank())) {
+            throw new IllegalArgumentException("Необходимо указать имя пользователя или email");
+        }
 
-        User user = (User) userDetailsService.loadUserByUsername(request.getUsername());
+        String username;
+        if (request.getUsername() != null && !request.getUsername().isBlank()) {
+            username = request.getUsername();
+        } else {
+            User userByEmail = userRepository.findByEmail(request.getEmail())
+                    .orElseThrow(() -> new UsernameNotFoundException(
+                            "Пользователь с email " + request.getEmail() + " не найден"));
+            username = userByEmail.getUsername();
+        }
+
+        // Аутентификация
+        authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(username, request.getPassword())
+        );
+
+        User user = (User) userDetailsService.loadUserByUsername(username);
 
         String accessToken = jwtService.generateAccessToken(user);
         String refreshToken = jwtService.generateRefreshToken(user);
 
         revokeAllTokens(user);
-
         saveUserToken(accessToken, refreshToken, user);
 
         return new AuthResponseDTO(accessToken, refreshToken);
