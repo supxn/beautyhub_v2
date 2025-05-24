@@ -20,7 +20,7 @@
 
 .notFoundText{
     font-weight: bolder;
-    font-size: 2rem;
+    font-size: 3rem;
     color: #4F3427;
     padding: 0;
     margin: 0;
@@ -30,4 +30,15 @@
 .mainPageButton{
     font-size: 1rem;
     // тут ему ваще пофиг этой кнопке, все настройки в sx добавлять
+}
+
+@media (max-width: 700px){
+    .errorNumText{
+        font-size: 40vw;
+    }
+
+    .notFoundText{
+        font-size: 8vh;
+        text-align: center;
+    }
 }

@@ -2,21 +2,35 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { TextField, Button, Box, Typography, Link, Alert } from "@mui/material";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
-import {SignInRequest } from "../../../api/types/auth";
-import {signIn} from '../../../api/auth';
+import { SignInRequest } from "../../../api/types/auth";
+import { signIn } from '../../../api/service/auth';
 import "./login.scss";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { register, handleSubmit, formState: { errors } } = useForm<SignInRequest>();
+  const [loginInput, setLoginInput] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
 
-  const onSubmit = async (data: SignInRequest) => {
+  const isEmail = (value: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(value);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError(null);
+
     try {
-      await signIn({
-        ...data,
-        user_role: "CLIENT" // Или MASTER, в зависимости от логики приложения
-      });
+      let request: SignInRequest;
+      
+      if (isEmail(loginInput)) {
+        request = { email: loginInput, password };
+      } else {
+        request = { username: loginInput, password };
+      }
+
+      await signIn(request);
       navigate('/profile');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Ошибка авторизации');
@@ -31,15 +45,17 @@ const Login = () => {
 
       {error && <Alert severity="error" sx={{ mb: 2 }}>{error}</Alert>}
 
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit}>
         <TextField
-          label="Логин или Email"
+          label="Логин или почта"
           variant="outlined"
           fullWidth
-          {...register('email', { required: 'Обязательное поле' })}
-          error={!!errors.username}
-          helperText={errors.username?.message}
+          value={loginInput}
+          onChange={(e) => setLoginInput(e.target.value)}
+          error={!!error}
+          helperText={error}
           margin="normal"
+          required
         />
         
         <TextField
@@ -47,16 +63,13 @@ const Login = () => {
           type="password"
           variant="outlined"
           fullWidth
-          {...register('password', { 
-            required: 'Обязательное поле',
-            minLength: {
-              value: 9,
-              message: 'Минимум 9 символов'
-            }
-          })}
-          error={!!errors.password}
-          helperText={errors.password?.message}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          error={!!error}
+          helperText={error}
           margin="normal"
+          required
+          inputProps={{ minLength: 9 }}
         />
         
         <Box sx={{ mt: 3 }}>

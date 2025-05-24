@@ -4,7 +4,7 @@ import { TextField, Button, Box, Typography, Link, Alert, RadioGroup,
   FormLabel,
   FormControl, FormControlLabel, Radio } from "@mui/material";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
-import { signUp } from "../../../api/auth";
+import { signUp } from "../../../api/service/auth";
 import {SignUpRequest} from '../../../api/types/auth';
 import "./RegisterComp.scss";
 

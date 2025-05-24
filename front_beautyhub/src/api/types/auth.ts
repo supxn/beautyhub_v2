@@ -9,12 +9,9 @@ export interface SignUpRequest {
   role: "CLIENT" | "MASTER"; 
 }
 
-export interface SignInRequest {
-  username: string;
-  email: string;
-  password: string;
-  user_role: "CLIENT" | "MASTER";
-}
+export type SignInRequest = 
+  | { username: string; password: string }
+  | { email: string; password: string };
 
 export interface AuthResponse {
   accessToken: string;
