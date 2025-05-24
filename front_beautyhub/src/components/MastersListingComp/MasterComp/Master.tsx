@@ -3,6 +3,7 @@ import HeartIcon from '@mui/icons-material/FavoriteBorder';
 import styles from "./Master.module.scss";
 import { MasterType } from "../../../api/types/dto";
 import { useState } from "react";
+import temp from './temp.png';
 
 interface ProfileFormProps {
   master: MasterType;
@@ -35,7 +36,7 @@ const MasterProfile = ({ master, categoryOfMaster }: ProfileFormProps) => {
 
           <Box component="figure" className={styles.photoCarousel}>
             {[...Array(5)].map((_, i) => (
-              <img key={i} src="/temp.png" alt={`Фото ${i+1}`} />
+              <img key={i} src={temp} alt={`Фото ${i+1}`} />
             ))}
           </Box>
 

@@ -1,13 +1,11 @@
+/* Основные стили */
 .container {    
     justify-content: center;
-    padding: 0;
 
-    .divider{
-        background-color:#E5CFB8;
-    }
 
-    .work{
-        padding-top: 8%;
+    .divider {
+        background-color: #E5CFB8;
+        padding-bottom: 2%;
     }
 
     .topperTitle {
@@ -15,30 +13,29 @@
         text-align: left;
         font-weight: bold;
         color: #4F3427;
-        padding: 2rem 10%;
+        padding-left: 8%;
+        padding-top: 2%;
+        padding-bottom: 2%;
     }
 
     .profileContainer {
         position: relative;
         display: grid;
         grid-template-columns: 26% 55% auto;
+        gap:4%;
         width: 70%;
         border: 2px solid #E5CFB8;
         background-color: #FAF0E8;
         border-radius: 15px;
-        margin: 50px auto;
-        text-align: left; // Выравнивание всего текста по левому краю
-        
+        margin: 2% auto;
+        text-align: left;
 
         .photo {
-            overflow: hidden;
-            max-height: 380px;
-            max-width: 250px;
-            margin: 2.7rem;
             display: flex;
             flex-direction: column;
             align-items: center;
             border-radius: 8px;
+            margin-right: 2%;
 
             img {
                 width: 100%; 
@@ -48,15 +45,27 @@
             }
 
             .ratingContainer {
-                width: 100%;
-                padding: 1rem 0;
+                padding: 8%;
                 text-align: center;
 
                 .ratingText {
-                    margin-top: 8px;
-                    font-size: 14px;
+                    margin-top: 2%;
+                    font-size: 1.3vw;
                     color: #6b4f3a;
+                    line-height: 1.2;
+                    margin-bottom: 8%;
                 }
+            }
+        }
+
+        .info{
+            padding-top: 6%;
+            .fio {
+            font-size: 150%;
+            }
+
+            .exp {
+                font-size: 90%;
             }
         }
 
@@ -90,29 +99,31 @@
             }
         }
 
-        .workAdress{
+        .workAdress {
             display: flex;
             justify-content: left;
             margin: 0;
             margin-top: 5%;
             flex-direction: column;
-            .workName{
+
+            .workName {
                 display: flex;
                 justify-content: left;
-                margin:0;
+                margin: 0;
                 margin-top: 1%;
                 font-size: 120%;
             }
-            .fullAdress{
+
+            .fullAdress {
                 display: flex;
                 justify-content: left;
-                margin:0;
+                margin: 0;
                 margin-top: 2%;
-                color:#6b4f3a;
+                color: #6b4f3a;
             }
         }
 
-        .phoneNumber{
+        .phoneNumber {
             display: flex;
             justify-content: left;
             margin: 0;
@@ -120,14 +131,15 @@
             margin-bottom: 5%;
             flex-direction: column;
 
-            .telText{
+            .telText {
                 display: flex;
                 justify-content: left;
-                margin:0;
+                margin: 0;
                 margin-top: 1%;
                 font-size: 120%;
             }
-            .phoneBox{
+
+            .phoneBox {
                 display: flex;
                 background-color: rgb(204 183 163 / 50%);
                 max-width: 250px;
@@ -136,14 +148,13 @@
                 margin-top: 3%;
                 align-items: center;
                 justify-content: center;
-                .number{
-                    margin:0;
+
+                .number {
+                    margin: 0;
                     font-size: 120%;
                 }
             }
-            
         }
-
 
         .serviceList {
             margin: 1.5rem 0;
@@ -162,67 +173,48 @@
                 }
             }
         }
-
-    .editButtonWrap{
-        display: grid;
-        grid-template-rows: 11% auto;
-        align-items: flex-start;
     }
-
-    .editButton{
-        display: flex;
-        margin-top: 2.5rem;
-        margin-right: 2rem;
-        padding: 3%;
-        padding-left: 6%;
-        padding-right: 6%;
-        background-color: none;
-        color: #4F3427;
-        opacity: 70%;
-        border: none;
-        text-decoration: none;
-        
-    }
-    .editButton:hover {
-        color: #4F3427;
-        background-color: rgb(204 183 163 / 50%);
-    }
-
-    .editIcon{
-        margin-right: 6%;
-        //width: 80%;
-    }
-
-    
 }
 
-        @media (max-width: 1200px) {
-            // Только уменьшаем фото, остальное без изменений
-            .photo {
-                margin: 1.5rem;
-                max-width: 200px;
-                max-height: 300px;
-                
-                img {
-                    height: 250px;
-                }
-            }
-            // Скрываем текст кнопки
-            .editButton {
-            font-size: 0;  // Скрываем текст
-            padding: 8px;  // Оптимизируем размер кнопки
+/* Медиа-запросы */
+@media (max-width: 1200px) {
+    .profileContainer {
+        padding: 20px;
+        margin: 30px auto;
+        .photo {
+            margin: 1.5rem;
+            max-width: 200px;
+            max-height: 300px;
             
-            .MuiButton-startIcon {
-                font-size: 1rem;  // Восстанавливаем размер иконки
-                margin-right: 0 !important;
-                margin-left: 0 !important;
-                }
+            img {
+                height: 250px;
+            }
+
+            .ratingContainer .ratingText {
+                font-size: 1.5vw; // Адаптивный размер
             }
         }
 
+        .editButton {
+            font-size: 0;
+            padding: 8px;
+            
+            .MuiButton-startIcon {
+                font-size: 1rem;
+                margin-right: 0 !important;
+                margin-left: 0 !important;
+            }
+        }
+    }
+}
 
-        @media (max-width: 1000px) {
-            padding:3%;
+@media (max-width: 1000px) {
+    .container {
+        padding: 3%;
+        .profileContainer {
+            padding: 20px;
+            gap: 3%;
+            margin: 30px auto;
             grid-template-columns: 1fr;
             
             .photo {
@@ -244,8 +236,6 @@
                 padding: 8px 16px !important;
                 position: relative;
                 margin: 1rem auto;
-                display: flex;
-                align-items: center;
                 
                 .MuiButton-startIcon {
                     margin-right: 8px !important;
@@ -257,38 +247,117 @@
                 }
             }
         }
+    }
+}
 
+@media (max-width: 768px) {
+    .container {
+        .topperTitle {
+            font-size: 150%;
+        }
 
-        @media (max-width: 768px) {
-            padding:3%;
-            grid-template-columns: 1fr;
+        .profileContainer {
+            width: 90%;
+            padding: 20px;
+            margin: 30px auto;
             
             .photo {
-                margin: 1rem auto;
-                max-width: 200px;
-                
                 img {
-                    height: 250px;
+                    height: 200px;
+                }
+                .ratingContainer{
+                    .ratingText{
+                        font-size: 100%;
+                    }
                 }
             }
             
+            .info{
+                padding-top: 5%;
+            }
+
             .photoCarousel {
                 grid-template-columns: repeat(3, 1fr);
             }
 
+            .workName, .telText {
+                font-size: 90%;
+            }
+
             .editButton {
-                position: relative;
                 margin: 1rem auto;
             }
         }
+    }
+}
 
-        @media (max-width: 480px) {
+@media (max-width: 500px) {
+    .container {
+        .topperTitle {
+            font-size: 130%;
+            padding: 1rem 5%;
+        }
+
+        .profileContainer {
             width: 95%;
-            padding:3%;
-            
-            .photoCarousel {
-                grid-template-columns: repeat(2, 1fr);
+            padding: 15px;
+            grid-template-areas: "photo" "info";
+
+            .info{
+                padding-top: 10%;
             }
+            
+            .photo {
+                .ratingContainer {
+                    padding: 0.5rem;
+                    
+                    .ratingText {
+                        font-size: 3vw;
+                        
+                    }
+                }
+            }
+
+            .editButton {
+                width: 100%;
+                margin: 10px auto;
+            }
+
+            .photoCarousel {
+                grid-template-columns: repeat(3, 1fr);
+                
+                img {
+                    height: 60px;
+                }
+            }
+
+            .phoneBox {
+                height: 50px !important;
+                
+                .number {
+                    font-size: 100% !important;
+                }
+            }
+
+            .serviceName, .servicePrice {
+                font-size: 14px !important;
+            }
+
+            .fio {
+                font-size: 110% !important;
+            }
+
+            .work {
+                padding-top: 0 !important;
+            }
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .profileContainer {
+        .photoCarousel {
+            grid-template-columns: repeat(2, 1fr) !important;
         }
     }
 }

@@ -35,7 +35,7 @@ const AppContent: React.FC = () => {
             <Route path="settings" element={<SettingsPage/>}/>
             <Route path="privacy-policy" element={<PrivacyPolicyPage/>}/>
             <Route path="favourites" element={<FavouritesPage/>}/>
-            <Route path="notFound" element={<NotFoundPage/>}/> 
+            <Route path="*" element={<NotFoundPage/>}/> 
           </Route>
         </Routes>
         <Footer/>
