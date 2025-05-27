@@ -114,7 +114,7 @@ const Services = () => {
                   const encodedCategory = encodeURIComponent(categoryParam).replace(/%20/g, '+');
                   const encodedService = encodeURIComponent(item).replace(/%20/g, '+');
 
-                  const link = `/masters?category=${encodedCategory}&service=${encodedService}`;
+                  const link = `/listingmasters?category=${encodedCategory}&service=${encodedService}`;
 
                   return (
                     <li key={idx}>
