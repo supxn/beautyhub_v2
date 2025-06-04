@@ -20,5 +20,7 @@ public class Booking {
 
     private Long clientId;
     private LocalDateTime createdAt;
-    private String status; // CONFIRMED, CANCELLED, COMPLETED
+
+    @Enumerated(EnumType.STRING)
+    private BookingStatus status;
 }
