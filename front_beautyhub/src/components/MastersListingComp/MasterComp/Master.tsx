@@ -1,9 +1,15 @@
 import { Typography, Button, Box } from "@mui/material";
 import HeartIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import styles from "./Master.module.scss";
 import { MasterType } from "../../../api/types/dto";
 import { useState } from "react";
-import temp from './temp.png';
+import manik1 from './маник1.jpg';
+import manik2 from './маник2.jpg';
+import manik3 from './маник3.jpg';
+import manik4 from './маник4.jpg';
+import manik5 from './маник5.jpg';
+import { useFavourites } from './useFavourites';
 
 interface ProfileFormProps {
   master: MasterType;
@@ -12,8 +18,15 @@ interface ProfileFormProps {
 
 const MasterProfile = ({ master, categoryOfMaster }: ProfileFormProps) => {
   const [showAllServices, setShowAllServices] = useState(false);
-  const category = master.categories.find(cat => cat.category === categoryOfMaster);
-  const services = category?.services || [];
+  const { isFavourite, addFavourite, removeFavourite } = useFavourites();
+  let services: { name: string; price: number }[] = [];
+  if (!categoryOfMaster) {
+    // Нет фильтра — показываем все услуги всех категорий мастера
+    services = master.categories.flatMap(cat => cat.services);
+  } else {
+    const category = master.categories.find(cat => cat.category === categoryOfMaster);
+    services = category?.services || [];
+  }
   const displayedServices = showAllServices ? services.slice(0, 10) : services.slice(0, 3);
 
   return (
@@ -35,8 +48,8 @@ const MasterProfile = ({ master, categoryOfMaster }: ProfileFormProps) => {
           </Typography>
 
           <Box component="figure" className={styles.photoCarousel}>
-            {[...Array(5)].map((_, i) => (
-              <img key={i} src={temp} alt={`Фото ${i+1}`} />
+            {[manik1, manik2, manik3, manik4, manik5].map((img, i) => (
+              <img key={i} src={img} alt={`Фото маникюр ${i + 1}`} />
             ))}
           </Box>
 
@@ -54,7 +67,7 @@ const MasterProfile = ({ master, categoryOfMaster }: ProfileFormProps) => {
             ))}
 
             {services.length > 3 && (
-              <Button 
+              <Button
                 className={styles.showMore}
                 onClick={() => setShowAllServices(!showAllServices)}
               >
@@ -84,8 +97,12 @@ const MasterProfile = ({ master, categoryOfMaster }: ProfileFormProps) => {
           </Box>
         </Box>
 
-        <Button className={styles.heartButton}>
-          <HeartIcon fontSize="large" />
+        <Button className={styles.heartButton} onClick={() => {
+          isFavourite(master.phone) ? removeFavourite(master.phone) : addFavourite(master.phone);
+        }}>
+          {isFavourite(master.phone)
+            ? <FavoriteIcon fontSize="medium" style={{ fontSize: 36, color: '#d6004f' }} />
+            : <HeartIcon fontSize="medium" style={{ fontSize: 36 }} />}
         </Button>
       </Box>
     </Box>

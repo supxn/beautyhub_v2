@@ -1,10 +1,10 @@
-.container {    
+.container {
     justify-content: center;
     padding: 0;
 }
 
 .topperTitle {
-    font-size: 200%; 
+    font-size: 200%;
     text-align: left;
     font-weight: bold;
     color: #4F3427;
@@ -13,10 +13,10 @@
     padding-left: 10%;
 }
 
-.profileContainer{
+.profileContainer {
     display: grid;
-    grid-template-columns: 26% 55% auto;    //1-колонка под фото; 2-инфо; 3-редактировать
-    
+    grid-template-columns: 26% 55% auto; //1-колонка под фото; 2-инфо; 3-редактировать
+
     flex-wrap: wrap;
 
     width: 70%;
@@ -26,39 +26,40 @@
     margin: 50px auto;
     text-align: center;
 
-    .photo{
+    .photo {
         overflow: hidden;
         max-height: 300px;
         max-width: 250px;
-        
+
         //min-height: 100px;
         min-width: 83px;
-        
+
         border-radius: 0.7rem;
         margin: 2.7rem;
-        
-        img{
-            width: 100%; 
-            height: 300px; 
-            object-fit: cover; 
-            object-position: center;    
+
+        img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            object-position: center;
         }
     }
 
-    .info{
+    .info {
         display: flex;
         justify-content: left;
         margin-top: 2.7rem;
         margin-bottom: 2.7rem;
         flex-direction: column;
         color: #4F3427;
-        h3{
+
+        h3 {
             font-size: 100%;
             margin-top: 0%;
             margin-bottom: 1%;
         }
 
-        .work{
+        .work {
             display: flex;
             justify-content: left;
             margin-top: 2.7rem;
@@ -66,7 +67,8 @@
             margin-top: 0%;
             margin-bottom: 1%;
         }
-        .fio{
+
+        .fio {
             display: flex;
             justify-content: left;
             margin-top: 2.7rem;
@@ -74,7 +76,8 @@
             margin-top: 0%;
             margin-bottom: 1%;
         }
-        .exp{
+
+        .exp {
             display: flex;
             justify-content: left;
             margin-top: 2.7rem;
@@ -83,27 +86,29 @@
             margin-bottom: 1%;
         }
 
-        .photoCarousel{
+        .photoCarousel {
             overflow: hidden;
             display: grid;
             grid-template-columns: 20% 20% 20% 20% 20%;
             margin: 0;
             margin-top: 2%;
             max-width: 380px;
-            img{
-                max-width: 65px;
-                border-radius: 0.3rem;
-                //min-height: 100%;
+
+            img {
+                width: 60px;
+                height: 60px;
+                object-fit: cover;
+                border-radius: 8px;
             }
         }
 
-        .serviceList{
+        .serviceList {
             display: flex;
             justify-content: left;
             margin: 0;
             margin-top: 3%;
             flex-direction: column;
-            
+
             .showMore {
                 color: #d6004f;
                 font-weight: 500;
@@ -113,6 +118,7 @@
                 text-align: left;
                 display: block;
             }
+
             .service {
                 display: flex;
                 justify-content: left;
@@ -146,42 +152,45 @@
             }
         }
 
-        .workAdress{
+        .workAdress {
             display: flex;
             justify-content: left;
             margin: 0;
             margin-top: 5%;
             flex-direction: column;
-            .workName{
+
+            .workName {
                 display: flex;
                 justify-content: left;
-                margin:0;
+                margin: 0;
                 margin-top: 1%;
                 font-size: 120%;
             }
-            .fullAdress{
+
+            .fullAdress {
                 display: flex;
                 justify-content: left;
-                margin:0;
+                margin: 0;
                 margin-top: 2%;
             }
         }
 
-        .phoneNumber{
+        .phoneNumber {
             display: flex;
             justify-content: left;
             margin: 0;
             margin-top: 5%;
             flex-direction: column;
 
-            .telText{
+            .telText {
                 display: flex;
                 justify-content: left;
-                margin:0;
+                margin: 0;
                 margin-top: 1%;
                 font-size: 120%;
             }
-            .phoneBox{
+
+            .phoneBox {
                 display: flex;
                 background-color: rgb(204 183 163 / 50%);
                 max-width: 250px;
@@ -190,38 +199,44 @@
                 margin-top: 3%;
                 align-items: center;
                 justify-content: center;
-                .number{
-                    margin:0;
+
+                .number {
+                    margin: 0;
                     font-size: 120%;
                 }
             }
-            
+
         }
     }
 
-    .heartButton{
+    .heartButton {
         display: flex;
-        margin-top: 2.7rem;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2rem;
         margin-left: 1rem;
-        padding: 10%;
-        background-color: none;
+        padding: 4px;
+        background: none;
         color: #4F3427;
-        opacity: 70%;
+        opacity: 0.7;
         border: none;
         text-decoration: none;
-        
+        border-radius: 50%;
+        width: 3vw;
+        height: 3vw;
     }
+
     .heartButton:hover {
         color: #4F3427;
         background-color: #FAF0E8;
     }
 
-    .HeartIcon{
+    .HeartIcon {
         padding: auto;
         //margin-right: 6%;
         //width: 80%;
     }
-    
+
 }
 
 /* Медиа-запросы */
@@ -229,11 +244,12 @@
     .profileContainer {
         padding: 20px;
         margin: 30px auto;
+
         .photo {
             margin: 1.5rem;
             max-width: 200px;
             max-height: 300px;
-            
+
             img {
                 height: 250px;
             }
@@ -246,7 +262,7 @@
         .editButton {
             font-size: 0;
             padding: 8px;
-            
+
             .MuiButton-startIcon {
                 font-size: 1rem;
                 margin-right: 0 !important;
@@ -259,22 +275,23 @@
 @media (max-width: 1000px) {
     .container {
         padding: 3%;
+
         .profileContainer {
             padding: 20px;
             gap: 3%;
             margin: 30px auto;
             grid-template-columns: 1fr;
-            
+
             .photo {
                 margin: 1rem auto;
                 width: 30vw;
                 height: 42vw;
-                
+
                 img {
                     height: 250px;
                 }
             }
-            
+
             .photoCarousel {
                 grid-template-columns: repeat(3, 1fr);
             }
@@ -284,11 +301,11 @@
                 padding: 8px 16px !important;
                 position: relative;
                 margin: 1rem auto;
-                
+
                 .MuiButton-startIcon {
                     margin-right: 8px !important;
                 }
-                
+
                 span:not(.MuiButton-startIcon) {
                     display: inline-block !important;
                     font-size: 1rem;
@@ -308,19 +325,20 @@
             width: 90%;
             padding: 20px;
             margin: 30px auto;
-            
+
             .photo {
                 img {
                     height: 200px;
                 }
-                .ratingContainer{
-                    .ratingText{
+
+                .ratingContainer {
+                    .ratingText {
                         font-size: 100%;
                     }
                 }
             }
-            
-            .info{
+
+            .info {
                 padding-top: 5%;
             }
 
@@ -328,7 +346,8 @@
                 grid-template-columns: repeat(3, 1fr);
             }
 
-            .workName, .telText {
+            .workName,
+            .telText {
                 font-size: 90%;
             }
 
@@ -351,17 +370,17 @@
             padding: 15px;
             grid-template-areas: "photo" "info";
 
-            .info{
+            .info {
                 padding-top: 10%;
             }
-            
+
             .photo {
                 .ratingContainer {
                     padding: 0.5rem;
-                    
+
                     .ratingText {
                         font-size: 3vw;
-                        
+
                     }
                 }
             }
@@ -373,7 +392,7 @@
 
             .photoCarousel {
                 grid-template-columns: repeat(3, 1fr);
-                
+
                 img {
                     height: 60px;
                 }
@@ -381,13 +400,14 @@
 
             .phoneBox {
                 height: 50px !important;
-                
+
                 .number {
                     font-size: 100% !important;
                 }
             }
 
-            .serviceName, .servicePrice {
+            .serviceName,
+            .servicePrice {
                 font-size: 14px !important;
             }
 
@@ -409,5 +429,3 @@
         }
     }
 }
-
-

@@ -10,7 +10,7 @@ import { useFilter } from "../../hooks/useFilter";
 import { Typography, Divider, Box } from '@mui/material';
 
 const ListingPage = () => {
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const { filters, updateFilter, resetFilters, updateMultipleFilters } = useFilter({
     initialCategory: searchParams.get('category') || '',
     initialService: searchParams.get('service') || ''
@@ -20,6 +20,21 @@ const ListingPage = () => {
 
   const handleMultipleFilterChange = (updates: Partial<FilterState>) => {
     updateMultipleFilters(updates);
+    // Обновляем URL
+    const params: Record<string, string> = {};
+    if (updates.category) params.category = updates.category as string;
+    if (updates.service) params.service = updates.service as string;
+    if (updates.gender) params.gender = updates.gender as string;
+    if (updates.location) params.location = updates.location as string;
+    if (updates.rating && Array.isArray(updates.rating) && updates.rating.length > 0) params.rating = (updates.rating as string[]).join(',');
+    if (updates.experience && Array.isArray(updates.experience) && updates.experience.length > 0) params.experience = (updates.experience as string[]).join(',');
+    setSearchParams(params);
+  };
+
+  // Обработчик сброса фильтров и очистки URL
+  const handleResetAll = () => {
+    resetFilters();
+    setSearchParams({}); // очищаем query-параметры
   };
 
   return (
@@ -38,7 +53,7 @@ const ListingPage = () => {
         services={CategoryList}
         filters={filters}
         onFilterChange={updateFilter}
-        onReset={resetFilters}
+        onReset={handleResetAll}
         onMultipleFilterChange={handleMultipleFilterChange}
       />
 
@@ -68,10 +83,10 @@ const filterMasters = (masters: MasterType[], filters: FilterState) => {
   return masters.filter(master => {
     const experienceRange = getExperienceRange(master.experience);
 
-    const matchesExperience = filters.experience?.length === 0 ||
+    const matchesExperience = !filters.experience || filters.experience.length === 0 ||
       (filters.experience ?? []).includes(experienceRange);
 
-    const matchesRating = filters.rating?.length === 0 ||
+    const matchesRating = !filters.rating || filters.rating.length === 0 ||
       (filters.rating ?? []).some(r => master.rating >= parseFloat(r));
 
     const matchesGender = !filters.gender ||
@@ -81,18 +96,23 @@ const filterMasters = (masters: MasterType[], filters: FilterState) => {
     const matchesLocation = !filters.location ||
       master.acceptsAt === filters.location;
 
-    const matchesCategory = !filters.category ||
-      master.categories.some(c => {
-        const hasCategory = c.category === filters.category;
-        const hasService = !filters.service || c.services.some(s => s.name === filters.service);
-        return hasCategory && hasService;
-      });
+    // Категория и услуга
+    let matchesCategoryAndService = true;
+    if (filters.category && filters.service) {
+      // Должна быть категория и услуга внутри этой категории
+      matchesCategoryAndService = master.categories.some(c =>
+        c.category === filters.category && c.services.some(s => s.name === filters.service)
+      );
+    } else if (filters.category) {
+      // Только категория
+      matchesCategoryAndService = master.categories.some(c => c.category === filters.category);
+    }
 
     return matchesExperience &&
       matchesRating &&
       matchesGender &&
       matchesLocation &&
-      matchesCategory;
+      matchesCategoryAndService;
   });
 };
 

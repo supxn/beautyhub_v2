@@ -18,25 +18,24 @@ const ratingOptions = ['С отзывами', 'Рейтинг 3+', 'Рейтин
 const genderOptions = ['Женщина', 'Мужчина', 'Не важно'];
 const locationOptions = ['У меня или у специалиста', 'У специалиста', 'У меня'];
 
-export const FilterPanel = ({ 
-  categories, 
+export const FilterPanel = ({
+  categories,
   services,
-  filters, 
-  onFilterChange, 
+  filters,
+  onFilterChange,
   onReset,
   onMultipleFilterChange
 }: FilterPanelProps) => {
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
 
-  const[tempFilters, setTempFilters] = useState<Partial<FilterState>>({});
+  const [tempFilters, setTempFilters] = useState<Partial<FilterState>>({});
 
-  const handleModalChange = ((type: keyof FilterState, value: any) => {
+  const handleModalChange = (type: keyof FilterState, value: any) => {
     setTempFilters(prev => ({ ...prev, [type]: value }));
-  });
+  };
 
   const handleApplyAll = () => {
-    onMultipleFilterChange(tempFilters);
-    setTempFilters({});
+    onMultipleFilterChange({ ...filters, ...tempFilters });
   };
 
   const handleResetAll = () => {
@@ -44,18 +43,13 @@ export const FilterPanel = ({
     setTempFilters({});
   };
 
-  const handleApply = (type: string, value: any) => {
-    onFilterChange(type as keyof FilterState, value);
-    setActiveFilter(null);
-  };
-
   const handleOpenModal = (type: string) => {
-    setTempFilters(filters);
+    setTempFilters(prev => ({ ...filters, ...prev }));
     setActiveFilter(type);
   };
 
   const currentCategoryServices = useMemo(() => {
-  const selectedCategory = tempFilters.category || filters.category;
+    const selectedCategory = tempFilters.category ?? filters.category;
 
     if (!selectedCategory) {
       return services.flatMap(c => c.services);
@@ -64,6 +58,9 @@ export const FilterPanel = ({
     return services.find(c => c.category === selectedCategory)?.services || [];
   }, [tempFilters.category, filters.category, services]);
 
+  const getFilterValue = (key: keyof FilterState) => {
+    return tempFilters[key] !== undefined ? tempFilters[key] : filters[key];
+  };
 
   return (
     <Box className={styles.panel}>
@@ -79,42 +76,42 @@ export const FilterPanel = ({
         <Button
           onClick={() => handleOpenModal('rating')} className={styles.button}
         >
-          Рейтинг ({filters.rating?.length || 0})
+          Рейтинг ({(getFilterValue('rating') as string[])?.length || 0})
         </Button>
 
         {/* Категория */}
         <Button
           onClick={() => handleOpenModal('category')} className={styles.button}
         >
-          Категория: {filters.category || 'Все'}
+          Категория: {getFilterValue('category') || 'Все'}
         </Button>
 
         <Button
           onClick={() => handleOpenModal('service')}
           className={styles.button}
         >
-          Услуга: {filters.service}
+          Услуга: {getFilterValue('service')}
         </Button>
 
         {/* Стаж работы */}
         <Button
           onClick={() => handleOpenModal('experience')} className={styles.button}
         >
-          Опыт ({filters.experience?.length || 0})
+          Опыт ({(getFilterValue('experience') as string[])?.length || 0})
         </Button>
 
         {/* Пол мастера */}
         <Button
           onClick={() => handleOpenModal('gender')} className={styles.button}
         >
-          Пол: {filters.gender || 'Любой'}
+          Пол: {getFilterValue('gender') || 'Любой'}
         </Button>
 
         {/* Место приема */}
         <Button
           onClick={() => handleOpenModal('location')} className={styles.button}
         >
-          Место: {filters.location || 'Любое'}
+          Место: {getFilterValue('location') || 'Любое'}
         </Button>
 
         <Button
@@ -138,12 +135,12 @@ export const FilterPanel = ({
         open={activeFilter === 'category'}
         title="Выберите категорию"
         options={categories.map(c => c.category)}
-        selected={filters.category || ''}
+        selected={getFilterValue('category') || ''}
         type="radio"
         onClose={() => setActiveFilter(null)}
         onSelect={(value) => {
           handleModalChange('category', value);
-          handleModalChange('service', ''); // или null, если ты так хранишь
+          handleModalChange('service', '');
         }}
       />
 
@@ -151,7 +148,7 @@ export const FilterPanel = ({
         open={activeFilter === 'service'}
         title="Выберите услугу"
         options={currentCategoryServices.map(s => s.name)}
-        selected={filters.service || ''}
+        selected={getFilterValue('service') || ''}
         type="radio"
         onClose={() => setActiveFilter(null)}
         onSelect={(value) => {
@@ -163,40 +160,40 @@ export const FilterPanel = ({
         open={activeFilter === 'experience'}
         title="Опыт работы"
         options={experienceOptions}
-        selected={filters.experience || []}
+        selected={getFilterValue('experience') || []}
         type="checkbox"
         onClose={() => setActiveFilter(null)}
-        onSelect={(value) => handleApply('experience', value)}
+        onSelect={(value) => handleModalChange('experience', value)}
       />
 
       <FilterModal
         open={activeFilter === 'rating'}
         title="Рейтинг мастера"
         options={ratingOptions}
-        selected={filters.rating || []}
+        selected={getFilterValue('rating') || []}
         type="checkbox"
         onClose={() => setActiveFilter(null)}
-        onSelect={(value) => handleApply('rating', value)}
+        onSelect={(value) => handleModalChange('rating', value)}
       />
 
       <FilterModal
         open={activeFilter === 'gender'}
         title="Пол мастера"
         options={genderOptions}
-        selected={filters.gender || ''}
+        selected={getFilterValue('gender') || ''}
         type="radio"
         onClose={() => setActiveFilter(null)}
-        onSelect={(value) => handleApply('gender', value)}
+        onSelect={(value) => handleModalChange('gender', value)}
       />
 
       <FilterModal
         open={activeFilter === 'location'}
         title="Место приема"
         options={locationOptions}
-        selected={filters.location || ''}
+        selected={getFilterValue('location') || ''}
         type="radio"
         onClose={() => setActiveFilter(null)}
-        onSelect={(value) => handleApply('location', value)}
+        onSelect={(value) => handleModalChange('location', value)}
       />
     </Box>
   );
