@@ -13,7 +13,7 @@ interface FilterModalProps {
   onSelect: (selected: string[] | string) => void;
 }
 
-const FilterModal = ({open, title, options, type, selected, onClose, onSelect }: FilterModalProps) => {
+const FilterModal = ({ open, title, options, type, selected, onClose, onSelect }: FilterModalProps) => {
   const ControlComponent = type === 'checkbox' ? Checkbox : Radio;
   const [localSelected, setLocalSelected] = useState<string[] | string>(selected);
 
@@ -22,12 +22,12 @@ const FilterModal = ({open, title, options, type, selected, onClose, onSelect }:
   }, [selected]);
 
   const handleToggle = (value: string) => {
-    const newValue = type === 'checkbox' 
-      ? (Array.isArray(localSelected) 
-          ? localSelected.includes(value)
-            ? localSelected.filter(item => item !== value)
-            : [...localSelected, value]
-          : [value])
+    const newValue = type === 'checkbox'
+      ? (Array.isArray(localSelected)
+        ? localSelected.includes(value)
+          ? localSelected.filter(item => item !== value)
+          : [...localSelected, value]
+        : [value])
       : value;
 
     setLocalSelected(newValue);
@@ -52,16 +52,19 @@ const FilterModal = ({open, title, options, type, selected, onClose, onSelect }:
             <CloseIcon />
           </button>
         </div>
-        
+
         <div className={styles.options}>
           {options.map(opt => (
             <FormControlLabel
               key={opt}
-              control={<ControlComponent 
-                checked={type === 'checkbox' 
+              control={<ControlComponent
+                checked={type === 'checkbox'
                   ? (localSelected as string[]).includes(opt)
                   : localSelected === opt}
-                onChange={() => handleToggle(opt)}
+                onChange={() => {
+                  handleToggle(opt);
+                  onClose();
+                }}
                 sx={{
                   '&.Mui-checked': { color: '#5c4033' },
                   padding: '8px'

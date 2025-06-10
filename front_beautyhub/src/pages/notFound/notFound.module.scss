@@ -1,13 +1,13 @@
-.developingContainer{
+.developingContainer {
     display: flex;
-    //padding: 0;
-    //margin: 0;
+    padding: 0;
+    margin: 0;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-.errorNumText{
+.errorNumText {
     font-weight: bold;
     font-size: 18rem;
     line-height: 18rem;
@@ -18,7 +18,7 @@
     margin-bottom: 0%;
 }
 
-.notFoundText{
+.notFoundText {
     font-weight: bolder;
     font-size: 3rem;
     color: #4F3427;
@@ -27,18 +27,39 @@
     margin-bottom: 1%;
 }
 
-.mainPageButton{
+.mainPageButton {
     font-size: 1rem;
     // тут ему ваще пофиг этой кнопке, все настройки в sx добавлять
 }
 
-@media (max-width: 700px){
-    .errorNumText{
+@media (max-width: 700px) {
+    .errorNumText {
         font-size: 40vw;
     }
 
-    .notFoundText{
+    .notFoundText {
         font-size: 8vh;
         text-align: center;
     }
+}
+
+// Картинка-заглушка
+.sorryImg {
+    margin-top: 5%;
+    max-width: 320px;
+    width: 80vw;
+    margin-bottom: 2rem;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(79, 52, 39, 0.08);
+    display: block;
+}
+
+.sorryText {
+    font-size: 1.5rem;
+    color: #4F3427;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    margin-top: 0.5rem;
+    max-width: 420px;
 }
